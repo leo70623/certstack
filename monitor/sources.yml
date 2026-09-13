@@ -1,5 +1,5 @@
-# Regulatory source monitoring configuration skeleton.
-# Fill in real endpoints and methods manually; do not invent values.
+# 法規來源監測設定骨架。
+# 請手動填入真實的端點與監測方式，不得憑空捏造數值。
 
 EU:
   sources: []
