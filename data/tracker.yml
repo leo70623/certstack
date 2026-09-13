@@ -87,3 +87,104 @@
   notes:
     en: "TEMPLATE ENTRY — not a real regulation. Fill-in reference only. Delete once real entries exist."
     zh: "範本條目 — 非真實法規，僅供填寫參考。真實條目建立後即刪除。"
+
+- id: gcc-bd-142004-01
+  parent: null
+  superseded_by: null
+  jurisdiction: GCC
+  applies_in:
+    - SA
+    - AE
+  citation: "BD-142004-01"
+  local_type: "Gulf Technical Regulation"
+  instrument_type: regulation
+  short_name:
+    en: "Gulf Technical Regulation for Low Voltage Electrical Equipment and Appliances"
+    zh: "海灣低壓電氣設備與器具技術法規"
+  category:
+    - product_safety
+    - emc
+
+  product_scope:
+    en: "Applies to electrical and electronic devices, appliances, and fixtures containing electrical and/or electronic components designed for use with a rated voltage of between 50 and 1000 V for alternating current and between 75 and 1500 V for direct current, other than the electrical equipment and phenomena listed in Annex (2) (Art. 1(8), Art. 2)."
+    zh: "適用於設計使用電壓於交流50至1000伏特、直流75至1500伏特之間，含電氣及/或電子元件的電氣與電子裝置、器具及配件，但附件(2)所列之電氣設備及現象除外（第1(8)條、第2條）。"
+  product_tags:
+    - consumer_electronics
+    - it_equipment
+    - small_appliances
+  component_tags:
+    - power_supply
+  applies_to:
+    - manufacturer
+    - importer
+    - seller
+
+  status: in_force
+  dates:
+    published: "UNVERIFIED"
+    application: "2016-07-01"
+    labelling: null
+    transition_end: null
+
+  requirements:
+    marking: true
+    local_representative: false
+    local_testing: false
+    registration: "UNVERIFIED"
+    conformity_assessment: "UNVERIFIED"
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "Carry out the applicable conformity assessment procedure, draw up the Manufacturer Declaration of Conformity, and affix the Gulf Conformity Marking (Art. 8)."
+        zh: "執行適用之符合性評鑑程序、製作製造商符合性聲明書，並張貼海灣符合性標誌（第8條）。"
+    - actor: importer
+      action:
+        en: "Ensure the manufacturer has carried out the appropriate conformity assessment procedure and that the equipment bears the Gulf Conformity Marking and required documents before placing it on the market (Art. 10)."
+        zh: "於產品投放市場前確認製造商已完成適當之符合性評鑑程序，且產品已張貼海灣符合性標誌並附有所需文件（第10條）。"
+    - actor: seller
+      action:
+        en: "Verify, before making equipment available on the market, that it bears the Gulf Conformity Marking, is accompanied by required documents and Arabic-language safety information (Art. 11)."
+        zh: "於使產品可於市場取得前，確認產品已張貼海灣符合性標誌，並附有所需文件及阿拉伯文安全資訊（第11條）。"
+
+  tools: []
+  related: []
+
+  sources:
+    - url: "https://www.gso.org.sa/wp-content/uploads/2017/11/Gulf-Technical-Regulation-for-Low-Voltage-Electrical-Equipment-and-Appliances-BD-142004-01.pdf"
+      type: primary
+      publisher: "GCC Standardization Organization (GSO)"
+    - url: "https://www.gso.org.sa/en/conformity/gcc-conformity-assessment-scheme/"
+      type: primary
+      publisher: "GCC Standardization Organization (GSO)"
+
+  enforcement:
+    authority: "Market Surveillance Authority designated by each Member State (Art. 1(47), Art. 24)"
+    mechanism:
+      - market_surveillance
+      - product_recall
+      - market_withdrawal
+      - safeguard_procedures
+    penalty_basis: national_law
+    penalty_summary:
+      en: "Member States lay down rules on penalties for economic operators, which may include criminal sanctions for serious infringements; penalties must be effective, proportionate, and dissuasive (Art. 36)."
+      zh: "各會員國自行訂定對經濟營運者之罰則規定，嚴重違規得包含刑事制裁；罰則須具有效性、比例性及嚇阻性（第36條）。"
+    penalty_range: null
+    market_impact:
+      - market_withdrawal
+    source_ref: 0
+    last_verified: "2026-09-13"
+
+  monitoring:
+    tier: C
+    method: manual
+    endpoint: null
+    frequency: quarterly
+
+  last_verified: "2026-09-13"
+  last_reviewed: "2026-09-13"
+  review_status: pending
+  confidence: low
+  notes:
+    en: "AUTO-EXTRACTED ENTRY — pending human word-for-word review against the source PDF. The following fields could not be verified against either permitted source and are marked UNVERIFIED: dates.published (no explicit approval/publication date found for this edition, only its 2016-07-01 entry-into-force date and the prior 2007 edition's date); requirements.registration (no registration process is described in either source); requirements.conformity_assessment (the regulation splits conformity assessment into two tracks by product risk category — List 1 self-declaration under Annex 3, and List 2 mandatory third-party Gulf-type examination under Annex 4 — and the current schema enum can only hold one value per entry; see reported judgment)."
+    zh: "自動擷取條目 — 尚待人工逐字複核來源PDF。下列欄位無法依兩個允許來源查證，標示為UNVERIFIED：dates.published（未查得本版核准/發布日期，僅查得2016-07-01生效日及2007年前版日期）；requirements.registration（兩來源均未描述登記程序）；requirements.conformity_assessment（本法規依產品風險分兩軌：附件3之第一類清單為自我聲明，附件4之第二類清單為強制第三方Gulf-type examination，現行schema enum僅能容納單一值，詳見回報之判斷）。"
