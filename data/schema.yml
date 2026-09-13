@@ -295,6 +295,12 @@ entry_status:
   #   confidence、last_verified、last_reviewed、notes
   # entry_status 為 stub 時，confidence 不得為 high；
   # notes 為必填，且須說明哪些資訊缺漏、缺漏原因為何。
+  #
+  # 上述最小欄位集是 stub 條目的「必填下限」，不是「允許填寫的
+  # 上限」。任何已查證的欄位都應保留，不得因為條目為 stub 而刪除。
+  # stub 與 complete 的差別只在於「哪些欄位必填」，不影響任何欄位
+  # 是否可以填寫；已填寫的非最小欄位集欄位，仍會依其型別／enum／
+  # 參照規則正常檢查。
 
 review_status:
   type: enum

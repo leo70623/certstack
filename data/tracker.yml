@@ -211,6 +211,9 @@
 
   status: in_force
 
+  related:
+    - gcc-bd-142004-01
+
   sources:
     - url: "https://moiat.gov.ae/en/services/issue-conformity-certificates-for-regulated-products"
       type: primary

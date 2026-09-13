@@ -186,27 +186,27 @@ def main():
         # short_name
         check_bilingual(eid, "short_name", entry, "short_name", True)
 
-        if not is_stub:
-            # product_scope
-            check_bilingual(eid, "product_scope", entry, "product_scope", True)
+        # product_scope（entry_status 為 stub 時非必填，但填寫了就仍須檢查格式）
+        check_bilingual(eid, "product_scope", entry, "product_scope", not is_stub)
 
-            # product_tags
-            product_tags = entry.get("product_tags") or []
-            if not product_tags:
+        # product_tags（stub 時非必填，但填寫了仍須逐一檢查是否為已知值）
+        product_tags = entry.get("product_tags") or []
+        if not product_tags:
+            if not is_stub:
                 err(eid, "product_tags", "至少須有一個 product_tag")
-            for tag in product_tags:
-                if tag not in valid_product_tags:
-                    err(eid, "product_tags", f"未知的 product_tag：{tag!r}")
+        for tag in product_tags:
+            if tag not in valid_product_tags:
+                err(eid, "product_tags", f"未知的 product_tag：{tag!r}")
 
-            # component_tags
-            for tag in entry.get("component_tags") or []:
-                if tag not in valid_component_tags:
-                    err(eid, "component_tags", f"未知的 component_tag：{tag!r}")
+        # component_tags（無 required 概念，填寫了就檢查）
+        for tag in entry.get("component_tags") or []:
+            if tag not in valid_component_tags:
+                err(eid, "component_tags", f"未知的 component_tag：{tag!r}")
 
-            # applies_to
-            for actor in entry.get("applies_to") or []:
-                if actor not in {"producer", "seller", "importer", "manufacturer"}:
-                    err(eid, "applies_to", f"actor 無效：{actor!r}")
+        # applies_to（無 required 概念，填寫了就檢查）
+        for actor in entry.get("applies_to") or []:
+            if actor not in {"producer", "seller", "importer", "manufacturer"}:
+                err(eid, "applies_to", f"actor 無效：{actor!r}")
 
         # status
         status = entry.get("status")
@@ -239,21 +239,28 @@ def main():
             if rel not in entries_by_id:
                 err(eid, "related", f"related id {rel!r} 不存在")
 
-        if not is_stub:
-            # dates
-            dates = entry.get("dates") or {}
-            check_date(eid, "dates.published", dates, "published", True, nullable=True)
-            check_date(eid, "dates.application", dates, "application", True)
-            check_date(eid, "dates.labelling", dates, "labelling", False, nullable=True)
-            check_date(eid, "dates.transition_end", dates, "transition_end", False, nullable=True)
+        # dates（stub 時非必填，但填寫了仍須是合法日期）
+        dates = entry.get("dates") or {}
+        check_date(eid, "dates.published", dates, "published", not is_stub, nullable=True)
+        check_date(eid, "dates.application", dates, "application", not is_stub)
+        check_date(eid, "dates.labelling", dates, "labelling", False, nullable=True)
+        check_date(eid, "dates.transition_end", dates, "transition_end", False, nullable=True)
 
-            # requirements
-            requirements = entry.get("requirements") or {}
-            for bfield in ("marking", "local_representative", "local_testing", "registration"):
-                if not isinstance(requirements.get(bfield), bool):
+        # requirements（stub 時非必填，但填寫了仍須符合型別／enum）
+        requirements = entry.get("requirements") or {}
+        for bfield in ("marking", "local_representative", "local_testing", "registration"):
+            if bfield not in requirements:
+                if not is_stub:
                     err(eid, f"requirements.{bfield}", "必須為布林值，且為必填")
+            elif not isinstance(requirements.get(bfield), bool):
+                err(eid, f"requirements.{bfield}", "必須為布林值，且為必填")
+        ca_allowed = {"none", "sdoc", "ccc", "type_approval", "third_party"}
+        if "conformity_assessment" not in requirements:
+            if not is_stub:
+                err(eid, "requirements.conformity_assessment",
+                    "必須為非空的 enum 值 list")
+        else:
             conformity_assessment = requirements.get("conformity_assessment")
-            ca_allowed = {"none", "sdoc", "ccc", "type_approval", "third_party"}
             if not isinstance(conformity_assessment, list) or not conformity_assessment:
                 err(eid, "requirements.conformity_assessment",
                     "必須為非空的 enum 值 list")
@@ -272,15 +279,16 @@ def main():
                     check_bilingual(eid, "requirements.conformity_assessment_note",
                                      requirements, "conformity_assessment_note", True)
 
-            # obligations
-            obligations = entry.get("obligations") or []
-            if not obligations:
-                err(eid, "obligations", "至少須有一項 obligation")
+        # obligations（stub 時非必填，但填寫了仍須逐項檢查）
+        obligations = entry.get("obligations")
+        if obligations:
             for i, ob in enumerate(obligations):
                 actor = ob.get("actor")
                 if actor not in {"producer", "seller", "importer", "manufacturer"}:
                     err(eid, f"obligations[{i}].actor", f"actor 無效：{actor!r}")
                 check_bilingual(eid, f"obligations[{i}].action", ob, "action", True)
+        elif not is_stub:
+            err(eid, "obligations", "至少須有一項 obligation")
 
         # sources
         sources = entry.get("sources") or []
@@ -293,34 +301,35 @@ def main():
             if not src.get("publisher"):
                 err(eid, f"sources[{i}].publisher", "publisher 為必填")
 
-        if not is_stub:
-            # enforcement
-            enforcement = entry.get("enforcement") or {}
-            if not enforcement.get("authority"):
+        # enforcement（stub 時非必填，但填寫了仍須符合型別／enum）
+        enforcement = entry.get("enforcement") or {}
+        if not enforcement.get("authority"):
+            if not is_stub:
                 err(eid, "enforcement.authority", "authority 為必填")
-            if not enforcement.get("mechanism"):
+        if not enforcement.get("mechanism"):
+            if not is_stub:
                 err(eid, "enforcement.mechanism", "mechanism 為必填")
-            check_enum(eid, "enforcement.penalty_basis", enforcement.get("penalty_basis"),
-                       {"in_instrument", "national_law", "none_specified"}, True)
-            check_bilingual(eid, "enforcement.penalty_summary",
-                             enforcement, "penalty_summary", True)
-            source_ref = enforcement.get("source_ref")
-            if source_ref is not None:
-                if not isinstance(source_ref, int) or not (0 <= source_ref < len(sources)):
-                    err(eid, "enforcement.source_ref",
-                        f"source_ref {source_ref!r} 超出 sources 清單範圍")
-            check_date(eid, "enforcement.last_verified", enforcement, "last_verified", True)
+        check_enum(eid, "enforcement.penalty_basis", enforcement.get("penalty_basis"),
+                   {"in_instrument", "national_law", "none_specified"}, not is_stub)
+        check_bilingual(eid, "enforcement.penalty_summary",
+                         enforcement, "penalty_summary", not is_stub)
+        source_ref = enforcement.get("source_ref")
+        if source_ref is not None:
+            if not isinstance(source_ref, int) or not (0 <= source_ref < len(sources)):
+                err(eid, "enforcement.source_ref",
+                    f"source_ref {source_ref!r} 超出 sources 清單範圍")
+        check_date(eid, "enforcement.last_verified", enforcement, "last_verified", not is_stub)
 
-            # monitoring
-            monitoring = entry.get("monitoring") or {}
-            tier = monitoring.get("tier")
-            check_enum(eid, "monitoring.tier", tier, {"A", "B", "C"}, True)
-            method = monitoring.get("method")
-            check_enum(eid, "monitoring.method", method, {"rss", "api", "page_diff", "manual"}, True)
-            check_enum(eid, "monitoring.frequency", monitoring.get("frequency"),
-                       {"daily", "weekly", "quarterly"}, True)
-            if tier == "A" and method == "manual":
-                err(eid, "monitoring.method", "tier 為 A 的條目不得使用 manual 監控方式")
+        # monitoring（stub 時非必填，但填寫了仍須符合 enum）
+        monitoring = entry.get("monitoring") or {}
+        tier = monitoring.get("tier")
+        check_enum(eid, "monitoring.tier", tier, {"A", "B", "C"}, not is_stub)
+        method = monitoring.get("method")
+        check_enum(eid, "monitoring.method", method, {"rss", "api", "page_diff", "manual"}, not is_stub)
+        check_enum(eid, "monitoring.frequency", monitoring.get("frequency"),
+                   {"daily", "weekly", "quarterly"}, not is_stub)
+        if tier == "A" and method == "manual":
+            err(eid, "monitoring.method", "tier 為 A 的條目不得使用 manual 監控方式")
 
         # last_verified / last_reviewed
         last_verified = entry.get("last_verified")
