@@ -148,6 +148,13 @@ def main():
         if isinstance(eid, str) and eid.startswith("example-"):
             warn(eid, "id", "此為範本／佔位條目")
 
+        # entry_status（決定本條目要走 stub 最小欄位集，還是 complete 全欄位檢查）
+        entry_status = entry.get("entry_status")
+        check_enum(eid, "entry_status", entry_status, {"stub", "complete"}, True)
+        is_stub = entry_status == "stub"
+        if is_stub:
+            warn(eid, "entry_status", "此條目為 stub，欄位尚未齊備")
+
         # jurisdiction
         jurisdiction = entry.get("jurisdiction")
         check_enum(eid, "jurisdiction", jurisdiction, JURISDICTIONS, True)
@@ -179,26 +186,27 @@ def main():
         # short_name
         check_bilingual(eid, "short_name", entry, "short_name", True)
 
-        # product_scope
-        check_bilingual(eid, "product_scope", entry, "product_scope", True)
+        if not is_stub:
+            # product_scope
+            check_bilingual(eid, "product_scope", entry, "product_scope", True)
 
-        # product_tags
-        product_tags = entry.get("product_tags") or []
-        if not product_tags:
-            err(eid, "product_tags", "至少須有一個 product_tag")
-        for tag in product_tags:
-            if tag not in valid_product_tags:
-                err(eid, "product_tags", f"未知的 product_tag：{tag!r}")
+            # product_tags
+            product_tags = entry.get("product_tags") or []
+            if not product_tags:
+                err(eid, "product_tags", "至少須有一個 product_tag")
+            for tag in product_tags:
+                if tag not in valid_product_tags:
+                    err(eid, "product_tags", f"未知的 product_tag：{tag!r}")
 
-        # component_tags
-        for tag in entry.get("component_tags") or []:
-            if tag not in valid_component_tags:
-                err(eid, "component_tags", f"未知的 component_tag：{tag!r}")
+            # component_tags
+            for tag in entry.get("component_tags") or []:
+                if tag not in valid_component_tags:
+                    err(eid, "component_tags", f"未知的 component_tag：{tag!r}")
 
-        # applies_to
-        for actor in entry.get("applies_to") or []:
-            if actor not in {"producer", "seller", "importer", "manufacturer"}:
-                err(eid, "applies_to", f"actor 無效：{actor!r}")
+            # applies_to
+            for actor in entry.get("applies_to") or []:
+                if actor not in {"producer", "seller", "importer", "manufacturer"}:
+                    err(eid, "applies_to", f"actor 無效：{actor!r}")
 
         # status
         status = entry.get("status")
@@ -231,47 +239,48 @@ def main():
             if rel not in entries_by_id:
                 err(eid, "related", f"related id {rel!r} 不存在")
 
-        # dates
-        dates = entry.get("dates") or {}
-        check_date(eid, "dates.published", dates, "published", True, nullable=True)
-        check_date(eid, "dates.application", dates, "application", True)
-        check_date(eid, "dates.labelling", dates, "labelling", False, nullable=True)
-        check_date(eid, "dates.transition_end", dates, "transition_end", False, nullable=True)
+        if not is_stub:
+            # dates
+            dates = entry.get("dates") or {}
+            check_date(eid, "dates.published", dates, "published", True, nullable=True)
+            check_date(eid, "dates.application", dates, "application", True)
+            check_date(eid, "dates.labelling", dates, "labelling", False, nullable=True)
+            check_date(eid, "dates.transition_end", dates, "transition_end", False, nullable=True)
 
-        # requirements
-        requirements = entry.get("requirements") or {}
-        for bfield in ("marking", "local_representative", "local_testing", "registration"):
-            if not isinstance(requirements.get(bfield), bool):
-                err(eid, f"requirements.{bfield}", "必須為布林值，且為必填")
-        conformity_assessment = requirements.get("conformity_assessment")
-        ca_allowed = {"none", "sdoc", "ccc", "type_approval", "third_party"}
-        if not isinstance(conformity_assessment, list) or not conformity_assessment:
-            err(eid, "requirements.conformity_assessment",
-                "必須為非空的 enum 值 list")
-        else:
-            for value in conformity_assessment:
-                if value not in ca_allowed:
+            # requirements
+            requirements = entry.get("requirements") or {}
+            for bfield in ("marking", "local_representative", "local_testing", "registration"):
+                if not isinstance(requirements.get(bfield), bool):
+                    err(eid, f"requirements.{bfield}", "必須為布林值，且為必填")
+            conformity_assessment = requirements.get("conformity_assessment")
+            ca_allowed = {"none", "sdoc", "ccc", "type_approval", "third_party"}
+            if not isinstance(conformity_assessment, list) or not conformity_assessment:
+                err(eid, "requirements.conformity_assessment",
+                    "必須為非空的 enum 值 list")
+            else:
+                for value in conformity_assessment:
+                    if value not in ca_allowed:
+                        err(eid, "requirements.conformity_assessment",
+                            f"enum 值無效：{value!r}，應為下列其中之一：{ca_allowed}")
+                if len(conformity_assessment) != len(set(conformity_assessment)):
                     err(eid, "requirements.conformity_assessment",
-                        f"enum 值無效：{value!r}，應為下列其中之一：{ca_allowed}")
-            if len(conformity_assessment) != len(set(conformity_assessment)):
-                err(eid, "requirements.conformity_assessment",
-                    "不得包含重複值")
-            if "none" in conformity_assessment and len(conformity_assessment) > 1:
-                err(eid, "requirements.conformity_assessment",
-                    "'none' 不得與其他值並存")
-            if len(conformity_assessment) > 1:
-                check_bilingual(eid, "requirements.conformity_assessment_note",
-                                 requirements, "conformity_assessment_note", True)
+                        "不得包含重複值")
+                if "none" in conformity_assessment and len(conformity_assessment) > 1:
+                    err(eid, "requirements.conformity_assessment",
+                        "'none' 不得與其他值並存")
+                if len(conformity_assessment) > 1:
+                    check_bilingual(eid, "requirements.conformity_assessment_note",
+                                     requirements, "conformity_assessment_note", True)
 
-        # obligations
-        obligations = entry.get("obligations") or []
-        if not obligations:
-            err(eid, "obligations", "至少須有一項 obligation")
-        for i, ob in enumerate(obligations):
-            actor = ob.get("actor")
-            if actor not in {"producer", "seller", "importer", "manufacturer"}:
-                err(eid, f"obligations[{i}].actor", f"actor 無效：{actor!r}")
-            check_bilingual(eid, f"obligations[{i}].action", ob, "action", True)
+            # obligations
+            obligations = entry.get("obligations") or []
+            if not obligations:
+                err(eid, "obligations", "至少須有一項 obligation")
+            for i, ob in enumerate(obligations):
+                actor = ob.get("actor")
+                if actor not in {"producer", "seller", "importer", "manufacturer"}:
+                    err(eid, f"obligations[{i}].actor", f"actor 無效：{actor!r}")
+                check_bilingual(eid, f"obligations[{i}].action", ob, "action", True)
 
         # sources
         sources = entry.get("sources") or []
@@ -284,33 +293,34 @@ def main():
             if not src.get("publisher"):
                 err(eid, f"sources[{i}].publisher", "publisher 為必填")
 
-        # enforcement
-        enforcement = entry.get("enforcement") or {}
-        if not enforcement.get("authority"):
-            err(eid, "enforcement.authority", "authority 為必填")
-        if not enforcement.get("mechanism"):
-            err(eid, "enforcement.mechanism", "mechanism 為必填")
-        check_enum(eid, "enforcement.penalty_basis", enforcement.get("penalty_basis"),
-                   {"in_instrument", "national_law", "none_specified"}, True)
-        check_bilingual(eid, "enforcement.penalty_summary",
-                         enforcement, "penalty_summary", True)
-        source_ref = enforcement.get("source_ref")
-        if source_ref is not None:
-            if not isinstance(source_ref, int) or not (0 <= source_ref < len(sources)):
-                err(eid, "enforcement.source_ref",
-                    f"source_ref {source_ref!r} 超出 sources 清單範圍")
-        check_date(eid, "enforcement.last_verified", enforcement, "last_verified", True)
+        if not is_stub:
+            # enforcement
+            enforcement = entry.get("enforcement") or {}
+            if not enforcement.get("authority"):
+                err(eid, "enforcement.authority", "authority 為必填")
+            if not enforcement.get("mechanism"):
+                err(eid, "enforcement.mechanism", "mechanism 為必填")
+            check_enum(eid, "enforcement.penalty_basis", enforcement.get("penalty_basis"),
+                       {"in_instrument", "national_law", "none_specified"}, True)
+            check_bilingual(eid, "enforcement.penalty_summary",
+                             enforcement, "penalty_summary", True)
+            source_ref = enforcement.get("source_ref")
+            if source_ref is not None:
+                if not isinstance(source_ref, int) or not (0 <= source_ref < len(sources)):
+                    err(eid, "enforcement.source_ref",
+                        f"source_ref {source_ref!r} 超出 sources 清單範圍")
+            check_date(eid, "enforcement.last_verified", enforcement, "last_verified", True)
 
-        # monitoring
-        monitoring = entry.get("monitoring") or {}
-        tier = monitoring.get("tier")
-        check_enum(eid, "monitoring.tier", tier, {"A", "B", "C"}, True)
-        method = monitoring.get("method")
-        check_enum(eid, "monitoring.method", method, {"rss", "api", "page_diff", "manual"}, True)
-        check_enum(eid, "monitoring.frequency", monitoring.get("frequency"),
-                   {"daily", "weekly", "quarterly"}, True)
-        if tier == "A" and method == "manual":
-            err(eid, "monitoring.method", "tier 為 A 的條目不得使用 manual 監控方式")
+            # monitoring
+            monitoring = entry.get("monitoring") or {}
+            tier = monitoring.get("tier")
+            check_enum(eid, "monitoring.tier", tier, {"A", "B", "C"}, True)
+            method = monitoring.get("method")
+            check_enum(eid, "monitoring.method", method, {"rss", "api", "page_diff", "manual"}, True)
+            check_enum(eid, "monitoring.frequency", monitoring.get("frequency"),
+                       {"daily", "weekly", "quarterly"}, True)
+            if tier == "A" and method == "manual":
+                err(eid, "monitoring.method", "tier 為 A 的條目不得使用 manual 監控方式")
 
         # last_verified / last_reviewed
         last_verified = entry.get("last_verified")
@@ -327,6 +337,8 @@ def main():
         # confidence
         confidence = entry.get("confidence")
         check_enum(eid, "confidence", confidence, {"high", "medium", "low"}, True)
+        if is_stub and confidence == "high":
+            err(eid, "confidence", "entry_status 為 stub 時，confidence 不得為 high")
 
         # review_status
         review_status = entry.get("review_status")
@@ -336,8 +348,12 @@ def main():
                 err(eid, "confidence", "review_status 為 pending 時，confidence 不得為 high")
             warn(eid, "review_status", "此條目待人工複核")
 
-        # notes（選填雙語欄位，允許 key 存在但值為 null）
-        check_bilingual(eid, "notes", entry, "notes", False, nullable=True)
+        # notes（entry_status 為 stub 時為必填，且須說明缺漏欄位與原因；
+        # 否則為選填雙語欄位，允許 key 存在但值為 null）
+        if is_stub:
+            check_bilingual(eid, "notes", entry, "notes", True)
+        else:
+            check_bilingual(eid, "notes", entry, "notes", False, nullable=True)
 
     for w in warnings:
         print(f"WARNING: {w}", file=sys.stderr)

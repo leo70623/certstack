@@ -83,6 +83,7 @@
 
   last_verified: "2026-08-01"
   last_reviewed: "2026-07-01"
+  entry_status: complete
   review_status: pending
   confidence: low
   notes:
@@ -189,8 +190,40 @@
 
   last_verified: "2026-09-13"
   last_reviewed: "2026-09-13"
+  entry_status: complete
   review_status: pending
   confidence: low
   notes:
     en: "AUTO-EXTRACTED ENTRY — pending human word-for-word review against the source PDF. requirements.conformity_assessment is now correctly expressed as [sdoc, third_party] per schema v1.4, reflecting the regulation's List 1 (self-declaration) / List 2 (mandatory third-party) split — see conformity_assessment_note. dates.published could not be found in either permitted source (only the 2016-07-01 entry-into-force date and the prior 2007 edition's date are given), so it is left as null rather than guessed. requirements.registration is set to false because this Technical Regulation itself does not establish a registration process; Saudi Arabia's SABER platform registration is a separate national scheme outside the scope of this GCC-level instrument."
     zh: "自動擷取條目 — 尚待人工逐字複核來源PDF。requirements.conformity_assessment 依 schema v1.4 已正確表示為 [sdoc, third_party]，反映本法規 List 1（自我聲明）與 List 2（強制第三方）之分流，詳見 conformity_assessment_note。dates.published 於兩個允許來源中皆未查得（僅查得2016-07-01生效日及2007年前版日期），故暫填 null 而非臆測。requirements.registration 填 false，係因本法規本身未設置註冊程序；沙烏地阿拉伯之 SABER 平台註冊屬另一項國家層級之獨立制度，不在本 GCC 法規範圍內。"
+
+- id: ae-ecas
+  parent: null
+  superseded_by: null
+  jurisdiction: AE
+  applies_in: []
+  citation: "Cabinet Resolution No. (54) of 2019 Regarding the UAE Scheme for Conformity Assessment (ECAS)"
+  local_type: "Cabinet Resolution"
+  instrument_type: administrative_measure
+  short_name:
+    en: "Emirates Conformity Assessment Scheme (ECAS)"
+    zh: "阿聯酋符合性評鑑計畫（ECAS）"
+
+  status: in_force
+
+  sources:
+    - url: "https://moiat.gov.ae/en/services/issue-conformity-certificates-for-regulated-products"
+      type: primary
+      publisher: "Ministry of Industry and Advanced Technology (MoIAT)"
+    - url: "https://uaelegislation.gov.ae/en/legislations/2802"
+      type: primary
+      publisher: "UAE Legislation Portal (Ministry of Justice)"
+
+  entry_status: stub
+  last_verified: "2026-09-13"
+  last_reviewed: "2026-09-13"
+  review_status: pending
+  confidence: low
+  notes:
+    en: "This is a stub entry. The UAE official legislation portal (uaelegislation.gov.ae) returned HTTP 403 on every automated fetch attempt, so the resolution's article-level text could not be obtained. Confirmed information: the legal basis is Cabinet Resolution No. 54 of 2019 Regarding the UAE Scheme for Conformity Assessment (ECAS). Fields still pending: product scope, obligations, requirements, dates, enforcement and penalties."
+    zh: "本條目為 stub。阿聯官方法規入口（uaelegislation.gov.ae）對自動擷取回傳 HTTP 403，無法取得決議本文逐條內容。已確認之資訊：法源為 Cabinet Resolution No. 54 of 2019 Regarding the UAE Scheme for Conformity Assessment (ECAS)。待補欄位：適用範圍、義務、要求項、日期、執法與罰則。"

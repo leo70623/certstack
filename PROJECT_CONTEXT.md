@@ -46,6 +46,9 @@ CertStack 追蹤消費性電子產品跨九個法域的全球法規要求：
 - `review_status: pending` 的條目必須在前端顯示明確指示，標示為
   「待人工複核 / Pending human review」。此為在上述 `confidence`
   標示之外「額外」必須有的標示，而非取代它。
+- 前台必須對 `entry_status: stub` 的條目顯示「資料建置中 / Entry
+  in progress」標示，並顯示已知的一手來源連結。stub 條目不得
+  呈現為完整資料。
 
 ## 內容規範
 

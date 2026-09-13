@@ -42,7 +42,10 @@ jobs:
 
           today = date.today()
           stale = []
+          stub_entries = []
           for entry in tracker:
+              if entry.get("entry_status") == "stub":
+                  stub_entries.append(entry["id"])
               tier = (entry.get("monitoring") or {}).get("tier")
               threshold = TIER_THRESHOLDS.get(tier)
               if threshold is None:
@@ -67,6 +70,12 @@ jobs:
               body = "\n".join(lines)
           else:
               body = "目前沒有條目待查核。"
+
+          body += "\n\n## 待補齊條目\n\n"
+          if stub_entries:
+              body += "\n".join(f"- {eid}" for eid in sorted(stub_entries))
+          else:
+              body += "目前沒有 stub 條目。"
 
           with open("issue_title.txt", "w", encoding="utf-8") as f:
               f.write(title)
