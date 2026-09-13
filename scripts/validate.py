@@ -16,6 +16,10 @@ VOCAB_FILE = DATA / "vocab.yml"
 
 ID_PATTERN = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 
+JURISDICTIONS = {"EU", "UK", "US", "CN", "KR", "JP", "SA", "AE", "ZA",
+                  "GCC", "KW", "QA", "BH", "OM"}
+APPLIES_IN_VALUES = JURISDICTIONS - {"GCC", "EU"}
+
 errors = []
 warnings = []
 
@@ -127,8 +131,22 @@ def main():
             warn(eid, "id", "this is a template/placeholder entry")
 
         # jurisdiction
-        check_enum(eid, "jurisdiction", entry.get("jurisdiction"),
-                   {"EU", "UK", "US", "CN", "KR", "JP", "SA", "AE", "ZA"}, True)
+        jurisdiction = entry.get("jurisdiction")
+        check_enum(eid, "jurisdiction", jurisdiction, JURISDICTIONS, True)
+
+        # applies_in
+        applies_in = entry.get("applies_in") or []
+        for code in applies_in:
+            if code not in APPLIES_IN_VALUES:
+                err(eid, "applies_in",
+                    f"invalid applies_in value {code!r}, must be a country code "
+                    f"other than GCC or EU")
+        if jurisdiction == "GCC":
+            if not applies_in:
+                err(eid, "applies_in", "required and must have at least one item when jurisdiction is GCC")
+        elif jurisdiction != "EU":
+            if applies_in:
+                err(eid, "applies_in", "must be empty unless jurisdiction is GCC or EU")
 
         # citation / local_type
         if not entry.get("citation"):

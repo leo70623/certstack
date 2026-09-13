@@ -1,5 +1,7 @@
 # ============================================================================
 # CertStack tracker schema
+# Schema version: v1.2 (2026-09-13) — adds supranational jurisdiction support
+# (GCC) and member-state jurisdictions (KW, QA, BH, OM) via applies_in.
 #
 # id naming rule (READ BEFORE ADDING/EDITING ENTRIES):
 #   id doubles as: filename key, URL path segment, and the reference key used
@@ -46,7 +48,19 @@ superseded_by:
 
 jurisdiction:
   type: enum
-  values: [EU, UK, US, CN, KR, JP, SA, AE, ZA]
+  values: [EU, UK, US, CN, KR, JP, SA, AE, ZA, GCC, KW, QA, BH, OM]
+  # GCC is supranational (Gulf Cooperation Council). KW/QA/BH/OM are member
+  # states not currently tracked as standalone jurisdictions, but must be
+  # available as applies_in values for GCC/EU entries.
+
+applies_in:
+  type: list_of_enum
+  required: false
+  default: []
+  values: same country codes as jurisdiction, excluding GCC and EU
+  # Only fill in for supranational-level regulations (jurisdiction is GCC or
+  # EU): lists the member states the regulation actually applies in.
+  # Leave empty for single-country regulations.
 
 citation:
   type: string
@@ -118,6 +132,10 @@ requirements.local_representative:
 requirements.local_testing:
   type: bool
   required: true
+  # Defined strictly as: a test report must be issued by a laboratory
+  # located within the jurisdiction's own territory. If internationally
+  # accredited labs (e.g. ILAC, IECEE CB) are accepted, this is always
+  # false — "a test report is required" is not sufficient to set this true.
 
 requirements.registration:
   type: bool
