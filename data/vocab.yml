@@ -1,0 +1,71 @@
+product_tags:
+  consumer_electronics:
+    en: Consumer electronics
+    zh: 消費性電子
+  it_equipment:
+    en: IT equipment
+    zh: 資訊技術設備
+  radio_equipment:
+    en: Radio equipment
+    zh: 無線電設備
+  small_appliances:
+    en: Small appliances
+    zh: 小家電
+  all_b2c_goods:
+    en: All B2C goods
+    zh: 全品類
+
+component_tags:
+  power_supply:
+    en: Power supply
+    zh: 電源
+  packaging:
+    en: Packaging
+    zh: 包裝
+  battery:
+    en: Battery
+    zh: 電池
+  cable_connector:
+    en: Cables and connectors
+    zh: 線材與連接器
+  software_firmware:
+    en: Software and firmware
+    zh: 韌體與軟體
+
+jurisdictions:
+  EU:
+    en: European Union
+    zh: 歐盟
+    color: "#1D70B8"
+  UK:
+    en: United Kingdom
+    zh: 英國
+    color: "#912B88"
+  US:
+    en: United States
+    zh: 美國
+    color: "#28A197"
+  CN:
+    en: China
+    zh: 中國
+    color: "#D4351C"
+  KR:
+    en: South Korea
+    zh: 韓國
+    color: "#F47738"
+  JP:
+    en: Japan
+    zh: 日本
+    color: "#5694CA"
+  SA:
+    en: Saudi Arabia
+    zh: 沙烏地
+    color: "#00703C"
+  AE:
+    en: United Arab Emirates
+    zh: 阿聯
+    color: "#4C2C92"
+  ZA:
+    en: South Africa
+    zh: 南非
+    color: "#B58840"

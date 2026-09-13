@@ -1,0 +1,29 @@
+# Regulatory source monitoring configuration skeleton.
+# Fill in real endpoints and methods manually; do not invent values.
+
+EU:
+  sources: []
+
+UK:
+  sources: []
+
+US:
+  sources: []
+
+CN:
+  sources: []
+
+KR:
+  sources: []
+
+JP:
+  sources: []
+
+SA:
+  sources: []
+
+AE:
+  sources: []
+
+ZA:
+  sources: []
