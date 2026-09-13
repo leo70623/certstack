@@ -76,3 +76,6 @@ in this repo.
 - `/zh/reg/<id>` — Chinese regulation entry page
 - `/en/guides/<slug>` — English guide/article
 - `/zh/guides/<slug>` — Chinese guide/article
+- Supranational-level entries (`jurisdiction: GCC` or `EU`) use their own
+  jurisdiction in the URL (e.g. `/en/reg/gcc-bd-142004-01`) and are not
+  duplicated per member state.
