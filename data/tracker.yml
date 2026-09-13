@@ -230,3 +230,68 @@
   notes:
     en: "This is a stub entry. The UAE official legislation portal (uaelegislation.gov.ae) returned HTTP 403 on every automated fetch attempt, so the resolution's article-level text could not be obtained. Confirmed information: the legal basis is Cabinet Resolution No. 54 of 2019 Regarding the UAE Scheme for Conformity Assessment (ECAS). Fields still pending: product scope, obligations, requirements, dates, enforcement and penalties."
     zh: "本條目為 stub。阿聯官方法規入口（uaelegislation.gov.ae）對自動擷取回傳 HTTP 403，無法取得決議本文逐條內容。已確認之資訊：法源為 Cabinet Resolution No. 54 of 2019 Regarding the UAE Scheme for Conformity Assessment (ECAS)。待補欄位：適用範圍、義務、要求項、日期、執法與罰則。"
+
+- id: cn-ccc-catalogue
+  parent: null
+  superseded_by: null
+  jurisdiction: CN
+  applies_in: []
+  citation: "《强制性产品认证管理规定》（国家市场监督管理总局令第61号，2022年9月29日修订，原国家质量监督检验检疫总局令第117号，2009年9月1日起施行）第四条"
+  local_type: "公告"
+  instrument_type: administrative_measure
+  short_name:
+    en: "Catalogue of Products Subject to Compulsory Product Certification (CCC)"
+    zh: "強制性產品認證目錄（CCC）"
+
+  status: in_force
+
+  sources:
+    - url: "https://www.gov.cn/zhengce/2022-10/08/content_5723510.htm"
+      type: primary
+      publisher: "中國政府網"
+    - url: "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/rzjgs/art/2023/art_0b9e7843505b4336952d54859217fe2a.html"
+      type: primary
+      publisher: "國家市場監督管理總局"
+
+  monitoring:
+    tier: C
+    method: manual
+    endpoint: null
+    frequency: quarterly
+
+  entry_status: stub
+  last_verified: "2026-09-13"
+  last_reviewed: "2026-09-13"
+  review_status: pending
+  confidence: low
+  notes:
+    en: "This is a stub entry. Confirmed via official sources: the legal basis of the CCC mandatory certification system is the Regulations on the Management of Compulsory Product Certification (SAMR Order No. 61, revised 2022-09-29; originally State Administration for Quality Supervision, Inspection and Quarantine Order No. 117, effective 2009-09-01). Article 4 of that Regulation provides that SAMR, jointly with relevant departments, formulates and adjusts the catalogue of products subject to compulsory certification and publishes it — meaning the catalogue itself is NOT an independent standalone law/regulation, but an administrative announcement (公告) issued periodically under the authority of Article 4. Multiple such catalogue-adjustment announcements were found (e.g. dated 2020 and 2023) confirming the catalogue is subject to periodic revision, but this research pass could not conclusively pin down the single currently-in-force catalogue announcement's exact number/date among the several found, so that specific citation is deferred rather than guessed. Fields still pending: product scope, obligations, requirements, dates, enforcement and penalties."
+    zh: "本條目為 stub。已透過官方來源確認：CCC 強制性認證制度之法源為《強制性產品認證管理規定》（國家市場監督管理總局令第61號，2022年9月29日修訂；原國家質量監督檢驗檢疫總局令第117號，2009年9月1日起施行）。該規定第四條規定由市場監管總局會同有關部門制定、調整並公佈強制性產品認證目錄——即目錄本身並非獨立之法律／法規文件，而是依第四條授權，以公告形式定期發布之行政文件。查證過程中發現多份目錄調整公告（如2020年及2023年版本），確認目錄確實會定期修訂，但本次查證未能就目前現行有效之單一目錄公告確切文號／日期做出定論，故此項具體引用暫緩填寫，而非臆測。待補欄位：適用範圍、義務、要求項、日期、執法與罰則。"
+
+- id: cn-gb-4943-1-2022
+  parent: cn-ccc-catalogue
+  superseded_by: null
+  jurisdiction: CN
+  applies_in: []
+  citation: "GB 4943.1-2022《音视频、信息技术和通信技术设备 第1部分：安全要求》"
+  local_type: "強制性國家標準"
+  instrument_type: mandatory_standard
+  short_name:
+    en: "GB 4943.1-2022 — Audio/Video, Information Technology and Communication Technology Equipment — Part 1: Safety Requirements"
+    zh: "GB 4943.1-2022 音視訊、資訊技術和通訊技術設備 第1部分：安全要求"
+
+  status: in_force
+
+  sources:
+    - url: "https://std.samr.gov.cn/gb/search/gbDetailed?id=E4A2A4C875736A5DE05397BE0A0A61E8"
+      type: primary
+      publisher: "全國標準信息公共服務平台（國家市場監督管理總局）"
+
+  entry_status: stub
+  last_verified: "2026-09-13"
+  last_reviewed: "2026-09-13"
+  review_status: pending
+  confidence: low
+  notes:
+    en: "This is a stub entry, and per project policy for instrument_type: mandatory_standard, will never contain reproduced clause text, tables, or limit values from the standard body (copyright restriction) — only structured metadata (number, title, dates, relationships, sources) and procedural obligations. Confirmed via the official National Standard Information Public Service Platform (std.samr.gov.cn, operated by SAMR): release date 2022-07-19, implementation date 2023-08-01, fully replaces GB 4943.1-2011 and GB 8898-2011, technical committee (归口单位) Ministry of Industry and Information Technology. This standard is treated as a child of cn-ccc-catalogue because it is the compliance basis referenced for the catalogue's information-technology-equipment product category (e.g. microcomputers, portable computers, computer display devices) rather than an independent certification scheme of its own. Fields still pending: product scope wording, procedural obligations, dates.published/application in the required date fields, enforcement and penalties (these attach to the CCC regulation and catalogue, not to the standard itself, and their precise application to this specific product category has not yet been confirmed article-by-article)."
+    zh: "本條目為 stub，且依專案規範，instrument_type: mandatory_standard 之條目不得重製標準本文之條文、表格或限值（著作權限制），僅記錄結構化資訊（編號、名稱、日期、關聯、來源）與程序性義務。已透過官方之全國標準信息公共服務平台（std.samr.gov.cn，國家市場監督管理總局建置）確認：發布日期2022-07-19、實施日期2023-08-01，全部代替 GB 4943.1-2011 及 GB 8898-2011，歸口單位為工業和信息化部。本標準列為 cn-ccc-catalogue 之子條目，係因其為該目錄下資訊技術設備類別（如微型計算機、可攜式計算機、計算機用顯示設備等）之符合性依據，而非獨立之認證制度本身。待補欄位：適用範圍文字、程序性義務、dates.published／dates.application 等必填日期欄位、執法與罰則（此二者屬於 CCC 管理規定與目錄層級，其對本產品類別之逐條適用關係尚待查證）。"
