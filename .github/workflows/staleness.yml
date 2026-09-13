@@ -53,21 +53,20 @@ jobs:
                   stale.append((entry["id"], tier, last_verified.isoformat(), age_days))
 
           iso_year, iso_week, _ = today.isocalendar()
-          title = f"Entries due for verification {iso_year}-{iso_week:02d}"
+          title = f"待查核條目 {iso_year}-{iso_week:02d}"
 
           if stale:
               lines = [
-                  "The following entries have exceeded their monitoring tier's "
-                  "verification interval and are due for re-verification:",
+                  "下列條目已超過其 monitoring.tier 所設定的查核週期，需要重新查核：",
                   "",
-                  "| id | tier | last_verified | days since verified |",
+                  "| id | tier | last_verified | 已逾期天數 |",
                   "|---|---|---|---|",
               ]
               for eid, tier, lv, age in sorted(stale, key=lambda x: -x[3]):
                   lines.append(f"| {eid} | {tier} | {lv} | {age} |")
               body = "\n".join(lines)
           else:
-              body = "No entries are currently due for verification."
+              body = "目前沒有條目待查核。"
 
           with open("issue_title.txt", "w", encoding="utf-8") as f:
               f.write(title)

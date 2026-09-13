@@ -5,13 +5,18 @@
 
 ## 一、使用繁體中文
 
-- PR 標題與內文
-- commit 訊息的描述部分
-- verification-notes 與終端回報
-- `scripts/` 內所有錯誤訊息、警告訊息、終端輸出
+判準是「受眾」，不是檔案位置：凡是給維護者閱讀的輸出與文件，
+不論實際位於哪個目錄，一律使用繁體中文。
+
+- `scripts/` 的錯誤訊息、警告訊息、終端輸出
+- GitHub Actions 產生的 issue 標題與內文（例如 `staleness.yml`
+  建立的待查核條目 issue）
 - 所有程式碼註解
-- `schema.yml` 與 `vocab.yml` 的說明性註解
-- `PROJECT_CONTEXT.md`、`DECISIONS.md`、`README.md`
+- `schema.yml`、`vocab.yml`、`sources.yml` 的說明性註解
+- `CONTRIBUTING.md`、`PROJECT_CONTEXT.md`、`DECISIONS.md`、
+  `README.md`
+- PR 標題與內文、commit 訊息的描述部分
+- verification-notes 與終端回報
 
 ## 二、使用英文
 
@@ -26,6 +31,16 @@
 - 所有 enum 值（例如 `sdoc`、`third_party`、`pending`）
 - 檔名、分支名、目錄名
 - commit 訊息的 type 前綴（`feat` / `fix` / `chore` / `docs` / `refactor`）
+
+## 四、維持英文（工具鏈慣例）
+
+以下項目維持英文，理由是與 GitHub 生態的通用慣例一致，
+英文在 CI 介面中可讀性較佳：
+
+- GitHub Actions 的 workflow 名稱與 step 名稱
+- commit 訊息的 type 前綴
+- YAML 欄位名稱、enum 值
+- 檔名、分支名、目錄名
 
 ## commit 訊息格式
 
