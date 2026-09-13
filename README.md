@@ -1,40 +1,39 @@
 # CertStack
 
-A global regulatory tracker for consumer electronics products, covering nine
-jurisdictions: EU, UK, US, CN, KR, JP, SA, AE, ZA.
+消費性電子產品的全球法規追蹤站，涵蓋九個法域：EU、UK、US、CN、KR、JP、SA、AE、ZA。
 
-See [`PROJECT_CONTEXT.md`](PROJECT_CONTEXT.md) for scope and principles, and
-[`DECISIONS.md`](DECISIONS.md) for the project's architectural decision log.
+範疇與原則請見 [`PROJECT_CONTEXT.md`](PROJECT_CONTEXT.md)，
+架構決策紀錄請見 [`DECISIONS.md`](DECISIONS.md)。
 
-## Structure
+## 目錄結構
 
-- `data/` — schema (`schema.yml`), controlled vocabulary (`vocab.yml`), and
-  the regulatory tracker dataset (`tracker.yml`)
-- `content/` — bilingual articles and shared content snippets
-- `site/` — static frontend (single HTML file + vanilla JS)
-- `tools/garan/` — tag generator tool
-- `monitor/` — regulatory source monitoring configuration
-- `scripts/` — build and validation tooling (Python 3, stdlib + PyYAML only)
+- `data/` — 欄位定義（`schema.yml`）、控制詞彙表（`vocab.yml`），以及
+  法規追蹤資料集（`tracker.yml`）
+- `content/` — 雙語文章與共用內容片段
+- `site/` — 靜態前端（單檔 HTML + vanilla JS）
+- `tools/garan/` — 標籤產生器工具
+- `monitor/` — 法規來源監測設定
+- `scripts/` — 建置與驗證工具（Python 3，僅用標準庫 + PyYAML）
 
-## Requirements
+## 環境需求
 
 - Python 3
-- PyYAML (`pip install PyYAML`)
+- PyYAML（`pip install PyYAML`）
 
-## Usage
+## 使用方式
 
-Validate the tracker dataset:
+驗證追蹤資料集：
 
 ```sh
 python3 scripts/validate.py
 ```
 
-Build `site/data.json` from the tracker dataset:
+由追蹤資料集建置 `site/data.json`：
 
 ```sh
 python3 scripts/build.py
 ```
 
-## Deployment
+## 部署
 
-The `site/` directory is deployed as a static site to Cloudflare Pages.
+`site/` 目錄以靜態網站形式部署至 Cloudflare Pages。
