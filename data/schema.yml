@@ -1,6 +1,13 @@
 # ============================================================================
 # CertStack tracker schema
-# Schema 版本：v1.5（2026-09-13）— 釐清 *_or_null 型別中，
+# Schema 版本：v1.6（2026-09-13）— 新增 entry_status（stub／complete），
+# 用以區分「已確認法規存在但欄位尚未齊備」與「全部必填欄位均已填寫」
+# 兩種條目狀態。stub 條目僅檢查最小欄位集（見下方 entry_status
+# 欄位定義），其餘欄位可省略或留空；complete 條目維持現行全欄位檢查。
+# 新增此狀態的原因：部分法域（如阿聯、沙烏地、中國）的官方來源
+# 無法自動擷取或需付費取得，若無中間狀態，將被迫在「為通過驗證而
+# 降低資料標準」與「放棄建檔」之間二選一。
+# v1.5（2026-09-13）— 釐清 *_or_null 型別中，
 # `required` 判斷的是 key 是否必須存在，而非值是否可以為 null；
 # 修正 validate.py 先前將必填 *_or_null 欄位中「key 存在但值為 null」
 # 誤判為缺漏欄位的問題。
@@ -271,6 +278,29 @@ last_reviewed:
   type: date
   required: true
   # 深度查核：目前內容已逐字對照來源核實。
+
+entry_status:
+  type: enum
+  values: [stub, complete]
+  required: true
+  default: stub
+  # stub     = 已確認該法規存在，但欄位尚未齊備。
+  #            常見於官方來源無法擷取或需付費取得的法域。
+  # complete = 全部必填欄位均已填寫。
+  # entry_status 為 stub 時，僅檢查下列最小欄位集，其餘欄位可
+  # 省略或留空，但仍須有至少一個一手來源（sources）：
+  #   id、parent、superseded_by、jurisdiction、applies_in、
+  #   citation、local_type、instrument_type、short_name、
+  #   status、sources、entry_status、review_status、
+  #   confidence、last_verified、last_reviewed、notes
+  # entry_status 為 stub 時，confidence 不得為 high；
+  # notes 為必填，且須說明哪些資訊缺漏、缺漏原因為何。
+  #
+  # 上述最小欄位集是 stub 條目的「必填下限」，不是「允許填寫的
+  # 上限」。任何已查證的欄位都應保留，不得因為條目為 stub 而刪除。
+  # stub 與 complete 的差別只在於「哪些欄位必填」，不影響任何欄位
+  # 是否可以填寫；已填寫的非最小欄位集欄位，仍會依其型別／enum／
+  # 參照規則正常檢查。
 
 review_status:
   type: enum
