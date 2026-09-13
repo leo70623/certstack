@@ -1,59 +1,58 @@
 # ============================================================================
 # CertStack tracker schema
-# Schema version: v1.5 (2026-09-13) — clarifies that for *_or_null types,
-# `required` governs whether the key must be present, not whether its value
-# may be null; fixes validate.py, which previously rejected a present-but-null
-# value on a required *_or_null field as a missing field.
-# v1.4 (2026-09-13) — requirements.conformity_assessment is
-# now a list of enum values (min 1) instead of a single enum, to represent
-# instruments with risk-tiered/category-based procedures; adds
-# requirements.conformity_assessment_note. Removes sdoc_or_certification
-# (expressed instead as [sdoc, third_party]).
-# v1.3 (2026-09-13) — adds review_status to distinguish
-# auto-extracted field values from ones manually verified against source.
-# v1.2 (2026-09-13) — adds supranational jurisdiction support (GCC) and
-# member-state jurisdictions (KW, QA, BH, OM) via applies_in.
+# Schema 版本：v1.5（2026-09-13）— 釐清 *_or_null 型別中，
+# `required` 判斷的是 key 是否必須存在，而非值是否可以為 null；
+# 修正 validate.py 先前將必填 *_or_null 欄位中「key 存在但值為 null」
+# 誤判為缺漏欄位的問題。
+# v1.4（2026-09-13）— requirements.conformity_assessment
+# 改為 enum 值的 list（至少 1 項），取代單一 enum 值，
+# 用以表達依風險分級／類別採不同程序的法規；新增
+# requirements.conformity_assessment_note。移除 sdoc_or_certification
+# （改以 [sdoc, third_party] 表達）。
+# v1.3（2026-09-13）— 新增 review_status，用以區分
+# 自動擷取的欄位值與已人工對照來源逐字查核過的欄位值。
+# v1.2（2026-09-13）— 新增超國家層級 jurisdiction 支援（GCC），
+# 以及透過 applies_in 表達的會員國 jurisdiction（KW、QA、BH、OM）。
 #
-# id naming rule (READ BEFORE ADDING/EDITING ENTRIES):
-#   id doubles as: filename key, URL path segment, and the reference key used
-#   by parent / related / superseded_by. Once published, an id must NEVER
-#   be changed.
+# id 命名規則（新增／編輯條目前請先閱讀）：
+#   id 同時作為：檔案內的鍵值、URL 路徑片段，以及
+#   parent／related／superseded_by 所使用的參照鍵。條目一旦發布，
+#   id 絕不可變更。
 #
-#   Format (pick one):
-#     official number available   <jurisdiction-lowercase>-<year>-<number>
-#                                  e.g. eu-2025-1960
-#     standard number available   <jurisdiction-lowercase>-<standard-number>
-#                                  e.g. cn-gb-4943-1-2022
-#     no number available         <jurisdiction-lowercase>-<topic-keywords>
-#                                  e.g. sa-saber-registration
+#   格式（擇一）：
+#     有官方編號時       <jurisdiction小寫>-<年份>-<編號>
+#                        例如 eu-2025-1960
+#     有標準編號時       <jurisdiction小寫>-<標準編號>
+#                        例如 cn-gb-4943-1-2022
+#     無任何編號時       <jurisdiction小寫>-<主題關鍵字>
+#                        例如 sa-saber-registration
 #
-#   Lowercase only, characters limited to a-z 0-9 and hyphen.
+#   僅限小寫，字元限 a-z、0-9 與連字號。
 #
-#   When a regulation is superseded: open a NEW entry with a new id. The old
-#   entry's status becomes "superseded" and superseded_by is filled in. The
-#   old entry's URL is permanent and must never be deleted.
+#   法規被取代時：開立一筆「新」條目並給予新的 id。舊條目的
+#   status 改為 "superseded"，並填入 superseded_by。舊條目的
+#   URL 永久保留，不得刪除。
 #
-# Bilingual rules:
-#   Bilingual fields (both en and zh are required):
-#     short_name, product_scope, obligations[].action,
-#     enforcement.penalty_summary, notes
-#   Monolingual fields (kept in original language, not translated):
-#     id, citation, local_type, jurisdiction, all enums, dates, booleans, urls
-#   citation always uses the jurisdiction's official original-language text.
+# 雙語規則：
+#   雙語欄位（en 與 zh 皆為必填）：
+#     short_name、product_scope、obligations[].action、
+#     enforcement.penalty_summary、notes
+#   單語欄位（維持原文，不翻譯）：
+#     id、citation、local_type、jurisdiction、所有 enum、日期、
+#     布林值、url
+#   citation 一律使用該 jurisdiction 官方原文。
 #
-# required vs. nullable (*_or_null types):
-#   `required` governs whether the KEY must be present in the entry, not
-#   whether its value may be null. For a field typed date_or_null,
-#   string_or_null, int_or_null, or bilingual_or_null with required: true,
-#   the key must exist, but its value may legitimately be null:
-#     - key present, value null   -> valid. Means "this has been checked,
-#       and the regulation genuinely has no value here" (e.g. no publication
-#       date exists for this instrument).
-#     - key omitted entirely      -> invalid, always an error. Means "this
-#       has not been checked/filled in yet," which is never an acceptable
-#       final state for a required field.
-#   For non-`_or_null` required types (date, string, bool, enum, bilingual,
-#   etc.), a null value is always an error, same as an omitted key.
+# required 與 nullable 的區別（*_or_null 型別）：
+#   `required` 判斷的是該條目中「key」是否必須存在，而非其值是否
+#   可以為 null。對於型別為 date_or_null、string_or_null、
+#   int_or_null 或 bilingual_or_null，且 required: true 的欄位，
+#   key 必須存在，但其值可以合法地為 null：
+#     - key 存在，值為 null   -> 合法。代表「已查核過，該法規
+#       確實沒有此項內容」（例如本法規並無公布日期）。
+#     - key 整個省略           -> 不合法，一律視為錯誤。代表
+#       「尚未查核／填寫」，對必填欄位而言永遠不是可接受的最終狀態。
+#   對於非 `_or_null` 的必填型別（date、string、bool、enum、
+#   bilingual 等），值為 null 一律視為錯誤，效果等同於省略該 key。
 # ============================================================================
 
 id:
@@ -74,18 +73,17 @@ superseded_by:
 jurisdiction:
   type: enum
   values: [EU, UK, US, CN, KR, JP, SA, AE, ZA, GCC, KW, QA, BH, OM]
-  # GCC is supranational (Gulf Cooperation Council). KW/QA/BH/OM are member
-  # states not currently tracked as standalone jurisdictions, but must be
-  # available as applies_in values for GCC/EU entries.
+  # GCC 為超國家層級（波斯灣合作理事會）。KW/QA/BH/OM 為會員國，
+  # 目前不作為獨立追蹤的 jurisdiction，但須可作為
+  # GCC/EU 條目的 applies_in 值使用。
 
 applies_in:
   type: list_of_enum
   required: false
   default: []
-  values: same country codes as jurisdiction, excluding GCC and EU
-  # Only fill in for supranational-level regulations (jurisdiction is GCC or
-  # EU): lists the member states the regulation actually applies in.
-  # Leave empty for single-country regulations.
+  values: 與 jurisdiction 相同的國家代碼，但不含 GCC 與 EU
+  # 僅在超國家層級法規（jurisdiction 為 GCC 或 EU）時填寫：
+  # 列出該法規實際適用的會員國。單一國家法規請留空。
 
 citation:
   type: string
@@ -157,10 +155,9 @@ requirements.local_representative:
 requirements.local_testing:
   type: bool
   required: true
-  # Defined strictly as: a test report must be issued by a laboratory
-  # located within the jurisdiction's own territory. If internationally
-  # accredited labs (e.g. ILAC, IECEE CB) are accepted, this is always
-  # false — "a test report is required" is not sufficient to set this true.
+  # 嚴格定義為：測試報告必須由位於該 jurisdiction 自身境內的
+  # 實驗室出具。若接受國際認證實驗室（如 ILAC、IECEE CB）出具的
+  # 報告，此欄位一律為 false——僅「須有測試報告」不足以將此欄位設為 true。
 
 requirements.registration:
   type: bool
@@ -171,17 +168,16 @@ requirements.conformity_assessment:
   required: true
   min_items: 1
   values: [none, sdoc, ccc, type_approval, third_party]
-  # Multiple values mean the instrument prescribes different procedures by
-  # product risk tier or category (e.g. a self-declaration track for lower-risk
-  # products and third-party certification for higher-risk ones). Instruments
-  # with a single uniform procedure fill in a single-element list.
+  # 多個值代表該法規依產品風險分級或類別規定不同程序（例如低風險
+  # 產品走自我聲明、高風險產品須經第三方驗證）。僅採單一統一程序
+  # 的法規則填入單一元素的 list。
 
 requirements.conformity_assessment_note:
   type: bilingual_or_null
   required: false
   default: null
-  # Required when conformity_assessment has more than one value: explains
-  # which procedure applies under what conditions.
+  # 當 conformity_assessment 有一項以上的值時為必填：
+  # 說明各程序分別適用於何種條件。
 
 obligations:
   type: list_of_object
@@ -235,8 +231,8 @@ enforcement.penalty_summary:
 enforcement.penalty_range:
   type: string_or_null
   default: null
-  # Note: only fill in when the original regulatory text specifies a single,
-  # fixed amount. Do not estimate or aggregate from secondary sources.
+  # 注意：僅在法規原文明確指定單一固定金額時才填寫，
+  # 不得從其他來源估算或彙整。
 
 enforcement.market_impact:
   type: list_of_string
@@ -269,25 +265,23 @@ monitoring.frequency:
 last_verified:
   type: date
   required: true
-  # Shallow check: link reachable, status unchanged.
+  # 淺層查核：連結可連通、狀態未變更。
 
 last_reviewed:
   type: date
   required: true
-  # Deep check: current text verified word-for-word against source.
+  # 深度查核：目前內容已逐字對照來源核實。
 
 review_status:
   type: enum
   values: [pending, reviewed]
   required: true
   default: pending
-  # pending  = field values were produced by automated extraction and have
-  #            not yet been manually checked word-for-word against the
-  #            official source text.
-  # reviewed = a human has checked the field values word-for-word against
-  #            the official source text.
-  # When review_status is pending, the last_reviewed date reflects only the
-  # extraction date, not a human review date.
+  # pending  = 欄位值由自動化擷取產生，尚未經人工逐字對照
+  #            官方來源文字查核。
+  # reviewed = 已由人工逐字對照官方來源文字查核過欄位值。
+  # 當 review_status 為 pending 時，last_reviewed 日期僅代表
+  # 擷取日期，並非人工複核日期。
 
 confidence:
   type: enum

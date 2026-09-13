@@ -1,12 +1,12 @@
-# Decisions
+# 決策紀錄
 
-| Date | Decision | Reason | Alternatives considered |
+| 日期 | 決策 | 理由 | 曾考慮的替代方案 |
 |---|---|---|---|
-| 2026-09-13 | Use a monorepo instead of splitting into multiple repos | The tracker dataset is shared by multiple tools (site build, tag generator, monitoring) — splitting it would require cross-repo versioning and sync | Separate data repo + separate site repo |
-| 2026-09-13 | Build a purely static site, not WordPress or another CMS | Avoids a dual source of truth and preserves a continuous, auditable version history in git | WordPress/headless CMS with a database of record |
-| 2026-09-13 | Record enforcement mechanism, not penalty amounts | Most penalties are set by national implementing law rather than the instrument itself; a single figure would misrepresent the real range | Publishing a single penalty amount or range per entry regardless of source |
-| 2026-09-13 | Structured fields are fully bilingual; long-form content is translated selectively | Structured fields change rarely, so translation cost is low; long-form articles go stale quickly and translating all of them isn't sustainable | Fully bilingual site including all articles; English-only site |
-| 2026-09-13 | Entry `id` is never modified; superseding regulations get a new entry | Protects external links and citations to existing ids from breaking | Editing the existing entry in place when a regulation is replaced |
-| 2026-09-13 | Add `GCC` as a jurisdiction value, and add an `applies_in` field | A GCC technical regulation (e.g. BD-142004-01) applies to seven member states as a single instrument; duplicating an entry per country would cause maintenance drift. A single entry plus `applies_in` expresses the scope, and the frontend filter matches against `applies_in` as well. | Duplicate the entry per country (rejected — causes drift) |
-| 2026-09-13 | Add a `review_status` field | Allows automated extraction to populate entries quickly to speed up initial buildout, while preserving traceability of whether a human has actually verified the content — avoids diluting the meaning of `last_reviewed` | Only write entries after human review is complete (rejected — would slow down the initial version) |
-| 2026-09-13 | Change `requirements.conformity_assessment` to a multi-value list, remove `sdoc_or_certification` | GCC BD-142004-01 splits into List 1 / List 2 procedures with different conformity assessment routes; a single enum value can't represent that, and encoding an "or" relationship into an enum member name isn't extensible and can't be filtered on | Add a merged `sdoc_or_third_party` value (rejected — same non-extensibility problem) |
+| 2026-09-13 | 採用單一 monorepo，不拆成多個 repo | tracker 資料集由多個工具共用（網站建置、標籤產生器、監控），拆分會需要跨 repo 版本控管與同步 | 資料獨立一個 repo、網站獨立一個 repo |
+| 2026-09-13 | 建置純靜態網站，不使用 WordPress 或其他 CMS | 避免雙重真實來源，並在 git 中保留連續、可稽核的版本歷史 | 使用有資料庫作為主要來源的 WordPress／headless CMS |
+| 2026-09-13 | 記錄執法機制，不記錄罰則金額 | 多數罰則是由各國國內轉換立法訂定，而非法規本身；單一數字會誤導實際範圍 | 不論來源為何，每筆條目一律公布單一罰款金額或範圍 |
+| 2026-09-13 | 結構化欄位完全雙語；長文內容選擇性翻譯 | 結構化欄位變動頻率低，翻譯成本低；長文文章容易過時，全部翻譯不具永續性 | 網站含所有文章全面雙語；僅提供英文版網站 |
+| 2026-09-13 | 條目 `id` 永不修改；被取代的法規另開新條目 | 保護既有 id 的外部連結與引用不會失效 | 法規被取代時直接原地修改既有條目 |
+| 2026-09-13 | 新增 `GCC` 作為 jurisdiction 值，並新增 `applies_in` 欄位 | 一項 GCC 技術法規（例如 BD-142004-01）以單一文件適用於七個會員國；若每個國家各自建立條目會造成維護時產生內容漂移。以單一條目搭配 `applies_in` 表達適用範圍，前端篩選也會同時比對 `applies_in`。 | 每個國家各自複製一份條目（已否決 — 會造成內容漂移） |
+| 2026-09-13 | 新增 `review_status` 欄位 | 讓自動化擷取能快速填入條目以加速初期建置，同時保留是否已經過人工實際查核的可追溯性 — 避免稀釋 `last_reviewed` 的意義 | 僅在完成人工複核後才寫入條目（已否決 — 會拖慢初期建置速度） |
+| 2026-09-13 | 將 `requirements.conformity_assessment` 改為多值 list，移除 `sdoc_or_certification` | GCC BD-142004-01 依 List 1／List 2 分成不同的符合性評鑑程序；單一 enum 值無法表達此情況，而把「或」的關係寫進 enum 成員名稱既不可擴充，也無法用於篩選 | 新增合併值 `sdoc_or_third_party`（已否決 — 同樣有不可擴充的問題） |
