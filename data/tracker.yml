@@ -1,0 +1,88 @@
+# Single fully-filled example entry used as a fill-in template.
+# All other entries are to be added manually by a human researcher.
+# Do not auto-generate regulatory content.
+
+- id: example-0000-0001
+  parent: null
+  superseded_by: null
+  jurisdiction: EU
+  citation: "EXAMPLE — not a real instrument"
+  local_type: "Example"
+  instrument_type: regulation
+  short_name:
+    en: "Example Regulation Short Name"
+    zh: "範例法規簡稱"
+  category:
+    - electrical_safety
+
+  product_scope:
+    en: "Applies to consumer electronics products placed on the EU market."
+    zh: "適用於投放歐盟市場之消費性電子產品。"
+  product_tags:
+    - consumer_electronics
+  component_tags:
+    - power_supply
+  applies_to:
+    - manufacturer
+    - importer
+    - seller
+
+  status: in_force
+  dates:
+    published: "2025-01-15"
+    application: "2025-07-15"
+    labelling: null
+    transition_end: "2026-07-15"
+
+  requirements:
+    marking: true
+    local_representative: true
+    local_testing: false
+    registration: false
+    conformity_assessment: sdoc
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "Draw up technical documentation and affix CE marking."
+        zh: "編製技術文件並張貼 CE 標誌。"
+    - actor: importer
+      action:
+        en: "Verify manufacturer compliance before placing product on the market."
+        zh: "於產品投放市場前確認製造商已符合規定。"
+
+  tools: []
+  related: []
+
+  sources:
+    - url: "https://example.org/placeholder"
+      type: primary
+      publisher: "Placeholder"
+
+  enforcement:
+    authority: "National market surveillance authorities"
+    mechanism:
+      - market_surveillance
+      - product_recall
+    penalty_basis: national_law
+    penalty_summary:
+      en: "Enforcement and penalties are determined by each Member State's national law implementing this Regulation."
+      zh: "執法與罰則由各會員國依本法規之國內轉換立法個別訂定。"
+    penalty_range: null
+    market_impact:
+      - market_withdrawal
+    source_ref: 0
+    last_verified: "2026-08-01"
+
+  monitoring:
+    tier: A
+    method: rss
+    endpoint: null
+    frequency: weekly
+
+  last_verified: "2026-08-01"
+  last_reviewed: "2026-07-01"
+  confidence: low
+  notes:
+    en: "TEMPLATE ENTRY — not a real regulation. Fill-in reference only. Delete once real entries exist."
+    zh: "範本條目 — 非真實法規，僅供填寫參考。真實條目建立後即刪除。"

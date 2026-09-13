@@ -1,0 +1,229 @@
+# ============================================================================
+# CertStack tracker schema
+#
+# id naming rule (READ BEFORE ADDING/EDITING ENTRIES):
+#   id doubles as: filename key, URL path segment, and the reference key used
+#   by parent / related / superseded_by. Once published, an id must NEVER
+#   be changed.
+#
+#   Format (pick one):
+#     official number available   <jurisdiction-lowercase>-<year>-<number>
+#                                  e.g. eu-2025-1960
+#     standard number available   <jurisdiction-lowercase>-<standard-number>
+#                                  e.g. cn-gb-4943-1-2022
+#     no number available         <jurisdiction-lowercase>-<topic-keywords>
+#                                  e.g. sa-saber-registration
+#
+#   Lowercase only, characters limited to a-z 0-9 and hyphen.
+#
+#   When a regulation is superseded: open a NEW entry with a new id. The old
+#   entry's status becomes "superseded" and superseded_by is filled in. The
+#   old entry's URL is permanent and must never be deleted.
+#
+# Bilingual rules:
+#   Bilingual fields (both en and zh are required):
+#     short_name, product_scope, obligations[].action,
+#     enforcement.penalty_summary, notes
+#   Monolingual fields (kept in original language, not translated):
+#     id, citation, local_type, jurisdiction, all enums, dates, booleans, urls
+#   citation always uses the jurisdiction's official original-language text.
+# ============================================================================
+
+id:
+  type: string
+  required: true
+  unique: true
+  pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+
+parent:
+  type: string_or_null
+  required: true
+  default: null
+
+superseded_by:
+  type: string_or_null
+  default: null
+
+jurisdiction:
+  type: enum
+  values: [EU, UK, US, CN, KR, JP, SA, AE, ZA]
+
+citation:
+  type: string
+  required: true
+
+local_type:
+  type: string
+  required: true
+
+instrument_type:
+  type: enum
+  values: [regulation, directive, mandatory_standard, administrative_measure, guidance, statute]
+
+short_name:
+  type: bilingual
+  required: true
+
+category:
+  type: list_of_string
+  default: []
+
+product_scope:
+  type: bilingual
+  required: true
+
+product_tags:
+  type: list_of_enum
+  required: true
+  min_items: 1
+  source: vocab.product_tags
+
+component_tags:
+  type: list_of_enum
+  default: []
+  source: vocab.component_tags
+
+applies_to:
+  type: list_of_enum
+  values: [producer, seller, importer, manufacturer]
+
+status:
+  type: enum
+  values: [draft, adopted, in_force, superseded, withdrawn]
+
+dates.published:
+  type: date_or_null
+  required: true
+
+dates.application:
+  type: date_or_null
+  required: true
+
+dates.labelling:
+  type: date_or_null
+  default: null
+
+dates.transition_end:
+  type: date_or_null
+  default: null
+
+requirements.marking:
+  type: bool
+  required: true
+
+requirements.local_representative:
+  type: bool
+  required: true
+
+requirements.local_testing:
+  type: bool
+  required: true
+
+requirements.registration:
+  type: bool
+  required: true
+
+requirements.conformity_assessment:
+  type: enum
+  values: [none, sdoc, ccc, type_approval, third_party, sdoc_or_certification]
+
+obligations:
+  type: list_of_object
+  min_items: 1
+  fields:
+    actor:
+      type: enum
+      values: [producer, seller, importer, manufacturer]
+    action:
+      type: bilingual
+      required: true
+
+tools:
+  type: list_of_string
+  default: []
+
+related:
+  type: list_of_string
+  default: []
+
+sources:
+  type: list_of_object
+  min_items: 1
+  fields:
+    url:
+      type: url
+      required: true
+    type:
+      type: enum
+      values: [primary, secondary]
+    publisher:
+      type: string
+      required: true
+
+enforcement.authority:
+  type: string
+  required: true
+
+enforcement.mechanism:
+  type: list_of_string
+  required: true
+
+enforcement.penalty_basis:
+  type: enum
+  values: [in_instrument, national_law, none_specified]
+
+enforcement.penalty_summary:
+  type: bilingual
+  required: true
+
+enforcement.penalty_range:
+  type: string_or_null
+  default: null
+  # Note: only fill in when the original regulatory text specifies a single,
+  # fixed amount. Do not estimate or aggregate from secondary sources.
+
+enforcement.market_impact:
+  type: list_of_string
+  default: []
+
+enforcement.source_ref:
+  type: int_or_null
+  default: null
+
+enforcement.last_verified:
+  type: date
+  required: true
+
+monitoring.tier:
+  type: enum
+  values: [A, B, C]
+
+monitoring.method:
+  type: enum
+  values: [rss, api, page_diff, manual]
+
+monitoring.endpoint:
+  type: string_or_null
+  default: null
+
+monitoring.frequency:
+  type: enum
+  values: [daily, weekly, quarterly]
+
+last_verified:
+  type: date
+  required: true
+  # Shallow check: link reachable, status unchanged.
+
+last_reviewed:
+  type: date
+  required: true
+  # Deep check: current text verified word-for-word against source.
+
+confidence:
+  type: enum
+  values: [high, medium, low]
+
+notes:
+  type: bilingual_or_null
+  default: null

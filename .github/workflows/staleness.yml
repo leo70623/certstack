@@ -1,0 +1,89 @@
+name: Staleness check
+
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  staleness:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install PyYAML
+
+      - name: Find stale entries
+        id: stale
+        run: |
+          python3 - <<'PYEOF'
+          import yaml
+          from datetime import date, datetime
+
+          TIER_THRESHOLDS = {"A": 30, "B": 60, "C": 90}
+
+          def to_date(value):
+              if isinstance(value, date) and not isinstance(value, datetime):
+                  return value
+              return datetime.strptime(value, "%Y-%m-%d").date()
+
+          with open("data/tracker.yml", encoding="utf-8") as f:
+              tracker = yaml.safe_load(f) or []
+
+          today = date.today()
+          stale = []
+          for entry in tracker:
+              tier = (entry.get("monitoring") or {}).get("tier")
+              threshold = TIER_THRESHOLDS.get(tier)
+              if threshold is None:
+                  continue
+              last_verified = to_date(entry["last_verified"])
+              age_days = (today - last_verified).days
+              if age_days > threshold:
+                  stale.append((entry["id"], tier, last_verified.isoformat(), age_days))
+
+          iso_year, iso_week, _ = today.isocalendar()
+          title = f"Entries due for verification {iso_year}-{iso_week:02d}"
+
+          if stale:
+              lines = [
+                  "The following entries have exceeded their monitoring tier's "
+                  "verification interval and are due for re-verification:",
+                  "",
+                  "| id | tier | last_verified | days since verified |",
+                  "|---|---|---|---|",
+              ]
+              for eid, tier, lv, age in sorted(stale, key=lambda x: -x[3]):
+                  lines.append(f"| {eid} | {tier} | {lv} | {age} |")
+              body = "\n".join(lines)
+          else:
+              body = "No entries are currently due for verification."
+
+          with open("issue_title.txt", "w", encoding="utf-8") as f:
+              f.write(title)
+          with open("issue_body.txt", "w", encoding="utf-8") as f:
+              f.write(body)
+
+          print(f"has_stale={'true' if stale else 'false'}")
+          PYEOF
+
+      - name: Create or update issue
+        run: |
+          TITLE="$(cat issue_title.txt)"
+          EXISTING=$(gh issue list --state open --search "in:title \"$TITLE\"" --json number,title \
+            --jq ".[] | select(.title == \"$TITLE\") | .number" | head -n1)
+          if [ -n "$EXISTING" ]; then
+            gh issue edit "$EXISTING" --body-file issue_body.txt
+          else
+            gh issue create --title "$TITLE" --body-file issue_body.txt
+          fi
