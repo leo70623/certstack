@@ -46,10 +46,19 @@ def is_bilingual(value):
     )
 
 
-def check_bilingual(entry_id, field, value, required):
-    if value is None:
+def check_bilingual(entry_id, field, container, key, required, nullable=False):
+    """required governs whether `key` must be present in `container`.
+    nullable governs whether a present value of None is acceptable
+    (i.e. the field's schema type is bilingual_or_null)."""
+    present = key in container
+    value = container.get(key)
+    if not present:
         if required:
             err(entry_id, field, "missing required bilingual field")
+        return
+    if value is None:
+        if not nullable:
+            err(entry_id, field, "value must not be null")
         return
     if not is_bilingual(value):
         err(entry_id, field, "bilingual field must have 'en' and 'zh' string keys")
@@ -60,10 +69,19 @@ def check_bilingual(entry_id, field, value, required):
         err(entry_id, field, "zh value must not be empty")
 
 
-def check_date(entry_id, field, value, required):
-    if value is None:
+def check_date(entry_id, field, container, key, required, nullable=False):
+    """required governs whether `key` must be present in `container`.
+    nullable governs whether a present value of None is acceptable
+    (i.e. the field's schema type is date_or_null)."""
+    present = key in container
+    value = container.get(key)
+    if not present:
         if required:
             err(entry_id, field, "missing required date")
+        return
+    if value is None:
+        if not nullable:
+            err(entry_id, field, "value must not be null")
         return
     if isinstance(value, date) and not isinstance(value, datetime):
         return
@@ -160,10 +178,10 @@ def main():
                     "administrative_measure", "guidance", "statute"}, True)
 
         # short_name
-        check_bilingual(eid, "short_name", entry.get("short_name"), True)
+        check_bilingual(eid, "short_name", entry, "short_name", True)
 
         # product_scope
-        check_bilingual(eid, "product_scope", entry.get("product_scope"), True)
+        check_bilingual(eid, "product_scope", entry, "product_scope", True)
 
         # product_tags
         product_tags = entry.get("product_tags") or []
@@ -216,20 +234,35 @@ def main():
 
         # dates
         dates = entry.get("dates") or {}
-        check_date(eid, "dates.published", dates.get("published"), True)
-        check_date(eid, "dates.application", dates.get("application"), True)
-        check_date(eid, "dates.labelling", dates.get("labelling"), False)
-        check_date(eid, "dates.transition_end", dates.get("transition_end"), False)
+        check_date(eid, "dates.published", dates, "published", True, nullable=True)
+        check_date(eid, "dates.application", dates, "application", True)
+        check_date(eid, "dates.labelling", dates, "labelling", False, nullable=True)
+        check_date(eid, "dates.transition_end", dates, "transition_end", False, nullable=True)
 
         # requirements
         requirements = entry.get("requirements") or {}
         for bfield in ("marking", "local_representative", "local_testing", "registration"):
             if not isinstance(requirements.get(bfield), bool):
                 err(eid, f"requirements.{bfield}", "must be a boolean and is required")
-        check_enum(eid, "requirements.conformity_assessment",
-                   requirements.get("conformity_assessment"),
-                   {"none", "sdoc", "ccc", "type_approval", "third_party",
-                    "sdoc_or_certification"}, True)
+        conformity_assessment = requirements.get("conformity_assessment")
+        ca_allowed = {"none", "sdoc", "ccc", "type_approval", "third_party"}
+        if not isinstance(conformity_assessment, list) or not conformity_assessment:
+            err(eid, "requirements.conformity_assessment",
+                "must be a non-empty list of enum values")
+        else:
+            for value in conformity_assessment:
+                if value not in ca_allowed:
+                    err(eid, "requirements.conformity_assessment",
+                        f"invalid enum value {value!r}, expected one of {ca_allowed}")
+            if len(conformity_assessment) != len(set(conformity_assessment)):
+                err(eid, "requirements.conformity_assessment",
+                    "must not contain duplicate values")
+            if "none" in conformity_assessment and len(conformity_assessment) > 1:
+                err(eid, "requirements.conformity_assessment",
+                    "must not combine 'none' with other values")
+            if len(conformity_assessment) > 1:
+                check_bilingual(eid, "requirements.conformity_assessment_note",
+                                 requirements, "conformity_assessment_note", True)
 
         # obligations
         obligations = entry.get("obligations") or []
@@ -239,7 +272,7 @@ def main():
             actor = ob.get("actor")
             if actor not in {"producer", "seller", "importer", "manufacturer"}:
                 err(eid, f"obligations[{i}].actor", f"invalid actor {actor!r}")
-            check_bilingual(eid, f"obligations[{i}].action", ob.get("action"), True)
+            check_bilingual(eid, f"obligations[{i}].action", ob, "action", True)
 
         # sources
         sources = entry.get("sources") or []
@@ -261,13 +294,13 @@ def main():
         check_enum(eid, "enforcement.penalty_basis", enforcement.get("penalty_basis"),
                    {"in_instrument", "national_law", "none_specified"}, True)
         check_bilingual(eid, "enforcement.penalty_summary",
-                         enforcement.get("penalty_summary"), True)
+                         enforcement, "penalty_summary", True)
         source_ref = enforcement.get("source_ref")
         if source_ref is not None:
             if not isinstance(source_ref, int) or not (0 <= source_ref < len(sources)):
                 err(eid, "enforcement.source_ref",
                     f"source_ref {source_ref!r} out of range for sources list")
-        check_date(eid, "enforcement.last_verified", enforcement.get("last_verified"), True)
+        check_date(eid, "enforcement.last_verified", enforcement, "last_verified", True)
 
         # monitoring
         monitoring = entry.get("monitoring") or {}
@@ -283,8 +316,8 @@ def main():
         # last_verified / last_reviewed
         last_verified = entry.get("last_verified")
         last_reviewed = entry.get("last_reviewed")
-        check_date(eid, "last_verified", last_verified, True)
-        check_date(eid, "last_reviewed", last_reviewed, True)
+        check_date(eid, "last_verified", entry, "last_verified", True)
+        check_date(eid, "last_reviewed", entry, "last_reviewed", True)
         lv = to_date(last_verified)
         lr = to_date(last_reviewed)
         if lv and lr and lr > lv:
@@ -293,12 +326,19 @@ def main():
             err(eid, "last_verified", "last_verified must not be in the future")
 
         # confidence
-        check_enum(eid, "confidence", entry.get("confidence"),
-                   {"high", "medium", "low"}, True)
+        confidence = entry.get("confidence")
+        check_enum(eid, "confidence", confidence, {"high", "medium", "low"}, True)
 
-        # notes (optional bilingual)
-        if entry.get("notes") is not None:
-            check_bilingual(eid, "notes", entry.get("notes"), False)
+        # review_status
+        review_status = entry.get("review_status")
+        check_enum(eid, "review_status", review_status, {"pending", "reviewed"}, True)
+        if review_status == "pending":
+            if confidence == "high":
+                err(eid, "confidence", "confidence must not be high while review_status is pending")
+            warn(eid, "review_status", "entry is pending human review")
+
+        # notes (optional bilingual, may be present-but-null)
+        check_bilingual(eid, "notes", entry, "notes", False, nullable=True)
 
     for w in warnings:
         print(f"WARNING: {w}", file=sys.stderr)
