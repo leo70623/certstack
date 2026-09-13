@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Build site/data.json from data/tracker.yml and data/vocab.yml.
+"""依 data/tracker.yml 與 data/vocab.yml 建置 site/data.json。
 
-Bilingual structures are preserved as-is (e.g. {"en": ..., "zh": ...}) so the
-frontend can select the active language at render time.
+雙語結構原樣保留（例如 {"en": ..., "zh": ...}），
+讓前端可以在渲染時自行選擇要顯示的語言。
 """
 
 import json
@@ -23,8 +23,8 @@ def load_yaml(path):
 
 
 def default_json(obj):
-    # yaml.safe_load returns datetime.date objects for unquoted dates;
-    # serialize them as ISO strings for JSON.
+    # yaml.safe_load 對未加引號的日期會回傳 datetime.date 物件，
+    # 這裡將其序列化為 ISO 格式字串以便輸出 JSON。
     return obj.isoformat()
 
 
@@ -42,7 +42,7 @@ def main():
         json.dump(output, f, ensure_ascii=False, indent=2, default=default_json)
         f.write("\n")
 
-    print(f"Wrote {OUTPUT_FILE} ({len(tracker)} entries).")
+    print(f"已寫入 {OUTPUT_FILE}（共 {len(tracker)} 筆條目）。")
 
 
 if __name__ == "__main__":
