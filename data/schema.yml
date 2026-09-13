@@ -1,6 +1,10 @@
 # ============================================================================
 # CertStack tracker schema
-# Schema version: v1.4 (2026-09-13) — requirements.conformity_assessment is
+# Schema version: v1.5 (2026-09-13) — clarifies that for *_or_null types,
+# `required` governs whether the key must be present, not whether its value
+# may be null; fixes validate.py, which previously rejected a present-but-null
+# value on a required *_or_null field as a missing field.
+# v1.4 (2026-09-13) — requirements.conformity_assessment is
 # now a list of enum values (min 1) instead of a single enum, to represent
 # instruments with risk-tiered/category-based procedures; adds
 # requirements.conformity_assessment_note. Removes sdoc_or_certification
@@ -36,6 +40,20 @@
 #   Monolingual fields (kept in original language, not translated):
 #     id, citation, local_type, jurisdiction, all enums, dates, booleans, urls
 #   citation always uses the jurisdiction's official original-language text.
+#
+# required vs. nullable (*_or_null types):
+#   `required` governs whether the KEY must be present in the entry, not
+#   whether its value may be null. For a field typed date_or_null,
+#   string_or_null, int_or_null, or bilingual_or_null with required: true,
+#   the key must exist, but its value may legitimately be null:
+#     - key present, value null   -> valid. Means "this has been checked,
+#       and the regulation genuinely has no value here" (e.g. no publication
+#       date exists for this instrument).
+#     - key omitted entirely      -> invalid, always an error. Means "this
+#       has not been checked/filled in yet," which is never an acceptable
+#       final state for a required field.
+#   For non-`_or_null` required types (date, string, bool, enum, bilingual,
+#   etc.), a null value is always an error, same as an omitted key.
 # ============================================================================
 
 id:
