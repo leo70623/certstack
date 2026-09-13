@@ -1,13 +1,1175 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CertStack</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CertStack — 全球法規追蹤 / Global Regulatory Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --canvas: #FAF1C4;
+    --surface: #FFFFFF;
+    --blue: #1A5FA8;
+    --blue-dark: #12497F;
+    --blue-soft: #EAF2FA;
+    --blue-hair: #C4D8EC;
+    --radius-sm: 8px;
+    --radius-lg: 12px;
+    --gap: 1rem;
+    --pad: 1rem;
+    --font-size-base: 1rem;
+    --low-red: #B3261E;
+    --low-red-soft: #FBEAE9;
+    --stub-amber: #8A5A00;
+    --stub-amber-soft: #FFF1D6;
+    --pending-purple: #5B3E96;
+    --pending-purple-soft: #F0EBFB;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--canvas);
+    color: #1F2A33;
+    font-family: "Public Sans", "Noto Sans TC", system-ui, sans-serif;
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+  }
+
+  body.density-compact {
+    --gap: 0.5rem;
+    --pad: 0.55rem;
+    --font-size-base: 0.9rem;
+  }
+
+  a { color: var(--blue); }
+
+  button, select, input {
+    font-family: inherit;
+    font-size: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--blue-dark);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--surface);
+    color: var(--blue-dark);
+    padding: 0.5rem 1rem;
+    z-index: 100;
+    border-radius: 0 0 var(--radius-sm) 0;
+  }
+  .skip-link:focus {
+    left: 0;
+  }
+
+  header.site-header {
+    background: var(--surface);
+    border-bottom: 2px solid var(--blue-hair);
+    padding: var(--pad) var(--gap);
+  }
+
+  .site-header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--gap);
+  }
+
+  .site-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .site-title h1 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: var(--blue-dark);
+  }
+
+  .site-title p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #4B5A66;
+  }
+
+  .header-controls {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    background: var(--blue-soft);
+    border: 1px solid var(--blue-hair);
+    color: var(--blue-dark);
+    border-radius: var(--radius-sm);
+    padding: 0.4rem 0.8rem;
+    font-weight: 600;
+  }
+  .btn:hover { background: var(--blue-hair); }
+  .btn[aria-pressed="true"] {
+    background: var(--blue);
+    color: #fff;
+    border-color: var(--blue-dark);
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--gap);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+  }
+
+  .countdown-banner {
+    background: var(--blue);
+    color: #fff;
+    border-radius: var(--radius-lg);
+    padding: var(--pad) var(--gap);
+    font-weight: 600;
+  }
+  .countdown-banner .num {
+    font-size: 1.3em;
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--blue-hair);
+    border-radius: var(--radius-lg);
+    padding: var(--pad);
+  }
+
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+  }
+
+  .controls-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+    align-items: flex-start;
+  }
+
+  .search-field {
+    flex: 1 1 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .search-field input[type="search"] {
+    width: 100%;
+    padding: 0.5rem 0.7rem;
+    border: 1px solid var(--blue-hair);
+    border-radius: var(--radius-sm);
+    background: var(--blue-soft);
+  }
+
+  fieldset.filter-group {
+    border: 1px solid var(--blue-hair);
+    border-radius: var(--radius-sm);
+    padding: 0.5rem 0.7rem;
+    min-width: 200px;
+  }
+
+  fieldset.filter-group legend {
+    font-weight: 600;
+    color: var(--blue-dark);
+    padding: 0 0.3rem;
+  }
+
+  .chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .chip {
+    border: 1px solid var(--blue-hair);
+    background: var(--blue-soft);
+    color: var(--blue-dark);
+    border-radius: 999px;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.85em;
+    font-weight: 600;
+  }
+  .chip[aria-pressed="true"] {
+    background: var(--blue);
+    color: #fff;
+    border-color: var(--blue-dark);
+  }
+
+  select {
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--blue-hair);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+  }
+
+  .sort-density-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--gap);
+  }
+
+  .field-label {
+    font-weight: 600;
+    color: var(--blue-dark);
+    font-size: 0.85em;
+  }
+
+  #entry-count {
+    font-size: 0.85em;
+    color: #4B5A66;
+  }
+
+  .entry-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  details.entry {
+    background: var(--surface);
+    border: 1px solid var(--blue-hair);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  details.entry.is-child {
+    margin-left: 2rem;
+    border-left: 4px solid var(--blue);
+  }
+
+  details.entry > summary {
+    list-style: none;
+    padding: var(--pad);
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  details.entry > summary::-webkit-details-marker { display: none; }
+  details.entry > summary::before {
+    content: "▸";
+    color: var(--blue);
+    font-weight: 700;
+    transition: transform 0.15s ease;
+  }
+  details.entry[open] > summary::before {
+    transform: rotate(90deg);
+  }
+
+  .entry-name {
+    font-weight: 700;
+    color: var(--blue-dark);
+    flex: 1 1 260px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    border-radius: 999px;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.78em;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .badge-jurisdiction {
+    background: var(--blue-soft);
+    color: var(--blue-dark);
+    border: 1px solid var(--blue-hair);
+  }
+
+  .badge-stub {
+    background: var(--stub-amber-soft);
+    color: var(--stub-amber);
+    border: 1px solid var(--stub-amber);
+  }
+
+  .badge-pending {
+    background: var(--pending-purple-soft);
+    color: var(--pending-purple);
+    border: 1px solid var(--pending-purple);
+  }
+
+  .badge-confidence-low {
+    background: var(--low-red-soft);
+    color: var(--low-red);
+    border: 2px solid var(--low-red);
+  }
+  .badge-confidence-medium {
+    background: var(--blue-soft);
+    color: var(--blue-dark);
+    border: 1px solid var(--blue-hair);
+  }
+  .badge-confidence-high {
+    background: #E7F5EA;
+    color: #1E6B34;
+    border: 1px solid #1E6B34;
+  }
+
+  .badge-status {
+    background: #F3F3F3;
+    color: #3A3A3A;
+    border: 1px solid #CFCFCF;
+  }
+
+  .parent-hint {
+    font-size: 0.8em;
+    color: #4B5A66;
+    flex-basis: 100%;
+  }
+
+  .entry-body {
+    padding: 0 var(--pad) var(--pad);
+    border-top: 1px solid var(--blue-hair);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .section h3 {
+    margin: 0 0 0.35rem;
+    font-size: 0.95em;
+    color: var(--blue-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .kv-list {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.25rem 0.7rem;
+    margin: 0;
+  }
+  .kv-list dt { font-weight: 600; color: #4B5A66; }
+  .kv-list dd { margin: 0; }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .tag {
+    background: var(--blue-soft);
+    border: 1px solid var(--blue-hair);
+    border-radius: var(--radius-sm);
+    padding: 0.15rem 0.5rem;
+    font-size: 0.85em;
+  }
+
+  ul.plain-list, ol.plain-list {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+
+  .info-btn {
+    background: none;
+    border: 1px solid var(--blue-hair);
+    color: var(--blue-dark);
+    border-radius: 50%;
+    width: 1.2rem;
+    height: 1.2rem;
+    line-height: 1;
+    font-size: 0.75em;
+    padding: 0;
+    position: relative;
+  }
+  .info-btn .tooltip {
+    display: none;
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--blue-dark);
+    color: #fff;
+    padding: 0.4rem 0.6rem;
+    border-radius: var(--radius-sm);
+    width: 220px;
+    font-weight: 400;
+    font-size: 0.9em;
+    z-index: 10;
+    text-align: left;
+  }
+  .info-btn:hover .tooltip,
+  .info-btn:focus .tooltip {
+    display: block;
+  }
+
+  .verify-dates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    font-size: 0.9em;
+  }
+
+  .verify-dates strong {
+    color: var(--blue-dark);
+  }
+
+  .notice-box {
+    border-radius: var(--radius-sm);
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9em;
+  }
+  .notice-box.stub {
+    background: var(--stub-amber-soft);
+    border: 1px solid var(--stub-amber);
+    color: #5A3D00;
+  }
+
+  .source-list {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+
+  .empty-state, .error-state {
+    text-align: center;
+    padding: 2rem;
+    color: #4B5A66;
+  }
+  .error-state {
+    color: var(--low-red);
+    font-weight: 600;
+  }
+
+  footer.site-footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--gap);
+    font-size: 0.8em;
+    color: #4B5A66;
+  }
+  footer.site-footer p {
+    margin: 0 0 0.5rem;
+  }
+  footer.site-footer .source-note {
+    font-style: italic;
+    opacity: 0.8;
+  }
+
+  @media print {
+    :root { --canvas: #fff; }
+    body { background: #fff; }
+    .controls, .header-controls, .countdown-banner { display: none !important; }
+    details.entry {
+      break-inside: avoid;
+      border: 1px solid #999;
+    }
+  }
+</style>
 </head>
 <body>
-  <!-- 佔位頁面。前端將由既有的 demo 移植進來。 -->
-  <h1>CertStack</h1>
-  <p>Global regulatory tracker for consumer electronics — under construction.</p>
+  <a class="skip-link" href="#main-content">跳到主要內容 / Skip to main content</a>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="site-title">
+        <h1 data-i18n="siteTitle">CertStack</h1>
+        <p data-i18n="siteSubtitle">消費性電子產品全球法規追蹤</p>
+      </div>
+      <div class="header-controls">
+        <button id="lang-toggle" class="btn" type="button" aria-pressed="false"></button>
+        <button id="density-toggle" class="btn" type="button" aria-pressed="false"></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div id="countdown-banner" class="countdown-banner" role="status" hidden></div>
+
+    <section class="panel controls" aria-label="篩選與搜尋 / Filters and search">
+      <div class="controls-row">
+        <div class="search-field">
+          <label class="field-label" for="search-input" data-i18n="searchLabel">搜尋</label>
+          <input id="search-input" type="search">
+        </div>
+      </div>
+      <div class="controls-row">
+        <fieldset class="filter-group">
+          <legend data-i18n="filterJurisdiction">法域</legend>
+          <div id="jurisdiction-chips" class="chip-list"></div>
+        </fieldset>
+        <fieldset class="filter-group">
+          <legend data-i18n="filterTags">產品類別</legend>
+          <div id="tag-chips" class="chip-list"></div>
+        </fieldset>
+        <fieldset class="filter-group">
+          <legend data-i18n="filterStatus">狀態</legend>
+          <div id="status-chips" class="chip-list"></div>
+        </fieldset>
+        <fieldset class="filter-group">
+          <legend data-i18n="filterEntryStatus">條目狀態</legend>
+          <div id="entry-status-chips" class="chip-list"></div>
+        </fieldset>
+      </div>
+      <div class="sort-density-row">
+        <div class="search-field" style="flex: 0 0 auto;">
+          <label class="field-label" for="sort-select" data-i18n="sortLabel">排序</label>
+          <select id="sort-select">
+            <option value="date" data-i18n="sortByDate">依最近生效日</option>
+            <option value="verified" data-i18n="sortByVerified">依最近查核日</option>
+          </select>
+        </div>
+        <div id="entry-count"></div>
+      </div>
+    </section>
+
+    <section aria-label="法規條目列表 / Regulation entries">
+      <div id="entry-list" class="entry-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p id="footer-disclaimer"></p>
+    <p class="source-note" id="footer-source-note"></p>
+  </footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // 頁尾 disclaimer 內嵌自 content/snippets/disclaimer.en.md 與
+  // disclaimer.zh.md（站台整體免責聲明段落），因 site/ 部署時不含
+  // content/ 目錄，無法於執行期 fetch，故先行內嵌並於頁尾註明來源檔案。
+  var DISCLAIMER = {
+    en: "This site organizes and summarizes publicly available primary regulatory documents for reference purposes only. It does not constitute legal advice. For guidance on a specific case, consult a qualified lawyer or compliance professional.",
+    zh: "本站內容為公開一手法規文件之整理與參考說明,不構成法律意見。個案適用請洽合格法律或合規專業人士。"
+  };
+  var DISCLAIMER_SOURCE = "content/snippets/disclaimer.en.md, content/snippets/disclaimer.zh.md";
+
+  var UI = {
+    zh: {
+      siteTitle: "CertStack",
+      siteSubtitle: "消費性電子產品全球法規追蹤",
+      langToggleTo: "English",
+      densityCompact: "切換為緊湊密度",
+      densityComfortable: "切換為寬鬆密度",
+      searchLabel: "搜尋法規名稱、引用文號或適用範圍",
+      filterJurisdiction: "法域",
+      filterTags: "產品類別",
+      filterStatus: "狀態",
+      filterEntryStatus: "條目狀態",
+      sortLabel: "排序",
+      sortByDate: "依最近生效日",
+      sortByVerified: "依最近查核日",
+      entryCount: function (n) { return "共 " + n + " 筆條目"; },
+      emptyState: "沒有符合篩選條件的條目。",
+      errorState: "資料載入失敗，請重新整理頁面或稍後再試。",
+      loading: "載入中…",
+      stubBadge: "資料建置中 / Entry in progress",
+      pendingBadge: "待人工複核 / Pending human review",
+      confidenceLabel: "可信度",
+      confidence: { high: "高", medium: "中", low: "低" },
+      parentHint: function (name) { return "上游條目：" + name; },
+      childrenTitle: "下游條目",
+      appliesInTitle: "適用會員國",
+      productScopeTitle: "適用範圍",
+      tagsTitle: "產品／零組件類別",
+      requirementsTitle: "要求項",
+      obligationsTitle: "義務",
+      enforcementTitle: "執法",
+      sourcesTitle: "來源",
+      notesTitle: "備註",
+      datesTitle: "重要日期",
+      lastVerifiedLabel: "最近查核",
+      lastReviewedLabel: "最近複核",
+      lastVerifiedTip: "連結可達、狀態未變",
+      lastReviewedTip: "已逐字核對官方原文",
+      citationLabel: "引用",
+      localTypeLabel: "法規類型",
+      instrumentTypeLabel: "文件性質",
+      statusLabel: "狀態",
+      countdownPrefix: "距離下一個生效日期還有",
+      countdownDays: "天",
+      countdownNone: "目前無即將到來的生效日期。",
+      yes: "是",
+      no: "否",
+      publisherLabel: "發布單位",
+      instrumentType: { regulation: "法規", directive: "指令", mandatory_standard: "強制性標準", administrative_measure: "行政措施", guidance: "指引", statute: "法條" },
+      status: { draft: "草案", adopted: "已通過", in_force: "現行有效", superseded: "已被取代", withdrawn: "已廢止" },
+      entryStatus: { stub: "資料建置中", complete: "資料齊備" },
+      appliesTo: { producer: "生產者", seller: "銷售者", importer: "進口商", manufacturer: "製造商" },
+      conformity: { none: "無", sdoc: "自我聲明", ccc: "CCC認證", type_approval: "型式認證", third_party: "第三方驗證" },
+      penaltyBasis: { in_instrument: "法規本身明定", national_law: "國內轉換立法", none_specified: "未明定" },
+      requirementFields: { marking: "標示要求", local_representative: "須設境內代表", local_testing: "須境內測試", registration: "須註冊" }
+    },
+    en: {
+      siteTitle: "CertStack",
+      siteSubtitle: "Global regulatory tracker for consumer electronics",
+      langToggleTo: "繁體中文",
+      densityCompact: "Switch to compact density",
+      densityComfortable: "Switch to comfortable density",
+      searchLabel: "Search by name, citation, or product scope",
+      filterJurisdiction: "Jurisdiction",
+      filterTags: "Product category",
+      filterStatus: "Status",
+      filterEntryStatus: "Entry status",
+      sortLabel: "Sort",
+      sortByDate: "By nearest application date",
+      sortByVerified: "By most recent verification",
+      entryCount: function (n) { return n + " entries"; },
+      emptyState: "No entries match the current filters.",
+      errorState: "Failed to load data. Please refresh the page or try again later.",
+      loading: "Loading…",
+      stubBadge: "資料建置中 / Entry in progress",
+      pendingBadge: "待人工複核 / Pending human review",
+      confidenceLabel: "Confidence",
+      confidence: { high: "High", medium: "Medium", low: "Low" },
+      parentHint: function (name) { return "Parent entry: " + name; },
+      childrenTitle: "Child entries",
+      appliesInTitle: "Applies in (member states)",
+      productScopeTitle: "Product scope",
+      tagsTitle: "Product / component tags",
+      requirementsTitle: "Requirements",
+      obligationsTitle: "Obligations",
+      enforcementTitle: "Enforcement",
+      sourcesTitle: "Sources",
+      notesTitle: "Notes",
+      datesTitle: "Key dates",
+      lastVerifiedLabel: "Last verified",
+      lastReviewedLabel: "Last reviewed",
+      lastVerifiedTip: "Link reachable, status unchanged",
+      lastReviewedTip: "Content checked word-for-word against the official source",
+      citationLabel: "Citation",
+      localTypeLabel: "Local instrument type",
+      instrumentTypeLabel: "Instrument type",
+      statusLabel: "Status",
+      countdownPrefix: "Next application date in",
+      countdownDays: "days",
+      countdownNone: "No upcoming application date at this time.",
+      yes: "Yes",
+      no: "No",
+      publisherLabel: "Publisher",
+      instrumentType: { regulation: "Regulation", directive: "Directive", mandatory_standard: "Mandatory standard", administrative_measure: "Administrative measure", guidance: "Guidance", statute: "Statute" },
+      status: { draft: "Draft", adopted: "Adopted", in_force: "In force", superseded: "Superseded", withdrawn: "Withdrawn" },
+      entryStatus: { stub: "Entry in progress", complete: "Complete" },
+      appliesTo: { producer: "Producer", seller: "Seller", importer: "Importer", manufacturer: "Manufacturer" },
+      conformity: { none: "None", sdoc: "Self-declaration (SDoC)", ccc: "CCC certification", type_approval: "Type approval", third_party: "Third-party assessment" },
+      penaltyBasis: { in_instrument: "Set out in the instrument itself", national_law: "Set by national implementing law", none_specified: "Not specified" },
+      requirementFields: { marking: "Marking required", local_representative: "Local representative required", local_testing: "Local testing required", registration: "Registration required" }
+    }
+  };
+
+  var STATUS_VALUES = ["draft", "adopted", "in_force", "superseded", "withdrawn"];
+  var ENTRY_STATUS_VALUES = ["stub", "complete"];
+
+  var state = {
+    lang: "zh",
+    density: "comfortable",
+    search: "",
+    jurisdictions: new Set(),
+    tags: new Set(),
+    statuses: new Set(),
+    entryStatuses: new Set(),
+    sort: "date"
+  };
+
+  var raw = null; // { vocab, entries }
+  var entries = []; // real entries only (example- excluded)
+  var byId = {};
+
+  function t(key) {
+    return UI[state.lang][key];
+  }
+
+  function bilingual(obj) {
+    if (!obj) return "";
+    return obj[state.lang] || "";
+  }
+
+  function prettify(str) {
+    return String(str).replace(/_/g, " ").replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+  }
+
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    attrs = attrs || {};
+    Object.keys(attrs).forEach(function (k) {
+      if (k === "class") node.className = attrs[k];
+      else if (k === "text") node.textContent = attrs[k];
+      else if (k === "html") node.innerHTML = attrs[k];
+      else node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      if (c) node.appendChild(c);
+    });
+    return node;
+  }
+
+  // ---- 資料載入 ----
+
+  function loadData() {
+    var listEl = document.getElementById("entry-list");
+    listEl.innerHTML = "";
+    listEl.appendChild(el("p", { class: "empty-state", text: t("loading") }));
+
+    fetch("data.json")
+      .then(function (resp) {
+        if (!resp.ok) throw new Error("HTTP " + resp.status);
+        return resp.json();
+      })
+      .then(function (json) {
+        raw = json;
+        entries = (json.entries || []).filter(function (e) {
+          return e.id.indexOf("example-") !== 0;
+        });
+        byId = {};
+        entries.forEach(function (e) { byId[e.id] = e; });
+        buildFilterControls();
+        renderAll();
+      })
+      .catch(function (err) {
+        listEl.innerHTML = "";
+        listEl.appendChild(el("p", { class: "error-state", role: "alert", text: t("errorState") + " (" + err.message + ")" }));
+      });
+  }
+
+  // ---- 篩選控制項 ----
+
+  function buildFilterControls() {
+    var jurisdictionChips = document.getElementById("jurisdiction-chips");
+    jurisdictionChips.innerHTML = "";
+    Object.keys(raw.vocab.jurisdictions || {}).forEach(function (code) {
+      jurisdictionChips.appendChild(makeChip(code, bilingual(raw.vocab.jurisdictions[code]), state.jurisdictions));
+    });
+
+    var tagChips = document.getElementById("tag-chips");
+    tagChips.innerHTML = "";
+    var allTags = Object.assign({}, raw.vocab.product_tags || {}, raw.vocab.component_tags || {});
+    Object.keys(allTags).forEach(function (code) {
+      tagChips.appendChild(makeChip(code, bilingual(allTags[code]), state.tags));
+    });
+
+    var statusChips = document.getElementById("status-chips");
+    statusChips.innerHTML = "";
+    STATUS_VALUES.forEach(function (code) {
+      statusChips.appendChild(makeChip(code, t("status")[code], state.statuses));
+    });
+
+    var entryStatusChips = document.getElementById("entry-status-chips");
+    entryStatusChips.innerHTML = "";
+    ENTRY_STATUS_VALUES.forEach(function (code) {
+      entryStatusChips.appendChild(makeChip(code, t("entryStatus")[code], state.entryStatuses));
+    });
+  }
+
+  function makeChip(value, label, set) {
+    var pressed = set.has(value);
+    var btn = el("button", {
+      class: "chip",
+      type: "button",
+      "aria-pressed": pressed ? "true" : "false",
+      text: label
+    });
+    btn.addEventListener("click", function () {
+      if (set.has(value)) set.delete(value); else set.add(value);
+      buildFilterControls();
+      renderAll();
+    });
+    return btn;
+  }
+
+  // ---- 篩選／排序邏輯 ----
+
+  function matchesFilters(e) {
+    if (state.search) {
+      var q = state.search.toLowerCase();
+      var haystacks = [
+        bilingual(e.short_name),
+        e.citation || "",
+        bilingual(e.product_scope)
+      ].join(" ").toLowerCase();
+      if (haystacks.indexOf(q) === -1) return false;
+    }
+    if (state.jurisdictions.size > 0) {
+      var applies = e.applies_in || [];
+      var hit = state.jurisdictions.has(e.jurisdiction) ||
+        applies.some(function (a) { return state.jurisdictions.has(a); });
+      if (!hit) return false;
+    }
+    if (state.tags.size > 0) {
+      var entryTags = (e.product_tags || []).concat(e.component_tags || []);
+      var tagHit = entryTags.some(function (tag) { return state.tags.has(tag); });
+      if (!tagHit) return false;
+    }
+    if (state.statuses.size > 0 && !state.statuses.has(e.status)) return false;
+    if (state.entryStatuses.size > 0 && !state.entryStatuses.has(e.entry_status)) return false;
+    return true;
+  }
+
+  function effectiveDateValue(e) {
+    var d = e.dates;
+    if (!d) return null;
+    var val = d.application || null;
+    return val ? new Date(val).getTime() : null;
+  }
+
+  function verifiedDateValue(e) {
+    return e.last_verified ? new Date(e.last_verified).getTime() : 0;
+  }
+
+  function sortKey(e) {
+    if (state.sort === "verified") return -verifiedDateValue(e);
+    var v = effectiveDateValue(e);
+    return v === null ? Infinity : v;
+  }
+
+  function visibleTree() {
+    var matchedIds = new Set(entries.filter(matchesFilters).map(function (e) { return e.id; }));
+    var visibleIds = new Set(matchedIds);
+    matchedIds.forEach(function (id) {
+      var e = byId[id];
+      if (e.parent && byId[e.parent]) visibleIds.add(e.parent);
+    });
+
+    var topLevel = entries.filter(function (e) { return !e.parent && visibleIds.has(e.id); });
+    topLevel.sort(function (a, b) { return sortKey(a) - sortKey(b); });
+
+    return topLevel.map(function (parentEntry) {
+      var children = entries.filter(function (e) {
+        return e.parent === parentEntry.id && visibleIds.has(e.id);
+      });
+      children.sort(function (a, b) { return sortKey(a) - sortKey(b); });
+      return { entry: parentEntry, children: children };
+    });
+  }
+
+  // ---- 渲染：列表 ----
+
+  function renderAll() {
+    renderHeaderControls();
+    renderCountdown();
+    renderList();
+  }
+
+  function renderHeaderControls() {
+    document.documentElement.lang = state.lang === "zh" ? "zh-Hant" : "en";
+
+    var langBtn = document.getElementById("lang-toggle");
+    langBtn.textContent = t("langToggleTo");
+    langBtn.setAttribute("aria-pressed", state.lang === "en" ? "true" : "false");
+
+    var densityBtn = document.getElementById("density-toggle");
+    densityBtn.textContent = state.density === "comfortable" ? t("densityCompact") : t("densityComfortable");
+    densityBtn.setAttribute("aria-pressed", state.density === "compact" ? "true" : "false");
+    document.body.classList.toggle("density-compact", state.density === "compact");
+
+    document.querySelectorAll("[data-i18n]").forEach(function (node) {
+      var key = node.getAttribute("data-i18n");
+      if (UI[state.lang][key]) node.textContent = UI[state.lang][key];
+    });
+
+    document.getElementById("search-input").placeholder = t("searchLabel");
+    document.getElementById("sort-select").options[0].textContent = t("sortByDate");
+    document.getElementById("sort-select").options[1].textContent = t("sortByVerified");
+
+    document.getElementById("footer-disclaimer").textContent = DISCLAIMER[state.lang];
+    document.getElementById("footer-source-note").textContent =
+      (state.lang === "zh" ? "來源檔案：" : "Source file: ") + DISCLAIMER_SOURCE;
+
+    document.title = t("siteTitle") + " — " + t("siteSubtitle");
+  }
+
+  function renderCountdown() {
+    var banner = document.getElementById("countdown-banner");
+    var now = Date.now();
+    var soonest = null;
+
+    entries.forEach(function (e) {
+      var d = e.dates;
+      if (!d) return;
+      var candidate = d.labelling || d.application;
+      if (!candidate) return;
+      var ts = new Date(candidate).getTime();
+      if (ts > now && (soonest === null || ts < soonest)) soonest = ts;
+    });
+
+    if (soonest === null) {
+      banner.hidden = true;
+      return;
+    }
+    var days = Math.ceil((soonest - now) / 86400000);
+    banner.hidden = false;
+    banner.textContent = t("countdownPrefix") + " " + days + " " + t("countdownDays");
+  }
+
+  function renderList() {
+    var listEl = document.getElementById("entry-list");
+    listEl.innerHTML = "";
+    var tree = visibleTree();
+
+    document.getElementById("entry-count").textContent = t("entryCount")(
+      tree.reduce(function (n, node) { return n + 1 + node.children.length; }, 0)
+    );
+
+    if (tree.length === 0) {
+      listEl.appendChild(el("p", { class: "empty-state", text: t("emptyState") }));
+      return;
+    }
+
+    tree.forEach(function (node) {
+      listEl.appendChild(renderEntry(node.entry, false, null));
+      node.children.forEach(function (child) {
+        listEl.appendChild(renderEntry(child, true, node.entry));
+      });
+    });
+  }
+
+  // ---- 渲染：單一條目 ----
+
+  function renderEntry(e, isChild, parentEntry) {
+    var details = el("details", { class: "entry" + (isChild ? " is-child" : ""), "data-id": e.id });
+
+    var summary = el("summary", {});
+    summary.appendChild(el("span", { class: "entry-name", text: bilingual(e.short_name) }));
+
+    var jurisdictionInfo = raw.vocab.jurisdictions[e.jurisdiction] || {};
+    summary.appendChild(el("span", { class: "badge badge-jurisdiction", text: bilingual(jurisdictionInfo) || e.jurisdiction }));
+    summary.appendChild(el("span", { class: "badge badge-status", text: t("status")[e.status] || e.status }));
+
+    if (e.entry_status === "stub") {
+      summary.appendChild(el("span", { class: "badge badge-stub", text: t("stubBadge") }));
+    }
+    if (e.review_status === "pending") {
+      summary.appendChild(el("span", { class: "badge badge-pending", text: t("pendingBadge") }));
+    }
+    if (e.confidence) {
+      summary.appendChild(el("span", {
+        class: "badge badge-confidence-" + e.confidence,
+        text: (e.confidence === "low" ? "⚠ " : "") + t("confidenceLabel") + ": " + t("confidence")[e.confidence]
+      }));
+    }
+
+    if (isChild && parentEntry) {
+      summary.appendChild(el("span", { class: "parent-hint", text: t("parentHint")(bilingual(parentEntry.short_name)) }));
+    }
+
+    details.appendChild(summary);
+    details.appendChild(renderEntryBody(e));
+    return details;
+  }
+
+  function renderEntryBody(e) {
+    var body = el("div", { class: "entry-body" });
+
+    // 基本資訊
+    var basics = el("dl", { class: "kv-list" });
+    appendKv(basics, t("citationLabel"), e.citation);
+    appendKv(basics, t("localTypeLabel"), e.local_type);
+    if (e.instrument_type) appendKv(basics, t("instrumentTypeLabel"), t("instrumentType")[e.instrument_type] || e.instrument_type);
+    body.appendChild(el("div", { class: "section" }, [basics]));
+
+    // 適用範圍
+    if (e.product_scope && bilingual(e.product_scope)) {
+      body.appendChild(section(t("productScopeTitle"), [el("p", { text: bilingual(e.product_scope) })]));
+    }
+
+    // 產品／零組件類別
+    var tags = (e.product_tags || []).concat(e.component_tags || []);
+    if (tags.length > 0) {
+      var tagWrap = el("div", { class: "tag-list" });
+      tags.forEach(function (tagCode) {
+        var info = (raw.vocab.product_tags && raw.vocab.product_tags[tagCode]) ||
+          (raw.vocab.component_tags && raw.vocab.component_tags[tagCode]);
+        tagWrap.appendChild(el("span", { class: "tag", text: info ? bilingual(info) : prettify(tagCode) }));
+      });
+      body.appendChild(section(t("tagsTitle"), [tagWrap]));
+    }
+
+    // 超國家層級：適用會員國
+    if (e.applies_in && e.applies_in.length > 0) {
+      var appliesWrap = el("div", { class: "tag-list" });
+      e.applies_in.forEach(function (code) {
+        var info = raw.vocab.jurisdictions[code];
+        appliesWrap.appendChild(el("span", { class: "tag", text: info ? bilingual(info) : code }));
+      });
+      body.appendChild(section(t("appliesInTitle"), [appliesWrap]));
+    }
+
+    // 重要日期
+    if (e.dates) {
+      var dateRows = el("dl", { class: "kv-list" });
+      var dateLabels = state.lang === "zh"
+        ? { published: "發布日", application: "生效日", labelling: "標示日", transition_end: "過渡期截止日" }
+        : { published: "Published", application: "Application", labelling: "Labelling", transition_end: "Transition end" };
+      Object.keys(dateLabels).forEach(function (key) {
+        if (e.dates[key]) appendKv(dateRows, dateLabels[key], e.dates[key]);
+      });
+      if (dateRows.children.length > 0) body.appendChild(section(t("datesTitle"), [dateRows]));
+    }
+
+    // 要求項
+    if (e.requirements) {
+      var reqRows = el("dl", { class: "kv-list" });
+      ["marking", "local_representative", "local_testing", "registration"].forEach(function (key) {
+        if (typeof e.requirements[key] === "boolean") {
+          appendKv(reqRows, t("requirementFields")[key], e.requirements[key] ? t("yes") : t("no"));
+        }
+      });
+      var reqBlock = [reqRows];
+      if (e.requirements.conformity_assessment && e.requirements.conformity_assessment.length > 0) {
+        var caWrap = el("div", { class: "tag-list" });
+        e.requirements.conformity_assessment.forEach(function (code) {
+          caWrap.appendChild(el("span", { class: "tag", text: t("conformity")[code] || code }));
+        });
+        reqBlock.push(caWrap);
+      }
+      if (e.requirements.conformity_assessment_note && bilingual(e.requirements.conformity_assessment_note)) {
+        reqBlock.push(el("p", { text: bilingual(e.requirements.conformity_assessment_note) }));
+      }
+      body.appendChild(section(t("requirementsTitle"), reqBlock));
+    }
+
+    // 義務
+    if (e.obligations && e.obligations.length > 0) {
+      var obList = el("ul", { class: "plain-list" });
+      e.obligations.forEach(function (ob) {
+        var actorLabel = t("appliesTo")[ob.actor] || ob.actor;
+        obList.appendChild(el("li", { text: actorLabel + "：" + bilingual(ob.action) }));
+      });
+      body.appendChild(section(t("obligationsTitle"), [obList]));
+    }
+
+    // 執法
+    if (e.enforcement) {
+      var enfRows = el("dl", { class: "kv-list" });
+      if (e.enforcement.authority) appendKv(enfRows, state.lang === "zh" ? "主管機關" : "Authority", e.enforcement.authority);
+      if (e.enforcement.penalty_basis) appendKv(enfRows, state.lang === "zh" ? "罰則依據" : "Penalty basis", t("penaltyBasis")[e.enforcement.penalty_basis]);
+      if (e.enforcement.penalty_range) appendKv(enfRows, state.lang === "zh" ? "罰則範圍" : "Penalty range", e.enforcement.penalty_range);
+      var enfBlock = [enfRows];
+      if (e.enforcement.penalty_summary && bilingual(e.enforcement.penalty_summary)) {
+        enfBlock.push(el("p", { text: bilingual(e.enforcement.penalty_summary) }));
+      }
+      if (e.enforcement.mechanism && e.enforcement.mechanism.length > 0) {
+        var mechWrap = el("div", { class: "tag-list" });
+        e.enforcement.mechanism.forEach(function (m) {
+          mechWrap.appendChild(el("span", { class: "tag", text: prettify(m) }));
+        });
+        enfBlock.push(mechWrap);
+      }
+      body.appendChild(section(t("enforcementTitle"), enfBlock));
+    }
+
+    // 父子關係：下游條目
+    var children = entries.filter(function (c) { return c.parent === e.id; });
+    if (children.length > 0) {
+      var childList = el("ul", { class: "plain-list" });
+      children.forEach(function (c) {
+        childList.appendChild(el("li", { text: bilingual(c.short_name) }));
+      });
+      body.appendChild(section(t("childrenTitle"), [childList]));
+    }
+
+    // 來源
+    if (e.sources && e.sources.length > 0) {
+      var srcList = el("ul", { class: "source-list" });
+      e.sources.forEach(function (src) {
+        var li = el("li", {});
+        var link = el("a", { href: src.url, target: "_blank", rel: "noopener noreferrer", text: src.url });
+        li.appendChild(link);
+        if (src.publisher) li.appendChild(el("span", { text: " — " + src.publisher }));
+        srcList.appendChild(li);
+      });
+      body.appendChild(section(t("sourcesTitle"), [srcList]));
+    }
+
+    // stub 提示與備註
+    if (e.entry_status === "stub" && e.notes && bilingual(e.notes)) {
+      body.appendChild(el("div", { class: "notice-box stub", text: bilingual(e.notes) }));
+    } else if (e.notes && bilingual(e.notes)) {
+      body.appendChild(section(t("notesTitle"), [el("p", { text: bilingual(e.notes) })]));
+    }
+
+    // 查核日期
+    var verifyWrap = el("div", { class: "verify-dates" });
+    verifyWrap.appendChild(makeVerifyDate(t("lastVerifiedLabel"), e.last_verified, t("lastVerifiedTip")));
+    verifyWrap.appendChild(makeVerifyDate(t("lastReviewedLabel"), e.last_reviewed, t("lastReviewedTip")));
+    body.appendChild(verifyWrap);
+
+    return body;
+  }
+
+  function makeVerifyDate(label, value, tip) {
+    var wrap = el("span", {});
+    wrap.appendChild(document.createTextNode(label + "："));
+    wrap.appendChild(el("strong", { text: value || "—" }));
+    var btn = el("button", { type: "button", class: "info-btn", "aria-label": tip });
+    btn.appendChild(el("span", { class: "tooltip", role: "tooltip", text: tip }));
+    btn.appendChild(document.createTextNode("i"));
+    wrap.appendChild(document.createTextNode(" "));
+    wrap.appendChild(btn);
+    return wrap;
+  }
+
+  function section(title, children) {
+    var s = el("div", { class: "section" });
+    s.appendChild(el("h3", { text: title }));
+    children.forEach(function (c) { s.appendChild(c); });
+    return s;
+  }
+
+  function appendKv(dl, key, value) {
+    dl.appendChild(el("dt", { text: key }));
+    dl.appendChild(el("dd", { text: value }));
+  }
+
+  // ---- 事件綁定 ----
+
+  document.getElementById("lang-toggle").addEventListener("click", function () {
+    state.lang = state.lang === "zh" ? "en" : "zh";
+    buildFilterControls();
+    renderAll();
+  });
+
+  document.getElementById("density-toggle").addEventListener("click", function () {
+    state.density = state.density === "comfortable" ? "compact" : "comfortable";
+    renderAll();
+  });
+
+  document.getElementById("search-input").addEventListener("input", function (evt) {
+    state.search = evt.target.value.trim();
+    renderList();
+  });
+
+  document.getElementById("sort-select").addEventListener("change", function (evt) {
+    state.sort = evt.target.value;
+    renderList();
+  });
+
+  window.addEventListener("beforeprint", function () {
+    document.querySelectorAll("details.entry").forEach(function (d) { d.open = true; });
+  });
+
+  loadData();
+})();
+</script>
 </body>
 </html>
