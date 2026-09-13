@@ -293,8 +293,16 @@ def main():
             err(eid, "last_verified", "last_verified must not be in the future")
 
         # confidence
-        check_enum(eid, "confidence", entry.get("confidence"),
-                   {"high", "medium", "low"}, True)
+        confidence = entry.get("confidence")
+        check_enum(eid, "confidence", confidence, {"high", "medium", "low"}, True)
+
+        # review_status
+        review_status = entry.get("review_status")
+        check_enum(eid, "review_status", review_status, {"pending", "reviewed"}, True)
+        if review_status == "pending":
+            if confidence == "high":
+                err(eid, "confidence", "confidence must not be high while review_status is pending")
+            warn(eid, "review_status", "entry is pending human review")
 
         # notes (optional bilingual)
         if entry.get("notes") is not None:

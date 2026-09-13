@@ -49,6 +49,9 @@ in this repo.
   itself, so a single number would misrepresent reality. Only
   `enforcement.penalty_range` may contain a figure, and only when the
   original regulatory text specifies a single fixed amount.
+- Entries with `review_status: pending` must display a clear indicator on
+  the frontend, with the label "待人工複核 / Pending human review". This is
+  required in addition to (not instead of) the `confidence` flag above.
 
 ## Content discipline
 

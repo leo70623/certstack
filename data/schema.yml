@@ -1,7 +1,9 @@
 # ============================================================================
 # CertStack tracker schema
-# Schema version: v1.2 (2026-09-13) — adds supranational jurisdiction support
-# (GCC) and member-state jurisdictions (KW, QA, BH, OM) via applies_in.
+# Schema version: v1.3 (2026-09-13) — adds review_status to distinguish
+# auto-extracted field values from ones manually verified against source.
+# v1.2 (2026-09-13) — adds supranational jurisdiction support (GCC) and
+# member-state jurisdictions (KW, QA, BH, OM) via applies_in.
 #
 # id naming rule (READ BEFORE ADDING/EDITING ENTRIES):
 #   id doubles as: filename key, URL path segment, and the reference key used
@@ -237,6 +239,19 @@ last_reviewed:
   type: date
   required: true
   # Deep check: current text verified word-for-word against source.
+
+review_status:
+  type: enum
+  values: [pending, reviewed]
+  required: true
+  default: pending
+  # pending  = field values were produced by automated extraction and have
+  #            not yet been manually checked word-for-word against the
+  #            official source text.
+  # reviewed = a human has checked the field values word-for-word against
+  #            the official source text.
+  # When review_status is pending, the last_reviewed date reflects only the
+  # extraction date, not a human review date.
 
 confidence:
   type: enum
