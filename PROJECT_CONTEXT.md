@@ -57,6 +57,11 @@ in this repo.
   no clauses, tables, or limit values copied from standard bodies' texts.
 - Entries with `instrument_type: mandatory_standard` record structured
   fields only. Do not write content summaries for these entries.
+- A real regulation id must never be bound to unverified field values.
+  Template or placeholder entries must always use an `example-` prefixed
+  id and a citation clearly marked as a placeholder. Any field value that
+  has not been manually verified word-for-word against the official source
+  must not be entered into an entry with a real regulation id.
 
 ## Language strategy
 

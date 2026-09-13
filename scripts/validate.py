@@ -17,10 +17,15 @@ VOCAB_FILE = DATA / "vocab.yml"
 ID_PATTERN = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 
 errors = []
+warnings = []
 
 
 def err(entry_id, field, message):
     errors.append(f"{TRACKER_FILE.name}:{entry_id}:{field}:{message}")
+
+
+def warn(entry_id, field, message):
+    warnings.append(f"{TRACKER_FILE.name}:{entry_id}:{field}:{message}")
 
 
 def load_yaml(path):
@@ -118,6 +123,8 @@ def main():
             err(eid, "id", f"id {entry['id']!r} does not match pattern {ID_PATTERN.pattern}")
         if eid in duplicate_ids:
             err(eid, "id", "id is not unique")
+        if isinstance(eid, str) and eid.startswith("example-"):
+            warn(eid, "id", "this is a template/placeholder entry")
 
         # jurisdiction
         check_enum(eid, "jurisdiction", entry.get("jurisdiction"),
@@ -274,6 +281,9 @@ def main():
         # notes (optional bilingual)
         if entry.get("notes") is not None:
             check_bilingual(eid, "notes", entry.get("notes"), False)
+
+    for w in warnings:
+        print(f"WARNING: {w}", file=sys.stderr)
 
     if errors:
         for e in errors:

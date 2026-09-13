@@ -2,12 +2,12 @@
 # All other entries are to be added manually by a human researcher.
 # Do not auto-generate regulatory content.
 
-- id: eu-2025-1960
+- id: example-0000-0001
   parent: null
   superseded_by: null
   jurisdiction: EU
-  citation: "Regulation (EU) 2025/1960"
-  local_type: "Regulation"
+  citation: "EXAMPLE — not a real instrument"
+  local_type: "Example"
   instrument_type: regulation
   short_name:
     en: "Example Regulation Short Name"
@@ -55,9 +55,9 @@
   related: []
 
   sources:
-    - url: "https://eur-lex.europa.eu/eli/reg/2025/1960/example"
+    - url: "https://example.org/placeholder"
       type: primary
-      publisher: "Official Journal of the European Union"
+      publisher: "Placeholder"
 
   enforcement:
     authority: "National market surveillance authorities"
@@ -82,7 +82,7 @@
 
   last_verified: "2026-08-01"
   last_reviewed: "2026-07-01"
-  confidence: medium
+  confidence: low
   notes:
-    en: "Content pending verification."
-    zh: "內容待查核。"
+    en: "TEMPLATE ENTRY — not a real regulation. Fill-in reference only. Delete once real entries exist."
+    zh: "範本條目 — 非真實法規，僅供填寫參考。真實條目建立後即刪除。"
