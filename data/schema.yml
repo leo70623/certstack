@@ -1,6 +1,11 @@
 # ============================================================================
 # CertStack tracker schema
-# Schema version: v1.3 (2026-09-13) — adds review_status to distinguish
+# Schema version: v1.4 (2026-09-13) — requirements.conformity_assessment is
+# now a list of enum values (min 1) instead of a single enum, to represent
+# instruments with risk-tiered/category-based procedures; adds
+# requirements.conformity_assessment_note. Removes sdoc_or_certification
+# (expressed instead as [sdoc, third_party]).
+# v1.3 (2026-09-13) — adds review_status to distinguish
 # auto-extracted field values from ones manually verified against source.
 # v1.2 (2026-09-13) — adds supranational jurisdiction support (GCC) and
 # member-state jurisdictions (KW, QA, BH, OM) via applies_in.
@@ -144,8 +149,21 @@ requirements.registration:
   required: true
 
 requirements.conformity_assessment:
-  type: enum
-  values: [none, sdoc, ccc, type_approval, third_party, sdoc_or_certification]
+  type: list_of_enum
+  required: true
+  min_items: 1
+  values: [none, sdoc, ccc, type_approval, third_party]
+  # Multiple values mean the instrument prescribes different procedures by
+  # product risk tier or category (e.g. a self-declaration track for lower-risk
+  # products and third-party certification for higher-risk ones). Instruments
+  # with a single uniform procedure fill in a single-element list.
+
+requirements.conformity_assessment_note:
+  type: bilingual_or_null
+  required: false
+  default: null
+  # Required when conformity_assessment has more than one value: explains
+  # which procedure applies under what conditions.
 
 obligations:
   type: list_of_object

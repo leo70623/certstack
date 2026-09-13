@@ -39,7 +39,8 @@
     local_representative: true
     local_testing: false
     registration: false
-    conformity_assessment: sdoc
+    conformity_assessment:
+      - sdoc
 
   obligations:
     - actor: manufacturer
@@ -121,7 +122,7 @@
 
   status: in_force
   dates:
-    published: "UNVERIFIED"
+    published: null
     application: "2016-07-01"
     labelling: null
     transition_end: null
@@ -130,8 +131,13 @@
     marking: true
     local_representative: false
     local_testing: false
-    registration: "UNVERIFIED"
-    conformity_assessment: "UNVERIFIED"
+    registration: false
+    conformity_assessment:
+      - sdoc
+      - third_party
+    conformity_assessment_note:
+      en: "List 1 (low risk) via manufacturer's self-declaration; List 2 requires examination by a GSO notified body."
+      zh: "List 1（低風險）採製造商自我宣告；List 2 須經 GSO 指定機構審查。"
 
   obligations:
     - actor: manufacturer
@@ -186,5 +192,5 @@
   review_status: pending
   confidence: low
   notes:
-    en: "AUTO-EXTRACTED ENTRY — pending human word-for-word review against the source PDF. The following fields could not be verified against either permitted source and are marked UNVERIFIED: dates.published (no explicit approval/publication date found for this edition, only its 2016-07-01 entry-into-force date and the prior 2007 edition's date); requirements.registration (no registration process is described in either source); requirements.conformity_assessment (the regulation splits conformity assessment into two tracks by product risk category — List 1 self-declaration under Annex 3, and List 2 mandatory third-party Gulf-type examination under Annex 4 — and the current schema enum can only hold one value per entry; see reported judgment)."
-    zh: "自動擷取條目 — 尚待人工逐字複核來源PDF。下列欄位無法依兩個允許來源查證，標示為UNVERIFIED：dates.published（未查得本版核准/發布日期，僅查得2016-07-01生效日及2007年前版日期）；requirements.registration（兩來源均未描述登記程序）；requirements.conformity_assessment（本法規依產品風險分兩軌：附件3之第一類清單為自我聲明，附件4之第二類清單為強制第三方Gulf-type examination，現行schema enum僅能容納單一值，詳見回報之判斷）。"
+    en: "AUTO-EXTRACTED ENTRY — pending human word-for-word review against the source PDF. requirements.conformity_assessment is now correctly expressed as [sdoc, third_party] per schema v1.4, reflecting the regulation's List 1 (self-declaration) / List 2 (mandatory third-party) split — see conformity_assessment_note. dates.published could not be found in either permitted source (only the 2016-07-01 entry-into-force date and the prior 2007 edition's date are given), so it is left as null rather than guessed. requirements.registration is set to false because this Technical Regulation itself does not establish a registration process; Saudi Arabia's SABER platform registration is a separate national scheme outside the scope of this GCC-level instrument."
+    zh: "自動擷取條目 — 尚待人工逐字複核來源PDF。requirements.conformity_assessment 依 schema v1.4 已正確表示為 [sdoc, third_party]，反映本法規 List 1（自我聲明）與 List 2（強制第三方）之分流，詳見 conformity_assessment_note。dates.published 於兩個允許來源中皆未查得（僅查得2016-07-01生效日及2007年前版日期），故暫填 null 而非臆測。requirements.registration 填 false，係因本法規本身未設置註冊程序；沙烏地阿拉伯之 SABER 平台註冊屬另一項國家層級之獨立制度，不在本 GCC 法規範圍內。"

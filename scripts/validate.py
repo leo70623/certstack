@@ -226,10 +226,25 @@ def main():
         for bfield in ("marking", "local_representative", "local_testing", "registration"):
             if not isinstance(requirements.get(bfield), bool):
                 err(eid, f"requirements.{bfield}", "must be a boolean and is required")
-        check_enum(eid, "requirements.conformity_assessment",
-                   requirements.get("conformity_assessment"),
-                   {"none", "sdoc", "ccc", "type_approval", "third_party",
-                    "sdoc_or_certification"}, True)
+        conformity_assessment = requirements.get("conformity_assessment")
+        ca_allowed = {"none", "sdoc", "ccc", "type_approval", "third_party"}
+        if not isinstance(conformity_assessment, list) or not conformity_assessment:
+            err(eid, "requirements.conformity_assessment",
+                "must be a non-empty list of enum values")
+        else:
+            for value in conformity_assessment:
+                if value not in ca_allowed:
+                    err(eid, "requirements.conformity_assessment",
+                        f"invalid enum value {value!r}, expected one of {ca_allowed}")
+            if len(conformity_assessment) != len(set(conformity_assessment)):
+                err(eid, "requirements.conformity_assessment",
+                    "must not contain duplicate values")
+            if "none" in conformity_assessment and len(conformity_assessment) > 1:
+                err(eid, "requirements.conformity_assessment",
+                    "must not combine 'none' with other values")
+            if len(conformity_assessment) > 1:
+                check_bilingual(eid, "requirements.conformity_assessment_note",
+                                 requirements.get("conformity_assessment_note"), True)
 
         # obligations
         obligations = entry.get("obligations") or []
