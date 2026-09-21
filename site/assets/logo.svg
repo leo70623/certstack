@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
+  <rect width="1200" height="360" fill="#FFF9E8"/>
+  <g transform="translate(48 62)">
+    <path d="M18 72 L108 22 L198 72 L108 122 Z" fill="none" stroke="#165A9C" stroke-width="14" stroke-linejoin="round"/>
+    <path d="M18 116 L108 166 L198 116" fill="none" stroke="#165A9C" stroke-width="14" stroke-linejoin="round"/>
+    <path d="M18 160 L108 210 L198 160" fill="none" stroke="#165A9C" stroke-width="14" stroke-linejoin="round"/>
+    <circle cx="108" cy="72" r="16" fill="#E15B3E"/>
+  </g>
+  <text x="285" y="158" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="700" fill="#165A9C" letter-spacing="-3">CertStack</text>
+  <text x="291" y="218" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="600" fill="#526274" letter-spacing="4">GLOBAL REGULATORY INTELLIGENCE</text>
+</svg>
