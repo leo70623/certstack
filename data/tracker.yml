@@ -295,3 +295,130 @@
   notes:
     en: "This is a stub entry, and per project policy for instrument_type: mandatory_standard, will never contain reproduced clause text, tables, or limit values from the standard body (copyright restriction) — only structured metadata (number, title, dates, relationships, sources) and procedural obligations. Confirmed via the official National Standard Information Public Service Platform (std.samr.gov.cn, operated by SAMR): release date 2022-07-19, implementation date 2023-08-01, fully replaces GB 4943.1-2011 and GB 8898-2011, technical committee (归口单位) Ministry of Industry and Information Technology. This standard is treated as a child of cn-ccc-catalogue because it is the compliance basis referenced for the catalogue's information-technology-equipment product category (e.g. microcomputers, portable computers, computer display devices) rather than an independent certification scheme of its own. Fields still pending: product scope wording, procedural obligations, dates.published/application in the required date fields, enforcement and penalties (these attach to the CCC regulation and catalogue, not to the standard itself, and their precise application to this specific product category has not yet been confirmed article-by-article)."
     zh: "本條目為 stub，且依專案規範，instrument_type: mandatory_standard 之條目不得重製標準本文之條文、表格或限值（著作權限制），僅記錄結構化資訊（編號、名稱、日期、關聯、來源）與程序性義務。已透過官方之全國標準信息公共服務平台（std.samr.gov.cn，國家市場監督管理總局建置）確認：發布日期2022-07-19、實施日期2023-08-01，全部代替 GB 4943.1-2011 及 GB 8898-2011，歸口單位為工業和信息化部。本標準列為 cn-ccc-catalogue 之子條目，係因其為該目錄下資訊技術設備類別（如微型計算機、可攜式計算機、計算機用顯示設備等）之符合性依據，而非獨立之認證制度本身。待補欄位：適用範圍文字、程序性義務、dates.published／dates.application 等必填日期欄位、執法與罰則（此二者屬於 CCC 管理規定與目錄層級，其對本產品類別之逐條適用關係尚待查證）。"
+
+- id: eu-2014-53
+  parent: null
+  superseded_by: null
+  jurisdiction: EU
+  applies_in: []
+  citation: "Directive 2014/53/EU of the European Parliament and of the Council of 16 April 2014 on the harmonisation of the laws of the Member States relating to the making available on the market of radio equipment and repealing Directive 1999/5/EC"
+  local_type: "Directive"
+  instrument_type: directive
+  short_name:
+    en: "Radio Equipment Directive (RED)"
+    zh: "無線電設備指令（RED）"
+  category:
+    - radio_equipment
+    - emc
+
+  product_scope:
+    en: "Establishes a regulatory framework for the making available on the market and putting into service of radio equipment in the Union, excluding equipment listed in Annex I (e.g. equipment used exclusively for public security, defence or state security) and radio equipment used exclusively by radio amateurs (Art. 1)."
+    zh: "為無線電設備於歐盟市場之提供及啟用建立法規架構，排除附件一所列設備（如僅供公共安全、國防或國家安全使用之設備）及僅供業餘無線電愛好者使用之設備（第1條）。"
+  product_tags:
+    - radio_equipment
+    - consumer_electronics
+    - it_equipment
+  applies_to:
+    - manufacturer
+    - importer
+    - seller
+
+  status: in_force
+  dates:
+    published: null
+    application: "2016-06-13"
+    labelling: null
+    transition_end: "2017-06-13"
+
+  requirements:
+    marking: true
+    local_representative: false
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "Ensure the radio equipment complies with the essential requirements, draw up the technical documentation and carry out the applicable conformity assessment procedure, draw up the EU declaration of conformity and affix the CE marking, and keep the technical documentation and declaration of conformity for 10 years after the equipment is placed on the market (Art. 10)."
+        zh: "確保無線電設備符合基本要求，編製技術文件並執行適用之符合性評鑑程序，製作歐盟符合性聲明並張貼CE標誌，且於設備投放市場後保存技術文件與符合性聲明達10年（第10條）。"
+
+  tools: []
+  related: []
+
+  sources:
+    - url: "https://www.legislation.gov.uk/eudr/2014/53/contents"
+      type: primary
+      publisher: "UK National Archives — legislation.gov.uk (retained EU law text of Directive 2014/53/EU)"
+
+  enforcement:
+    authority: "National market surveillance authorities designated by each EU Member State"
+    mechanism:
+      - market_surveillance
+    penalty_basis: national_law
+    penalty_summary:
+      en: "Member States lay down rules on penalties applicable to infringements by economic operators of national provisions adopted under this Directive; penalties must be effective, proportionate and dissuasive, and may include criminal penalties for serious infringements (Art. 46)."
+      zh: "各會員國自行訂定對經濟營運者違反本指令國內轉換規定之罰則；罰則須具有效性、比例性及嚇阻性，嚴重違規得包含刑事制裁（第46條）。"
+    penalty_range: null
+    market_impact: []
+    source_ref: 0
+    last_verified: "2026-09-21"
+
+  entry_status: stub
+  last_verified: "2026-09-21"
+  last_reviewed: "2026-09-21"
+  review_status: pending
+  confidence: low
+  notes:
+    en: "Entry compiled from the UK National Archives' retained-EU-law mirror of Directive 2014/53/EU (legislation.gov.uk), article by article, because the canonical EUR-Lex source returned no fetchable content in this session. Confirmed: scope (Art. 1), transposition/application dates 12/13 June 2016 and transitional sell-through deadline 13 June 2017 (Arts. 48-49), manufacturer obligations (Art. 10), that an EU authorised representative is optional rather than mandatory (Art. 11), the CE marking requirement (Arts. 19-20 per table of contents), and that penalties are left to Member States' national law (Art. 46, quoted). NOT yet confirmed: exact Official Journal publication date (dates.published left null rather than guessed), importer/distributor obligations (Arts. 12-13 not yet pulled article-by-article), requirements.local_testing and requirements.registration, requirements.conformity_assessment module split (Art. 17), and product_tags/category assignment should be reviewed by a human against EUR-Lex directly. Pending word-for-word human review against EUR-Lex."
+    zh: "本條目係於本次工作階段中，因無法自EUR-Lex（歐盟官方法規資料庫）取得可解析內容，改以英國國家檔案館之歐盟保留法（retained EU law）鏡像網站（legislation.gov.uk）逐條查證彙整。已確認：適用範圍（第1條）、轉換／適用日期為2016年6月12/13日、舊制產品出清期限為2017年6月13日（第48、49條）、製造商義務（第10條）、歐盟授權代表為選擇性而非強制設置（第11條）、CE標誌要求（依目錄所示第19-20條）、罰則由會員國國內法自行訂定（第46條，已引用原文）。尚未確認：官方公報（OJ）確切公布日期（dates.published暫填null，非臆測）、進口商與經銷商義務（第12、13條尚未逐條查證）、requirements.local_testing與requirements.registration、requirements.conformity_assessment模組分流方式（第17條）、product_tags／category之標記亦建議由人工對照EUR-Lex複核。尚待人工逐字複核EUR-Lex原文。"
+
+- id: us-fcc-part-15
+  parent: null
+  superseded_by: null
+  jurisdiction: US
+  applies_in: []
+  citation: "47 CFR Part 15 — Radio Frequency Devices"
+  local_type: "Code of Federal Regulations Part"
+  instrument_type: regulation
+  short_name:
+    en: "FCC Rules for Radio Frequency Devices (47 CFR Part 15)"
+    zh: "美國聯邦通訊委員會射頻裝置規則（47 CFR Part 15）"
+  category:
+    - radio_equipment
+    - emc
+
+  product_scope:
+    en: "Sets out the technical requirements and equipment authorization procedures under which intentional, unintentional, and incidental radiators may be operated or marketed in the United States without an individual license (§ 15.1)."
+    zh: "訂定美國境內意圖性、非意圖性及附帶性射頻發射裝置得免個別執照操作或行銷之技術要求與設備授權程序（§15.1）。"
+  product_tags:
+    - radio_equipment
+    - consumer_electronics
+    - it_equipment
+  applies_to:
+    - manufacturer
+
+  status: in_force
+
+  requirements:
+    marking: true
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "Obtain the equipment authorization applicable to the device category (verification, Supplier's Declaration of Conformity, or Certification) before marketing or importing the device, and ensure it bears the required compliance labeling (§§ 15.19, 15.101, 15.201, 15.305)."
+        zh: "於行銷或進口裝置前，取得該裝置類別所適用之設備授權（自我驗證、供應商符合性聲明或憑證認證），並確保張貼所需之符合性標示（§§15.19、15.101、15.201、15.305）。"
+
+  tools: []
+  related: []
+
+  sources:
+    - url: "https://www.govinfo.gov/content/pkg/CFR-2023-title47-vol1/xml/CFR-2023-title47-vol1-part15.xml"
+      type: primary
+      publisher: "U.S. Government Publishing Office (GovInfo) — Code of Federal Regulations, Title 47"
+
+  entry_status: stub
+  last_verified: "2026-09-21"
+  last_reviewed: "2026-09-21"
+  review_status: pending
+  confidence: low
+  notes:
+    en: "Entry compiled from the official GovInfo XML publication of 47 CFR Part 15 (2023 edition), 'Radio Frequency Devices'. Confirmed: scope covers intentional, unintentional, and incidental radiators (§ 15.1); equipment must obtain the authorization procedure applicable to its category — verification, Supplier's Declaration of Conformity, or Certification (§§ 15.101, 15.201, 15.305); a compliance labeling requirement applies, including an FCC ID for certified devices (§ 15.19, cross-referencing §§ 2.925-2.926). NOT yet confirmed: enactment/amendment dates for dates.published and dates.application (the eCFR live current-as-of service blocked automated access in this session, and this GovInfo snapshot is dated 2023 so may not reflect the current version — the dates block is omitted entirely rather than guessed), importer/distributor-specific obligations, requirements.local_representative/local_testing/registration, requirements.conformity_assessment enum mapping, and enforcement/penalty details under the Communications Act (47 U.S.C. § 503), which could not be retrieved in this session. Pending word-for-word human review against the live eCFR."
+    zh: "本條目係依美國政府出版局（GovInfo）官方XML版本之47 CFR Part 15（2023年版，標題「射頻裝置」）彙整。已確認：適用範圍涵蓋意圖性、非意圖性及附帶性射頻發射裝置（§15.1）；裝置須依其類別取得適用之授權程序——自我驗證、供應商符合性聲明或憑證認證（§§15.101、15.201、15.305）；須張貼符合性標示，經憑證認證之裝置並須取得FCC ID（§15.19，並參照§§2.925-2.926）。尚未確認：dates.published與dates.application所需之訂定／修訂日期（本次工作階段中eCFR即時版本服務阻擋自動化擷取，本GovInfo快照為2023年版本，可能非最新現行版本，故整個dates區塊予以省略而非臆測）、進口商／經銷商之特定義務、requirements.local_representative／local_testing／registration、requirements.conformity_assessment之enum對應方式，以及《通訊法》（47 U.S.C. §503）下之執法與罰則細節（本次工作階段未能取得）。尚待人工逐字複核現行eCFR原文。"
