@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - "site/**"
+      - "data/**"
+      - "scripts/build.py"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -25,6 +27,16 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install PyYAML
+
+      - name: Build data.json
+        run: python3 scripts/build.py
 
       - uses: actions/configure-pages@v5
 
