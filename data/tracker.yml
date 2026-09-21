@@ -422,3 +422,124 @@
   notes:
     en: "Entry compiled from the official GovInfo XML publication of 47 CFR Part 15 (2023 edition), 'Radio Frequency Devices'. Confirmed: scope covers intentional, unintentional, and incidental radiators (§ 15.1); equipment must obtain the authorization procedure applicable to its category — verification, Supplier's Declaration of Conformity, or Certification (§§ 15.101, 15.201, 15.305); a compliance labeling requirement applies, including an FCC ID for certified devices (§ 15.19, cross-referencing §§ 2.925-2.926). NOT yet confirmed: enactment/amendment dates for dates.published and dates.application (the eCFR live current-as-of service blocked automated access in this session, and this GovInfo snapshot is dated 2023 so may not reflect the current version — the dates block is omitted entirely rather than guessed), importer/distributor-specific obligations, requirements.local_representative/local_testing/registration, requirements.conformity_assessment enum mapping, and enforcement/penalty details under the Communications Act (47 U.S.C. § 503), which could not be retrieved in this session. Pending word-for-word human review against the live eCFR."
     zh: "本條目係依美國政府出版局（GovInfo）官方XML版本之47 CFR Part 15（2023年版，標題「射頻裝置」）彙整。已確認：適用範圍涵蓋意圖性、非意圖性及附帶性射頻發射裝置（§15.1）；裝置須依其類別取得適用之授權程序——自我驗證、供應商符合性聲明或憑證認證（§§15.101、15.201、15.305）；須張貼符合性標示，經憑證認證之裝置並須取得FCC ID（§15.19，並參照§§2.925-2.926）。尚未確認：dates.published與dates.application所需之訂定／修訂日期（本次工作階段中eCFR即時版本服務阻擋自動化擷取，本GovInfo快照為2023年版本，可能非最新現行版本，故整個dates區塊予以省略而非臆測）、進口商／經銷商之特定義務、requirements.local_representative／local_testing／registration、requirements.conformity_assessment之enum對應方式，以及《通訊法》（47 U.S.C. §503）下之執法與罰則細節（本次工作階段未能取得）。尚待人工逐字複核現行eCFR原文。"
+
+- id: eu-2022-30-red-cybersecurity
+  parent: eu-2014-53
+  superseded_by: null
+  jurisdiction: EU
+  applies_in: []
+  citation: "Commission Delegated Regulation (EU) 2022/30 of 29 October 2021 supplementing Directive 2014/53/EU with regard to the application of the essential requirements referred to in Article 3(3), points (d), (e) and (f) (OJ L 7, 12.1.2022, p. 6), as amended by Commission Delegated Regulation (EU) 2023/2444"
+  local_type: "Delegated Regulation"
+  instrument_type: regulation
+  short_name:
+    en: "RED Cybersecurity Requirements (Delegated Regulation (EU) 2022/30)"
+    zh: "RED網路安全要求（授權法規(EU) 2022/30）"
+  category:
+    - radio_equipment
+    - cybersecurity
+
+  product_scope:
+    en: "Activates the RED essential requirements of Article 3(3)(d) (network protection), (e) (personal data/privacy safeguards) and (f) (fraud protection) for specific categories of radio equipment: 3(3)(d) applies to any internet-connected radio equipment; 3(3)(e) applies to internet-connected radio equipment capable of processing personal or traffic/location data, with exclusions for childcare equipment, toys (Directive 2009/48/EC), and wearables; 3(3)(f) applies to internet-connected radio equipment enabling transfer of money, monetary value or virtual currency. Medical devices (Regulations (EU) 2017/745, 2017/746) are excluded from all three points; aviation/vehicle/toll equipment (Regulations (EU) 2018/1139, 2019/2144, Directive (EU) 2019/520) are excluded from (e) and (f) (Delegated Regulation (EU) 2022/30, Arts. 1-2)."
+    zh: "啟用RED第3(3)(d)款（網路保護）、(e)款（個資／隱私保護）、(f)款（防詐欺）之基本要求，適用於特定類別無線電設備：(d)款適用於任何具連網功能之無線電設備；(e)款適用於能處理個資或流量／位置資料之連網無線電設備，但童用照護設備、玩具（指令2009/48/EC）及穿戴式設備排除在外；(f)款適用於可移轉金錢、貨幣價值或虛擬貨幣之連網無線電設備。醫療器材（法規(EU) 2017/745、2017/746）自三款要求全數排除；航空／車輛／道路收費設備（法規(EU) 2018/1139、2019/2144、指令(EU) 2019/520）自(e)(f)款排除（授權法規(EU) 2022/30第1、2條）。"
+  product_tags:
+    - radio_equipment
+    - consumer_electronics
+    - it_equipment
+  applies_to:
+    - manufacturer
+    - importer
+    - seller
+
+  status: in_force
+  dates:
+    published: "2022-01-12"
+    application: "2025-08-01"
+    labelling: null
+    transition_end: null
+
+  requirements:
+    marking: false
+    local_representative: false
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "Ensure in-scope radio equipment meets the applicable network-protection, personal-data/privacy and anti-fraud essential requirements before being placed on the market, as a precondition of the CE marking / conformity assessment already required under the parent Directive 2014/53/EU (Delegated Regulation (EU) 2022/30, Art. 1)."
+        zh: "確保適用範圍內之無線電設備於投放市場前，符合適用之網路保護、個資／隱私保護及防詐欺基本要求，作為母指令2014/53/EU下CE標誌／符合性評鑑之前提條件（授權法規(EU) 2022/30第1條）。"
+
+  tools: []
+  related:
+    - eu-2025-138-en18031
+
+  sources:
+    - url: "https://single-market-economy.ec.europa.eu/system/files/2021-10/C_2021_7672_F1_COMMISSION_DELEGATED_REGULATION_EN_V10_P1_1428769.PDF"
+      type: primary
+      publisher: "European Commission — adopted text of Commission Delegated Regulation (EU) 2022/30, C(2021) 7672 final"
+    - url: "https://eur-lex.europa.eu/eli/reg_del/2023/2444/oj/eng"
+      type: primary
+      publisher: "EUR-Lex — Commission Delegated Regulation (EU) 2023/2444 (postponing the application date)"
+
+  entry_status: stub
+  last_verified: "2026-09-22"
+  last_reviewed: "2026-09-22"
+  review_status: pending
+  confidence: low
+  notes:
+    en: "This is the specific amendment the user asked to be tracked separately from the umbrella eu-2014-53 RED entry, since it represents a concrete, dated change (new essential requirements becoming legally applicable) rather than the directive as a whole. Compiled from the European Commission's own adopted delegated-regulation text (single-market-economy.ec.europa.eu PDF of C(2021) 7672 final, word-for-word Articles 1-3 read via pdftotext) for scope/exclusions, and from EUR-Lex's ELI /oj/eng rendering of Delegated Regulation (EU) 2023/2444 for the postponement (original application date 1 August 2024, postponed by 12 months to 1 August 2025 because the supporting harmonised standards were not ready in time). EUR-Lex's CELEX-style URLs (/legal-content/EN/TXT or /ALL) returned empty content throughout this session as in prior research; the ELI '/oj/eng' URL form and the Commission's own PDF mirror were used instead and are cited as sources. NOT yet confirmed: requirements.marking is set false because this regulation does not itself impose a marking obligation distinct from the parent Directive's Art. 20 CE-marking requirement — this inference should be reviewed by a human; obligations for importers/distributors specifically (only the manufacturer's Art. 1 compliance obligation is captured); the entire enforcement block (this delegated regulation does not itself set out penalties — it operates through the parent Directive's Art. 46, already documented on eu-2014-53 — so the block is omitted entirely rather than duplicating/guessing, consistent with schema's bilingual-field rule that penalty_summary cannot be present with null values). Related entry: see eu-2025-138-en18031 for the harmonised standards (EN 18031-1/2/3:2024) that give presumption of conformity with the essential requirements activated by this Regulation. Pending word-for-word human review against the final Official Journal text (OJ L 7, 12.1.2022 and OJ L, 2023/2444)."
+    zh: "本條目係依你的要求，將此次具體修訂（新基本要求正式生效之明確、有日期之變更）自母指令eu-2014-53條目中獨立拆出，而非僅呈現籠統之RED指令整體。範圍／排除規定係彙整自歐盟執委會官方採認之授權法規原文（single-market-economy.ec.europa.eu所刊之C(2021) 7672 final PDF，以pdftotext逐字讀取第1-3條）；延後生效之部分係彙整自EUR-Lex以ELI「/oj/eng」格式呈現之授權法規(EU) 2023/2444內容（原訂2024年8月1日生效，因配套協調標準未能如期完成，延後12個月至2025年8月1日）。本次工作階段中EUR-Lex之CELEX格式網址（/legal-content/EN/TXT或/ALL）如先前一樣皆回傳空白內容，故改用ELI「/oj/eng」格式網址及執委會官方PDF鏡像作為來源引用。尚未確認：requirements.marking設為false，係因本授權法規本身未另外課予標示義務（標示義務屬母指令第20條CE標誌規定），此推論尚待人工複核；進口商／經銷商之特定義務（目前僅記錄製造商依第1條之義務）；整段enforcement區塊（本授權法規本身未規定罰則，係透過母指令第46條運作，該條已記載於eu-2014-53條目，故整段省略而非重複或臆測，亦符合schema規範penalty_summary不得以null值存在之規則）。關聯條目：協調標準EN 18031-1/2/3:2024（賦予本法規所啟用之基本要求符合性推定效力）另立為eu-2025-138-en18031條目。尚待人工逐字複核歐盟官方公報正式文本（OJ L 7, 12.1.2022 及 OJ L, 2023/2444）。"
+
+- id: eu-2025-138-en18031
+  parent: eu-2014-53
+  superseded_by: null
+  jurisdiction: EU
+  applies_in: []
+  citation: "Commission Implementing Decision (EU) 2025/138 of 28 January 2025 amending Implementing Decision (EU) 2022/2191 as regards harmonised standards in support of the cybersecurity essential requirements of Directive 2014/53/EU specified in Delegated Regulation (EU) 2022/30 (OJ L, 2025/138, 30.1.2025)"
+  local_type: "Implementing Decision"
+  instrument_type: mandatory_standard
+  short_name:
+    en: "EN 18031-1/2/3:2024 Harmonised Standards (RED Cybersecurity)"
+    zh: "EN 18031-1/2/3:2024協調標準（RED網路安全）"
+  category:
+    - radio_equipment
+    - cybersecurity
+
+  product_scope:
+    en: "Lists harmonised standards EN 18031-1:2024, EN 18031-2:2024 and EN 18031-3:2024 as conferring presumption of conformity with the essential requirements of RED Art. 3(3)(d), (e) and (f) respectively (as activated by Delegated Regulation (EU) 2022/30), but with explicit restrictions: the standards' own 'rationale' and 'guidance' sections do not confer presumption of conformity, and compliance does not confer presumption of conformity where a manufacturer uses clauses 6.2.5.1/6.2.5.2 of EN 18031-1/-2/-3 (or EN 18031-2 clauses 6.1.3-6.1.6, or EN 18031-3 clause 6.3.2.4) to let a user skip setting a password or otherwise bypass the relevant access-control/secure-update mechanism (Implementing Decision (EU) 2025/138, recitals 5-9 and Annex)."
+    zh: "將協調標準EN 18031-1:2024、EN 18031-2:2024、EN 18031-3:2024分別列為賦予RED第3(3)(d)、(e)、(f)款基本要求（由授權法規(EU) 2022/30啟用）符合性推定效力之標準，惟附有明確限制：標準本身之「rationale（理由）」與「guidance（指引）」章節不具符合性推定效力；且若製造商採用EN 18031-1/-2/-3第6.2.5.1/6.2.5.2條（或EN 18031-2第6.1.3-6.1.6條、EN 18031-3第6.3.2.4條）允許使用者不設定密碼或規避相關存取控制／安全更新機制者，亦不具符合性推定效力（執行決定(EU) 2025/138第5-9項理由及附件）。"
+  product_tags:
+    - radio_equipment
+    - consumer_electronics
+    - it_equipment
+  applies_to:
+    - manufacturer
+
+  status: in_force
+  dates:
+    published: "2025-01-30"
+    application: "2025-01-30"
+    labelling: null
+    transition_end: null
+
+  requirements:
+    marking: false
+    local_representative: false
+
+  obligations: []
+
+  tools: []
+  related:
+    - eu-2022-30-red-cybersecurity
+
+  sources:
+    - url: "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202500138"
+      type: primary
+      publisher: "EUR-Lex — Official Journal of the European Union, L series, Commission Implementing Decision (EU) 2025/138"
+
+  entry_status: stub
+  last_verified: "2026-09-22"
+  last_reviewed: "2026-09-22"
+  review_status: pending
+  confidence: low
+  notes:
+    en: "This is a stub entry, and per project policy for instrument_type: mandatory_standard, will never contain reproduced clause text from the standard body's own document (copyright restriction) — the restriction wording quoted in product_scope above is the Commission's own Official Journal legal text (the 'Notice 1'/'Notice 2' entries in the Annex to this Implementing Decision), not text copied from EN 18031-1/-2/-3 themselves. Compiled by fetching the EUR-Lex PDF directly (this OJ:L_202500138 PDF URL form worked where CELEX-style URLs failed) and reading it locally with pdftotext, confirming word-for-word: decision date 28 January 2025, OJ publication 30 January 2025, entry into force on day of publication, the three standard numbers/titles/subject-matter mapping to RED Art. 3(3)(d)/(e)/(f) respectively, and the specific restriction clauses. Set as a child of eu-2014-53 (schema does not allow parent chains deeper than one level, so this cannot be nested under eu-2022-30-red-cybersecurity as a grandchild of eu-2014-53); the relationship to eu-2022-30-red-cybersecurity — the delegated regulation these standards support — is instead recorded via the related field. NOT yet confirmed: obligations (left empty — this Decision itself does not impose a direct manufacturer obligation beyond the presumption-of-conformity mechanism already covered by the parent Directive's conformity-assessment provisions); enforcement (omitted entirely — enforcement attaches to the essential requirements at RED/Delegated-Regulation level, already documented on eu-2014-53 and eu-2022-30-red-cybersecurity, not to the standard-listing Decision itself). Pending word-for-word human review against the final Official Journal text."
+    zh: "本條目為stub，且依專案規範，instrument_type: mandatory_standard之條目不得重製標準本文之條文（著作權限制）——上方product_scope所引用之限制文字，係執委會官方公報法律文本本身（本執行決定附件中之「Notice 1」／「Notice 2」項目），並非擷取自EN 18031-1/-2/-3標準本文。彙整方式為直接擷取EUR-Lex之PDF（本OJ:L_202500138之PDF網址格式於本次工作階段可正常擷取，CELEX格式網址則否），並以pdftotext於本機解析，逐字確認：決定日期2025年1月28日、公報刊登日2025年1月30日、於刊登當日生效、三項標準之編號／名稱／對應RED第3(3)(d)/(e)/(f)款關係，以及具體限制條款。本條目列為eu-2014-53之子條目（schema規範parent鏈不得超過一層，故無法作為eu-2022-30-red-cybersecurity之子條目、進而成為eu-2014-53之孫條目）；與eu-2022-30-red-cybersecurity（此等標準所支援之授權法規）之關聯改以related欄位記錄。尚未確認：obligations（留空——本決定本身除母指令既有之符合性評鑑機制外，未另外課予製造商直接義務）；enforcement（整段省略——執法對象為基本要求本身，已記載於eu-2014-53及eu-2022-30-red-cybersecurity條目，非本標準列示決定本身）。尚待人工逐字複核歐盟官方公報正式文本。"
