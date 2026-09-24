@@ -543,3 +543,228 @@
   notes:
     en: "This is a stub entry, and per project policy for instrument_type: mandatory_standard, will never contain reproduced clause text from the standard body's own document (copyright restriction) — the restriction wording quoted in product_scope above is the Commission's own Official Journal legal text (the 'Notice 1'/'Notice 2' entries in the Annex to this Implementing Decision), not text copied from EN 18031-1/-2/-3 themselves. Compiled by fetching the EUR-Lex PDF directly (this OJ:L_202500138 PDF URL form worked where CELEX-style URLs failed) and reading it locally with pdftotext, confirming word-for-word: decision date 28 January 2025, OJ publication 30 January 2025, entry into force on day of publication, the three standard numbers/titles/subject-matter mapping to RED Art. 3(3)(d)/(e)/(f) respectively, and the specific restriction clauses. Set as a child of eu-2014-53 (schema does not allow parent chains deeper than one level, so this cannot be nested under eu-2022-30-red-cybersecurity as a grandchild of eu-2014-53); the relationship to eu-2022-30-red-cybersecurity — the delegated regulation these standards support — is instead recorded via the related field. NOT yet confirmed: obligations (left empty — this Decision itself does not impose a direct manufacturer obligation beyond the presumption-of-conformity mechanism already covered by the parent Directive's conformity-assessment provisions); enforcement (omitted entirely — enforcement attaches to the essential requirements at RED/Delegated-Regulation level, already documented on eu-2014-53 and eu-2022-30-red-cybersecurity, not to the standard-listing Decision itself). Pending word-for-word human review against the final Official Journal text."
     zh: "本條目為stub，且依專案規範，instrument_type: mandatory_standard之條目不得重製標準本文之條文（著作權限制）——上方product_scope所引用之限制文字，係執委會官方公報法律文本本身（本執行決定附件中之「Notice 1」／「Notice 2」項目），並非擷取自EN 18031-1/-2/-3標準本文。彙整方式為直接擷取EUR-Lex之PDF（本OJ:L_202500138之PDF網址格式於本次工作階段可正常擷取，CELEX格式網址則否），並以pdftotext於本機解析，逐字確認：決定日期2025年1月28日、公報刊登日2025年1月30日、於刊登當日生效、三項標準之編號／名稱／對應RED第3(3)(d)/(e)/(f)款關係，以及具體限制條款。本條目列為eu-2014-53之子條目（schema規範parent鏈不得超過一層，故無法作為eu-2022-30-red-cybersecurity之子條目、進而成為eu-2014-53之孫條目）；與eu-2022-30-red-cybersecurity（此等標準所支援之授權法規）之關聯改以related欄位記錄。尚未確認：obligations（留空——本決定本身除母指令既有之符合性評鑑機制外，未另外課予製造商直接義務）；enforcement（整段省略——執法對象為基本要求本身，已記載於eu-2014-53及eu-2022-30-red-cybersecurity條目，非本標準列示決定本身）。尚待人工逐字複核歐盟官方公報正式文本。"
+
+- id: eu-2014-30-emc
+  parent: null
+  superseded_by: null
+  jurisdiction: EU
+  applies_in: []
+  citation: "Directive 2014/30/EU of the European Parliament and of the Council of 26 February 2014 on the harmonisation of the laws of the Member States relating to electromagnetic compatibility (recast) (OJ L 96, 29.3.2014, p. 79)"
+  local_type: "Directive"
+  instrument_type: directive
+  short_name:
+    en: "EMC Directive"
+    zh: "電磁相容性指令（EMC）"
+  category:
+    - emc
+    - consumer_electronics
+
+  product_scope:
+    en: "Applies to equipment (apparatus and fixed installations) as defined in Article 3, i.e. equipment liable to generate electromagnetic disturbance or whose performance is liable to be affected by such disturbance. Excludes equipment covered by the former Directive 1999/5/EC (now radio equipment under RED, tracked separately as eu-2014-53), certain aviation equipment, radio amateur equipment, equipment whose physical characteristics mean it cannot generate/be affected by significant electromagnetic disturbance, and custom-built evaluation kits for professional R&D use only (Art. 2)."
+    zh: "適用於指令第3條所定義之設備（器具及固定裝置），即可能產生電磁干擾或其效能可能受此干擾影響之設備。排除原指令1999/5/EC所涵蓋之設備（現已改由RED無線電設備指令規範，另立為eu-2014-53條目）、特定航空設備、業餘無線電設備、因物理特性而不致產生／不致受顯著電磁干擾影響之設備，以及僅供專業研發用途之客製化評估套件（第2條）。"
+  product_tags:
+    - consumer_electronics
+    - it_equipment
+    - radio_equipment
+  applies_to:
+    - manufacturer
+    - importer
+    - seller
+
+  status: in_force
+  dates:
+    published: "2014-03-29"
+    application: "2016-04-20"
+    labelling: null
+    transition_end: null
+
+  requirements:
+    marking: true
+    local_representative: false
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "Ensure equipment is designed and manufactured in accordance with the essential requirements in Annex I, draw up technical documentation and carry out the conformity assessment procedure, affix the CE marking, and keep the technical documentation and EU declaration of conformity for 10 years after the equipment is placed on the market (Art. 7)."
+        zh: "確保設備依附件一之基本要求設計及製造，編製技術文件並執行符合性評鑑程序，張貼CE標誌，且於設備投放市場後保存技術文件與歐盟符合性聲明達10年（第7條）。"
+
+  tools: []
+  related:
+    - eu-2014-53
+
+  sources:
+    - url: "https://www.legislation.gov.uk/eudr/2014/30/contents"
+      type: primary
+      publisher: "UK National Archives — legislation.gov.uk (retained EU law text of Directive 2014/30/EU)"
+
+  enforcement:
+    authority: "National market surveillance authorities designated by each EU Member State"
+    mechanism:
+      - market_surveillance
+    penalty_basis: national_law
+    penalty_summary:
+      en: "Member States lay down rules on penalties applicable to infringements by economic operators of national provisions adopted under this Directive; penalties must be effective, proportionate and dissuasive, and may include criminal penalties for serious infringements (Art. 42)."
+      zh: "各會員國自行訂定對經濟營運者違反本指令國內轉換規定之罰則；罰則須具有效性、比例性及嚇阻性，嚴重違規得包含刑事制裁（第42條）。"
+    penalty_range: null
+    market_impact: []
+    source_ref: 0
+    last_verified: "2026-09-24"
+
+  entry_status: stub
+  last_verified: "2026-09-24"
+  last_reviewed: "2026-09-24"
+  review_status: pending
+  confidence: low
+  notes:
+    en: "Added at the user's request alongside PPWR and ESPR as commonly-needed EU consumer-electronics instruments (the user noted RED already covers radio/RF aspects; this entry covers the separate, non-radio-specific EMC essential requirements that apply to wired/non-radio electronic equipment). Compiled article-by-article from the UK National Archives' retained-EU-law mirror (legislation.gov.uk), since EUR-Lex itself remained unfetchable this session as in prior research. Confirmed: scope and exclusions (Art. 2, including the explicit carve-out for radio equipment now under RED), transposition/application date 20 April 2016 (Art. 46), manufacturer obligations including the 10-year record-retention period (Art. 7), that an authorised representative is optional (Art. 8), and that penalties are set by national law (Art. 42, quoted). NOT yet confirmed: exact article numbers for importer/distributor obligations beyond the general 'deemed manufacturer' rule (Art. 11), requirements.local_testing/registration, requirements.conformity_assessment module mapping (Annex II/III), and the amending Directive (EU) 2024/2749 (transposition due 29 May 2026, application from 30 May 2026) has not been reviewed for its substantive changes — this entry reflects the directive as originally adopted, not as it will read after that 2026 amendment takes effect. Pending word-for-word human review against EUR-Lex directly."
+    zh: "本條目係依你的要求，與PPWR、ESPR一併新增之常見歐盟消費性電子相關規範（你指出RED已涵蓋無線電／RF相關規範；本條目則涵蓋另外適用於有線／非無線電電子設備之EMC基本要求，與RED分開規範）。逐條彙整自英國國家檔案館之歐盟保留法鏡像網站（legislation.gov.uk），因本次工作階段EUR-Lex本身仍如先前研究一樣無法擷取。已確認：適用範圍及排除規定（第2條，含明確排除現已改由RED規範之無線電設備）、轉換／適用日期2016年4月20日（第46條）、製造商義務含10年紀錄保存期間（第7條）、歐盟授權代表為選擇性（第8條）、罰則由會員國國內法訂定（第42條，已引用原文）。尚未確認：進口商／經銷商義務除「視為製造商」一般規則（第11條）外之其他條文編號、requirements.local_testing／registration、requirements.conformity_assessment模組對應（附件二／三），以及修正指令(EU) 2024/2749（轉換期限2026年5月29日，2026年5月30日起適用）尚未查證其實質修正內容——本條目所記載者為指令原始採認版本，尚未反映該2026年修正生效後之內容。尚待人工逐字複核EUR-Lex原文。"
+
+- id: eu-2025-40-ppwr
+  parent: null
+  superseded_by: null
+  jurisdiction: EU
+  applies_in: []
+  citation: "Regulation (EU) 2025/40 of the European Parliament and of the Council of 19 December 2024 on packaging and packaging waste, amending Regulation (EU) 2019/1020 and Directive (EU) 2019/904, and repealing Directive 94/62/EC (OJ L, 2025/40, 22.1.2025)"
+  local_type: "Regulation"
+  instrument_type: regulation
+  short_name:
+    en: "Packaging and Packaging Waste Regulation (PPWR)"
+    zh: "包裝與包裝廢棄物法規（PPWR）"
+  category:
+    - packaging
+    - circular_economy
+
+  product_scope:
+    en: "Applies to all packaging, regardless of the material used, and to all packaging waste, whether originating from industry, other manufacturing, retail or distribution, offices, services or households, without prejudice to Union rules on hazardous-waste management and on safety/quality/health/hygiene of the packaged product (Arts. 1-2). Establishes requirements for the entire packaging life-cycle covering environmental sustainability, labelling, extended producer responsibility, waste prevention (minimisation of unnecessary packaging, re-use/refill), and collection/recycling. Repeals Directive 94/62/EC, with specified provisions of that Directive continuing to apply on a staggered schedule through 2029/2030 (Art. 70)."
+    zh: "適用於所有包裝（不論材質）及所有包裝廢棄物，不論其源自工業、其他製造業、零售或配銷、辦公室、服務業或家庭，且不影響歐盟有害廢棄物管理規定及包裝內產品之安全／品質／衛生規定（第1、2條）。就包裝全生命週期建立要求，涵蓋環境永續性、標示、生產者延伸責任、廢棄物預防（減少不必要包裝、重複使用／填充），以及回收／再利用。廢止指令94/62/EC，惟該指令部分條文依排定時程持續適用至2029／2030年（第70條）。"
+  product_tags:
+    - consumer_electronics
+    - it_equipment
+    - small_appliances
+    - all_b2c_goods
+  component_tags:
+    - packaging
+  applies_to:
+    - manufacturer
+    - producer
+    - importer
+    - seller
+
+  status: in_force
+  dates:
+    published: "2025-01-22"
+    application: "2026-08-12"
+    labelling: "2028-08-12"
+    transition_end: null
+
+  requirements:
+    marking: false
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "Only place on the market packaging that conforms with the requirements of Articles 5-12, carry out the applicable conformity assessment procedure (Art. 38) and draw up technical documentation before placing packaging on the market, draw up an EU declaration of conformity where applicable, and keep the technical documentation and declaration of conformity for 5 years (single-use packaging) or 10 years (reusable packaging) from the date the packaging was placed on the market (Art. 15)."
+        zh: "僅得投放市場符合第5至12條要求之包裝，於投放市場前執行適用之符合性評鑑程序（第38條）並編製技術文件，於適用情形製作歐盟符合性聲明，並自包裝投放市場之日起保存技術文件及符合性聲明達5年（一次性包裝）或10年（可重複使用包裝）（第15條）。"
+
+  tools: []
+  related: []
+
+  sources:
+    - url: "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202500040"
+      type: primary
+      publisher: "EUR-Lex — Official Journal of the European Union, L series, Regulation (EU) 2025/40"
+
+  enforcement:
+    authority: "National market surveillance authorities designated by each EU Member State"
+    mechanism:
+      - market_surveillance
+    penalty_basis: national_law
+    penalty_summary:
+      en: "Member States must lay down rules on penalties applicable to infringements of this Regulation by 12 February 2027; penalties must be effective, proportionate and dissuasive, and penalties for infringement of the extended-producer-responsibility provisions (Arts. 24-29) must include administrative fines (Art. 68)."
+      zh: "會員國須於2027年2月12日前訂定違反本法規之罰則；罰則須具有效性、比例性及嚇阻性，違反生產者延伸責任相關規定（第24至29條）之罰則須包含行政罰鍰（第68條）。"
+    penalty_range: null
+    market_impact: []
+    source_ref: 0
+    last_verified: "2026-09-24"
+
+  entry_status: stub
+  last_verified: "2026-09-24"
+  last_reviewed: "2026-09-24"
+  review_status: pending
+  confidence: low
+  notes:
+    en: "Added at the user's request as a commonly-needed EU instrument alongside EMC and ESPR (this project's scope already includes packaging as a component_tag per vocab.yml). Compiled by downloading the EUR-Lex Official Journal PDF directly (the 'OJ:L_202500040' URL form was fetchable where CELEX-style /legal-content/EN/TXT URLs returned empty content, consistent with prior research this session) and reading it locally with pdftotext. Confirmed word-for-word: scope (Arts. 1-2), publication date 22 January 2025 and general application date 12 August 2026 with entry into force 20 days after publication (Art. 71), the repeal of Directive 94/62/EC effective 12 August 2026 with staggered savings provisions (Art. 70), manufacturer obligations including the differentiated 5-year/10-year record-retention period (Art. 15), and the penalty framework requiring administrative fines for EPR-provision infringements by 12 February 2027 (Art. 68). NOT yet confirmed: requirements.local_representative/local_testing/registration, requirements.conformity_assessment enum mapping (Art. 38 conformity assessment procedure not yet cross-referenced against the schema's conformity_assessment values), the extended-producer-responsibility registration obligations (Arts. 44-47, not yet reviewed), and the labelling requirement date is recorded as the general labelling-system application date (12 August 2028) per Art. 71/Annex staggering but individual labelling sub-requirements have varying dates not yet itemised. dates.transition_end is left null because compliance obligations under PPWR are staggered across many different dates through 2040 by product/material category rather than a single transition-end date — a human reviewer should decide whether this warrants a different date-modeling approach. Pending word-for-word human review against the full 124-page Official Journal text."
+    zh: "本條目係依你的要求，與EMC、ESPR一併新增之常見歐盟規範（本專案範圍已將packaging列為vocab.yml之component_tag）。彙整方式為直接下載EUR-Lex官方公報PDF（「OJ:L_202500040」網址格式可正常擷取，CELEX格式之/legal-content/EN/TXT網址則如本次工作階段先前之研究一樣回傳空白內容），並以pdftotext於本機解析。已逐字確認：適用範圍（第1、2條）、公布日2025年1月22日及一般適用日2026年8月12日，公布後20日生效（第71條）、指令94/62/EC於2026年8月12日起廢止，惟部分條文依排定時程持續適用（第70條）、製造商義務含依包裝類型區分之5年／10年紀錄保存期間（第15條），以及要求於2027年2月12日前就生產者延伸責任相關規定之違反訂定含行政罰鍰之罰則框架（第68條）。尚未確認：requirements.local_representative／local_testing／registration、requirements.conformity_assessment之enum對應（第38條符合性評鑑程序尚未對照schema之conformity_assessment列舉值）、生產者延伸責任登記義務（第44至47條，尚未查證）、標示規定之日期係依第71條／附件所定一般標示制度適用日（2028年8月12日）記載，惟個別標示子項規定尚有不同日期，尚未逐項整理。dates.transition_end因PPWR依產品／材質類別將合規義務分散排定至2040年，並非單一過渡期截止日，故留空——是否應採不同日期建模方式，建議由人工複核決定。尚待人工逐字複核完整124頁官方公報文本。"
+
+- id: eu-2024-1781-espr
+  parent: null
+  superseded_by: null
+  jurisdiction: EU
+  applies_in: []
+  citation: "Regulation (EU) 2024/1781 of the European Parliament and of the Council of 13 June 2024 establishing a framework for the setting of ecodesign requirements for sustainable products, amending Directive (EU) 2020/1828 and Regulation (EU) 2023/1542, and repealing Directive 2009/125/EC (OJ L, 2024/1781, 28.6.2024)"
+  local_type: "Regulation"
+  instrument_type: regulation
+  short_name:
+    en: "Ecodesign for Sustainable Products Regulation (ESPR)"
+    zh: "永續產品生態設計法規（ESPR）"
+  category:
+    - ecodesign
+    - energy_related_products
+
+  product_scope:
+    en: "Establishes a framework for setting ecodesign requirements applicable to any physical goods placed on the market or put into service, including components and intermediate products, EXCLUDING food, feed, medicinal/veterinary medicinal products, living plants/animals/micro-organisms, products of human origin, products relating to future reproduction of plants/animals, and specified vehicle categories already covered by sector-specific type-approval legislation (Art. 1). Concrete product-specific requirements (durability, reparability, recycled content, energy performance, digital product passport, etc.) only become legally binding for a given product group once the Commission adopts a delegated act for that group under Art. 4 — the Regulation itself is a framework, not directly enforceable requirements. Repeals the former Ecodesign Directive 2009/125/EC, whose scope was limited to energy-related products only."
+    zh: "為設定生態設計要求建立框架，適用於任何投放市場或啟用之實體商品，包含零組件及半成品，排除食品、飼料、藥品／動物用藥品、活體植物／動物／微生物、人體來源產品、與植物／動物未來繁殖相關之產品，以及已受特定產業型式認證法規規範之特定車輛類別（第1條）。具體產品要求（如耐用性、可修復性、再生材料含量、能源效率、數位產品護照等）僅於執委會依第4條為該產品類別採認授權法案後，始對該類別產生法律拘束力——本法規本身為框架性規範，非直接可執行之要求。廢止原生態設計指令2009/125/EC（適用範圍僅限能源相關產品）。"
+  product_tags:
+    - consumer_electronics
+    - it_equipment
+    - small_appliances
+  applies_to:
+    - manufacturer
+    - importer
+    - seller
+
+  status: in_force
+  dates:
+    published: "2024-06-28"
+    labelling: null
+    transition_end: null
+
+  requirements:
+    marking: true
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "For products covered by a product-specific delegated act adopted under Art. 4: ensure the product meets the performance requirements of that delegated act, ensure the product is accompanied by required information and a digital product passport, carry out the applicable conformity assessment procedure and draw up technical documentation before placing the product on the market, draw up an EU declaration of conformity and affix CE marking, and keep the technical documentation and declaration of conformity for 10 years after the product is placed on the market unless the delegated act specifies otherwise (Art. 27)."
+        zh: "就經第4條產品別授權法案涵蓋之產品：確保產品符合該授權法案之效能要求，確保產品備有所需資訊及數位產品護照，於投放市場前執行適用之符合性評鑑程序並編製技術文件，製作歐盟符合性聲明並張貼CE標誌，且除授權法案另有規定外，於產品投放市場後保存技術文件與符合性聲明達10年（第27條）。"
+
+  tools: []
+  related:
+    - eu-2014-30-emc
+
+  sources:
+    - url: "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401781"
+      type: primary
+      publisher: "EUR-Lex — Official Journal of the European Union, L series, Regulation (EU) 2024/1781"
+
+  enforcement:
+    authority: "National market surveillance authorities designated by each EU Member State"
+    mechanism:
+      - market_surveillance
+    penalty_basis: national_law
+    penalty_summary:
+      en: "Member States lay down rules on penalties applicable to infringements of this Regulation, giving due regard to factors including the nature/gravity/duration of the infringement, intentional or negligent character, financial situation of the responsible party, economic benefit derived, and environmental damage caused; Member States must be able to impose at least fines among other penalty types (Art. 74)."
+      zh: "會員國訂定違反本法規之罰則，並應考量違規之性質／嚴重程度／持續時間、是否故意或過失、責任人之財務狀況、因違規所獲經濟利益，以及所造成之環境損害等因素；會員國至少須能對違規課處罰鍰等罰則（第74條）。"
+    penalty_range: null
+    market_impact: []
+    source_ref: 0
+    last_verified: "2026-09-24"
+
+  entry_status: stub
+  last_verified: "2026-09-24"
+  last_reviewed: "2026-09-24"
+  review_status: pending
+  confidence: low
+  notes:
+    en: "Added at the user's request alongside EMC and PPWR ('ErP' in the user's shorthand — the old Ecodesign Directive 2009/125/EC for energy-related products, now superseded by this broader ESPR framework regulation). Compiled by downloading the EUR-Lex Official Journal PDF directly (the 'OJ:L_202401781' URL form was fetchable where CELEX-style URLs returned empty content) and reading it locally with pdftotext. Confirmed word-for-word: scope and exclusions (Art. 1), that ESPR is a framework regulation whose concrete requirements only bind manufacturers once product-specific delegated acts are adopted under Art. 4 (i.e. there is currently no single 'application date' for the Regulation's substantive requirements as a whole — the dates.application key is omitted entirely rather than set to null or guessed, since the schema disallows a null value for that field and the true answer varies per future product-group delegated act), manufacturer obligations including the 10-year record-retention default (Art. 27), and the penalty framework's mandatory consideration factors (Art. 74). Entry into force is 20 days after the 28 June 2024 Official Journal publication (Art. 80), i.e. approximately 18 July 2024, consistent with secondary sources, though the exact +20-day arithmetic was not independently re-verified against a calendar in this session. NOT yet confirmed: requirements.local_representative/local_testing/registration, requirements.conformity_assessment enum mapping, which specific product groups (if any) already have adopted Art. 4 delegated acts as of the last_verified date (this would need to be checked against the Commission's ESPR working plan separately and kept current, since it changes over time), and the relationship/overlap between ESPR framework obligations and any pre-existing Ecodesign Directive 2009/125/EC implementing measures that remain in force during the transition (per Art. 1(2), (3) transitional provisions not yet reviewed in detail). Pending word-for-word human review against the full 89-page Official Journal text."
+    zh: "本條目係依你的要求，與EMC、PPWR一併新增（你所稱「ErP」，即原適用於能源相關產品之生態設計指令2009/125/EC，現已由本ESPR框架法規取代並擴大範圍）。彙整方式為直接下載EUR-Lex官方公報PDF（「OJ:L_202401781」網址格式可正常擷取，CELEX格式網址則回傳空白內容），並以pdftotext於本機解析。已逐字確認：適用範圍及排除規定（第1條）、ESPR為框架性法規，具體要求僅於執委會依第4條為個別產品類別採認授權法案後始對製造商產生拘束力（即本法規實質要求目前並無單一整體「適用日期」——dates.application欄位因schema不允許null值，故整個省略而非設為null或臆測，因其真實答案將依未來各產品類別授權法案而異）、製造商義務含10年紀錄保存預設規定（第27條），以及罰則框架應考量之強制因素（第74條）。生效日為公報公布（2024年6月28日）後20日（第80條），約為2024年7月18日，與二手來源一致，惟本次工作階段未獨立以日曆覆核此20日加總計算是否精確。尚未確認：requirements.local_representative／local_testing／registration、requirements.conformity_assessment之enum對應、截至last_verified日期為止，究竟哪些產品類別（如有）已採認第4條授權法案（此須另行對照執委會ESPR工作計畫查證，且因會隨時間變動而須持續更新）、ESPR框架義務與過渡期間仍有效之原生態設計指令2009/125/EC既有施行措施間之關係／重疊情形（依第1(2)(3)條過渡規定，尚未詳細查證）。尚待人工逐字複核完整89頁官方公報文本。"
