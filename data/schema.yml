@@ -318,6 +318,21 @@ review_status:
 confidence:
   type: enum
   values: [high, medium, low]
+  # 升級規則（避免所有自動化條目永遠卡在 low）：
+  #   low    = 欄位主要仍待補齊，或雖已填寫但僅來自單一來源、
+  #            未交叉比對，或因來源受阻（付費牆／403等）而仍高度
+  #            不確定。
+  #   medium = 凡可查證之欄位皆已追溯至直接讀取的一手來源（政府
+  #            公報／官方公告原文，非二手摘要），關鍵事實（如日期、
+  #            罰則）盡量以兩個獨立一手來源交叉驗證。entry_status
+  #            為 stub 但欠缺欄位純屬該法規本身結構性因素（例如
+  #            框架性法規、要求依授權法案逐一生效，並非因研究
+  #            不足）者，仍可標示 medium；entry_status 為 complete
+  #            通常也應達到 medium。medium 不需要人工逐字複核即可
+  #            標示，但仍須誠實反映「AI 擷取、未經人工核對」的狀態。
+  #   high   = 僅能在 review_status 改為 reviewed（即真人逐字對照
+  #            官方原文核對過）後才可標示，不得由自動化流程自行
+  #            標示為 high。
 
 notes:
   type: bilingual_or_null
