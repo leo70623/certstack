@@ -89,3 +89,7 @@ jurisdictions:
     en: Oman
     zh: 阿曼
     color: "#1B7A6B"
+  GLOBAL:
+    en: Global / International
+    zh: 全球／國際
+    color: "#5A5A5A"

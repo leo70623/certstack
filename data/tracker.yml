@@ -768,3 +768,39 @@
   notes:
     en: "Added at the user's request alongside EMC and PPWR ('ErP' in the user's shorthand — the old Ecodesign Directive 2009/125/EC for energy-related products, now superseded by this broader ESPR framework regulation). Compiled by downloading the EUR-Lex Official Journal PDF directly (the 'OJ:L_202401781' URL form was fetchable where CELEX-style URLs returned empty content) and reading it locally with pdftotext. Confirmed word-for-word: scope and exclusions (Art. 1), that ESPR is a framework regulation whose concrete requirements only bind manufacturers once product-specific delegated acts are adopted under Art. 4 (i.e. there is currently no single 'application date' for the Regulation's substantive requirements as a whole — the dates.application key is omitted entirely rather than set to null or guessed, since the schema disallows a null value for that field and the true answer varies per future product-group delegated act), manufacturer obligations including the 10-year record-retention default (Art. 27), and the penalty framework's mandatory consideration factors (Art. 74). Entry into force is 20 days after the 28 June 2024 Official Journal publication (Art. 80), i.e. approximately 18 July 2024, consistent with secondary sources, though the exact +20-day arithmetic was not independently re-verified against a calendar in this session. NOT yet confirmed: requirements.local_representative/local_testing/registration, requirements.conformity_assessment enum mapping, which specific product groups (if any) already have adopted Art. 4 delegated acts as of the last_verified date (this would need to be checked against the Commission's ESPR working plan separately and kept current, since it changes over time), and the relationship/overlap between ESPR framework obligations and any pre-existing Ecodesign Directive 2009/125/EC implementing measures that remain in force during the transition (per Art. 1(2), (3) transitional provisions not yet reviewed in detail). Pending word-for-word human review against the full 89-page Official Journal text."
     zh: "本條目係依你的要求，與EMC、PPWR一併新增（你所稱「ErP」，即原適用於能源相關產品之生態設計指令2009/125/EC，現已由本ESPR框架法規取代並擴大範圍）。彙整方式為直接下載EUR-Lex官方公報PDF（「OJ:L_202401781」網址格式可正常擷取，CELEX格式網址則回傳空白內容），並以pdftotext於本機解析。已逐字確認：適用範圍及排除規定（第1條）、ESPR為框架性法規，具體要求僅於執委會依第4條為個別產品類別採認授權法案後始對製造商產生拘束力（即本法規實質要求目前並無單一整體「適用日期」——dates.application欄位因schema不允許null值，故整個省略而非設為null或臆測，因其真實答案將依未來各產品類別授權法案而異）、製造商義務含10年紀錄保存預設規定（第27條），以及罰則框架應考量之強制因素（第74條）。生效日為公報公布（2024年6月28日）後20日（第80條），約為2024年7月18日，與二手來源一致，惟本次工作階段未獨立以日曆覆核此20日加總計算是否精確。尚未確認：requirements.local_representative／local_testing／registration、requirements.conformity_assessment之enum對應、截至last_verified日期為止，究竟哪些產品類別（如有）已採認第4條授權法案（此須另行對照執委會ESPR工作計畫查證，且因會隨時間變動而須持續更新）、ESPR框架義務與過渡期間仍有效之原生態設計指令2009/125/EC既有施行措施間之關係／重疊情形（依第1(2)(3)條過渡規定，尚未詳細查證）。尚待人工逐字複核完整89頁官方公報文本。"
+
+- id: global-iecee-cb-scheme
+  parent: null
+  superseded_by: null
+  jurisdiction: GLOBAL
+  applies_in: []
+  citation: "IECEE 01-S, Edition 5.1 (2025-03-20), IECEE Supplement to Basic Rules IEC CA 01 — IEC System of Conformity Assessment Schemes for Electrotechnical Equipment and Components (IECEE), operated under the IECEE CB Scheme"
+  local_type: "Voluntary international mutual-recognition conformity assessment scheme (not a statutory instrument of any single jurisdiction)"
+  instrument_type: guidance
+  short_name:
+    en: "IEC/IECEE CB Scheme"
+    zh: "IEC/IECEE CB 認證體系（CB Scheme）"
+
+  status: in_force
+
+  related: []
+
+  sources:
+    - url: "https://assets.iec.ch/public/cab/iecee01-s_ed5.1.pdf"
+      type: primary
+      publisher: "International Electrotechnical Commission (IEC) / IECEE"
+    - url: "https://www.iecee.org/who-we-are/cb-scheme"
+      type: primary
+      publisher: "IECEE"
+    - url: "https://en.wikipedia.org/wiki/IECEE"
+      type: secondary
+      publisher: "Wikipedia"
+
+  entry_status: stub
+  last_verified: "2026-09-24"
+  last_reviewed: "2026-09-24"
+  review_status: pending
+  confidence: low
+  notes:
+    en: "Added at the user's request ('safety CB') alongside EMC/PPWR/ESPR. The CB Scheme is NOT a law or regulation of any single jurisdiction — it is a voluntary multilateral mutual-recognition system operated by the IEC's IECEE body, under which a single CB Test Certificate/CB Test Report issued by one participating National Certification Body (NCB) is accepted by other participating NCBs worldwide, so a manufacturer can obtain national safety certifications (e.g. individual country marks) without repeating the full test in each country. Because the schema's jurisdiction enum previously had no non-country/non-bloc option, a new 'GLOBAL' jurisdiction value was added to data/vocab.yml and data/schema.yml (and scripts/validate.py's JURISDICTIONS set) specifically to represent this kind of international voluntary scheme, distinct from any binding national or regional law. instrument_type is set to 'guidance' as the closest existing enum fit for a voluntary, non-statutory mutual-recognition framework (none of regulation/directive/mandatory_standard/administrative_measure/statute accurately describe it). Citation confirmed word-for-word by downloading and locally parsing (pdftotext) the actual current governing document, IECEE 01-S Edition 5.1 (2025-03-20), 'IECEE Supplement to Basic Rules IEC CA 01' — the iecee.org website itself returned HTTP 403 on direct fetch attempts, so the CB Scheme's mechanism description here relies on Wikipedia as a secondary source pending direct verification against IECEE 01-S/IECEE 02's full text. NOT yet confirmed: exhaustive list of participating countries/NCBs, exact scope of covered standards/product categories, requirements/obligations/applies_to/category/product_scope/component_tags fields, and whether the CB Scheme should instead be modeled as a 'guidance' resource distinct from statutory tracker entries in the site's UI. Pending human review."
+    zh: "本條目係依你的要求（「safety CB」）與EMC／PPWR／ESPR一併新增。CB Scheme並非任何單一法域之法律或法規，而是由IEC旗下IECEE運作之自願性多邊互認體系：由一個參與國之國家認證機構（NCB）核發的CB測試證書／CB測試報告，可為全球其他參與NCB所接受，使製造商毋須在每個國家重複全套測試即可取得各國安全認證（如各國安規標誌）。由於schema原本的jurisdiction enum並無「非國家／非區域集團」選項，本次新增一個「GLOBAL」jurisdiction值至data/vocab.yml與data/schema.yml（以及scripts/validate.py的JURISDICTIONS集合），專門用以表示此類國際自願性制度，與任何具拘束力之國家或區域性法律區隔。instrument_type選用「guidance」，為現有enum中最接近自願性、非法定互認框架之選項（regulation／directive／mandatory_standard／administrative_measure／statute均不準確）。citation已透過下載並以pdftotext於本機解析實際現行治理文件——IECEE 01-S Edition 5.1（2025-03-20）「IECEE Supplement to Basic Rules IEC CA 01」——逐字確認；iecee.org網站本身對直接擷取請求回傳HTTP 403，故本條目關於CB Scheme運作機制之描述目前仍仰賴Wikipedia作為次要來源，尚待對照IECEE 01-S／IECEE 02完整文本直接查證。尚未確認：參與國家／NCB之完整清單、涵蓋標準／產品類別之確切範圍、requirements／obligations／applies_to／category／product_scope／component_tags等欄位，以及CB Scheme在網站UI中是否應以「guidance」資源型態與具法定拘束力條目區隔呈現。尚待人工複核。"

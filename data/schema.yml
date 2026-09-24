@@ -79,10 +79,12 @@ superseded_by:
 
 jurisdiction:
   type: enum
-  values: [EU, UK, US, CN, KR, JP, SA, AE, ZA, GCC, KW, QA, BH, OM]
+  values: [EU, UK, US, CN, KR, JP, SA, AE, ZA, GCC, KW, QA, BH, OM, GLOBAL]
   # GCC 為超國家層級（波斯灣合作理事會）。KW/QA/BH/OM 為會員國，
   # 目前不作為獨立追蹤的 jurisdiction，但須可作為
   # GCC/EU 條目的 applies_in 值使用。
+  # GLOBAL 用於非特定法域的國際自願性互認制度（例如 IEC/IECEE CB Scheme），
+  # 不代表任何國家或區域的強制性法規。
 
 applies_in:
   type: list_of_enum
