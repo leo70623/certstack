@@ -17,7 +17,7 @@ VOCAB_FILE = DATA / "vocab.yml"
 ID_PATTERN = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 
 JURISDICTIONS = {"EU", "UK", "US", "CN", "KR", "JP", "SA", "AE", "ZA",
-                  "GCC", "KW", "QA", "BH", "OM", "GLOBAL"}
+                  "GCC", "KW", "QA", "BH", "OM", "FR", "GLOBAL"}
 APPLIES_IN_VALUES = JURISDICTIONS - {"GCC", "EU"}
 
 errors = []

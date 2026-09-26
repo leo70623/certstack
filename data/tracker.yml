@@ -2030,3 +2030,112 @@
   notes:
     en: "Added as the fifth and final item in the REACH→EUDR→Single-Use Plastics Directive→F-Gas Regulation→CLP Regulation batch of new EU environmental regulations, per the user's instruction to proceed with the EU-level items first. Also resolves the forward reference from the REACH entry's related field (eu-2008-1272-clp), which was expected to be dangling until this entry was added. Sourced this session via a full, directly-fetched and read UK National Archives retained-EU-law mirror (legislation.gov.uk/eur/2008/1272) for Art. 1 in full, following the same successful methodology used for WEEE, REACH, and the Single-Use Plastics Directive this session (pre-Brexit-adopted EU law is generally available on this mirror). As with REACH's Art. 126, Art. 47 (penalties) had been physically omitted from the UK mirror — marked 'omitted (31.12.2020)' due to post-Brexit GB CLP divergence from EU CLP — and was retrieved instead from reachonline.eu, the same secondary mirror successfully used for REACH's Art. 126, directly fetched and read in full this session (not merely search-snippet sourced), supporting confidence: medium consistent with the REACH precedent. Publication/application/labelling/transition dates (OJ L 353, 31.12.2008; entry into force 20.1.2009; substance classification compulsory from 1.12.2010; mixture classification compulsory from 1.6.2015) were cross-verified via web search since this information was not present in the fetched UK mirror page content shown. component_tags: [battery, power_supply] reflect the practical CLP-relevant hazardous substances found in these electronics components (battery electrolytes, chemicals in power-supply manufacture) rather than a claim that CLP applies to the finished component itself — CLP applies to the substances/mixtures, not to articles/products as such, which is reflected in requirements.registration: true (ECHA classification/labelling notification, not a product registration) and conformity_assessment: [none] (no product-level conformity assessment procedure exists under CLP)."
     zh: "本條目係依你「先處理歐盟的」之指示，作為新一批歐盟環保法規（REACH→EUDR→一次性塑膠指令→氟化氣體法規→CLP法規）之第五項、亦為最後一項新增。同時解決REACH條目related欄位中原本待解之forward reference（eu-2008-1272-clp），該引用原預期於本條目新增後即可解決。本次工作階段係透過完整直接擷取並閱讀英國國家檔案館之歐盟保留法律鏡像網站（legislation.gov.uk/eur/2008/1272）取得第1條全文，沿用本次工作階段對WEEE、REACH及一次性塑膠指令均成功之相同方法（脫歐前已通過之歐盟法規通常可於該鏡像網站取得）。與REACH第126條相同，第47條（罰則）已自英國鏡像網站中被物理移除——標註「omitted (31.12.2020)」，因脫歐後GB CLP已與歐盟CLP產生分歧——改自reachonline.eu取得，此為本次工作階段REACH第126條亦成功採用之次要鏡像網站，本次工作階段完整直接擷取並閱讀（非僅取得搜尋摘錄），故支持confidence: medium，與REACH之前例一致。公布／適用／標示／過渡期日期（OJ L 353, 31.12.2008；2009年1月20日生效；物質分類自2010年12月1日起強制適用；混合物分類自2015年6月1日起強制適用）已透過網路搜尋交叉驗證，因該等資訊未見於所擷取之英國鏡像網站頁面內容中。component_tags: [battery, power_supply]反映此等電子組件中實務上與CLP相關之危害性物質（電池電解液、電源供應器製程化學品），而非主張CLP直接適用於成品組件本身——CLP適用於物質／混合物，而非物品／產品本身，此反映於requirements.registration: true（指ECHA分類與標示通報，非產品登記）及conformity_assessment: [none]（CLP並無產品層級符合性評鑑程序）。"
+
+- id: fr-2020-105-agec
+  parent: null
+  superseded_by: null
+  jurisdiction: FR
+  applies_in: []
+  citation: "Loi n° 2020-105 du 10 février 2020 relative à la lutte contre le gaspillage et à l'économie circulaire (JORF n°0035 du 11 février 2020)"
+  local_type: "Loi"
+  instrument_type: statute
+  short_name:
+    en: "Anti-Waste and Circular Economy Law (AGEC)"
+    zh: "反浪費暨循環經濟法（AGEC）"
+  category:
+    - waste_management
+    - extended_producer_responsibility
+    - due_diligence
+
+  product_scope:
+    en: "This is a broad omnibus French national statute covering waste, packaging, textiles, and circular-economy policy across many sectors; this entry is scoped narrowly to the provisions most relevant to consumer electronics and small appliances: (i) Art. 16's repairability index (indice de réparabilité, mandatory since 2021 for categories including smartphones, laptops, TVs, washing machines and lawnmowers per implementing decree) and durability index (indice de durabilité, effective from 1 January 2024, intended to progressively extend/replace the repairability index for additional categories); (ii) Art. 19's minimum 5-year spare-parts availability requirement (from the date of the last unit's market placement) for household appliances, small IT and telecommunications equipment, and screens/monitors, including a 3D-printing fallback obligation where parts are not otherwise commercially available; (iii) Art. 20's requirement (implementing Décret n° 2021-609) that invoices for 12 listed product categories — including household appliances, IT equipment, consumer electronics, telephones, cameras, power tools, toys/game consoles, sports goods, watches, lighting, sunglasses, and furniture — must state the existence and 2-year minimum duration of the statutory legal guarantee of conformity (garantie légale de conformité, Code de la consommation Art. L217-3 et seq.); and (iv) Art. 35's ban on the destruction of unsold non-food goods, requiring reuse, donation or recycling instead."
+    zh: "本法為法國廣泛之綜合性國內立法，涵蓋廢棄物、包裝、紡織品及跨多產業之循環經濟政策；本條目僅聚焦於與消費性電子及小家電最相關之規定：(i) 第16條可修復性指數（indice de réparabilité，自2021年起依施行法令強制適用於智慧型手機、筆電、電視、洗衣機及割草機等類別）及耐用性指數（indice de durabilité，自2024年1月1日起施行，擬逐步擴大／取代可修復性指數適用於更多類別）；(ii) 第19條規定家電、小型資訊及電信設備、螢幕／顯示器之備用零件須自該型號最後一單位投放市場之日起，維持至少5年之供應期限，若無法透過商業管道取得零件，另課以3D列印備援義務；(iii) 第20條（依第2021-609號法令施行）規定就12類列名產品——含家電、資訊設備、消費性電子、電話、相機、電動工具、玩具／遊戲機、運動用品、鐘錶、照明設備、太陽眼鏡及家具——之發票，須載明該產品享有法定符合性保固（garantie légale de conformité，消費法典第L217-3條以下）之存在及最短2年期限；及(iv) 第35條禁止銷毀非食品類未售出商品，改要求以重複使用、捐贈或回收方式處理。"
+  product_tags:
+    - consumer_electronics
+    - it_equipment
+    - small_appliances
+  component_tags: []
+  applies_to:
+    - manufacturer
+    - importer
+    - seller
+
+  status: in_force
+  dates:
+    published: "2020-02-10"
+    application: "2021-01-01"
+    labelling: "2021-07-01"
+    transition_end: "2024-01-01"
+
+  requirements:
+    marking: true
+    local_representative: false
+    local_testing: false
+    registration: false
+    conformity_assessment: [sdoc]
+    conformity_assessment_note:
+      en: "Not a product-conformity-assessment regime in the RED/EMC/RoHS sense. Recorded as [sdoc] because the repairability/durability index (Art. 16) is a self-calculated and self-declared score communicated by the producer/importer per a methodology set by implementing decree, with no third-party certification body verifying the score before market placement; enforcement is via ex-post administrative fines (Art. 29) rather than a pre-market conformity-assessment procedure."
+      zh: "非RED／EMC／RoHS意義下之產品符合性評鑑制度。記為[sdoc]，因可修復性／耐用性指數（第16條）係由製造商／進口商依施行法令所定方法自行計算並自我聲明之分數，於投放市場前並無第三方驗證機構查核該分數；其執行係透過事後行政罰鍰（第29條），而非事前符合性評鑑程序。"
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "Calculate and communicate free of charge to sellers and other interested parties the repairability index (Art. 16), covering, at minimum, spare-parts pricing and (where relevant) a visible usage counter, in a reusable electronic and machine-readable format, for equipment categories designated by implementing decree; from 1 January 2024, do the same for the durability index where applicable to the product category; ensure spare parts for household appliances, small IT/telecommunications equipment, and screens/monitors remain available for at least 5 years from the market placement of the last unit of the model, or provide 3D-printing manufacturing plans/technical specifications where parts are not otherwise available (Art. 19); and, for the 12 product categories designated by Décret n° 2021-609 (including household appliances, IT equipment, consumer electronics, telephones, cameras and toys), ensure that invoices provided to consumers state the existence and minimum 2-year duration of the statutory legal guarantee of conformity (Art. 20)."
+        zh: "就依施行法令指定之設備類別，計算可修復性指數（第16條，至少須涵蓋備用零件價格及（如適用）可見使用計數器），並以可重複使用之電子化、機器可讀格式，免費提供予銷售者及其他利害關係人；自2024年1月1日起，就適用之產品類別比照辦理耐用性指數；確保家電、小型資訊／電信設備、螢幕／顯示器之備用零件，自該型號最後一單位投放市場之日起，維持至少5年供應，若無法取得零件，應提供3D列印製造圖或技術規格（第19條）；就第2021-609號法令指定之12類產品（含家電、資訊設備、消費性電子、電話、相機及玩具），確保提供消費者之發票載明法定符合性保固之存在及最短2年期限（第20條）。"
+    - actor: importer
+      action:
+        en: "As a party placing electrical/electronic equipment on the French market, bear the same Art. 16 repairability/durability index communication obligations, Art. 19 spare-parts availability obligations, and Art. 20 invoice-disclosure obligations as manufacturers when first supplying the product in France."
+        zh: "作為於法國市場投放電機電子設備者，於首次在法國供應該產品時，負擔與製造商相同之第16條可修復性／耐用性指數通報義務、第19條備用零件供應義務，及第20條發票揭露義務。"
+    - actor: seller
+      action:
+        en: "Inform consumers at the point of sale of the repairability/durability index score, via marking, labelling, display or another appropriate method (Art. 16); provide the required legal-guarantee-of-conformity statement on invoices for the 12 designated product categories (Art. 20); and, for unsold non-food goods (including consumer electronics), reuse, donate or recycle them rather than destroying them (Art. 35)."
+        zh: "於銷售點以標示、標籤、展示或其他適當方式，告知消費者可修復性／耐用性指數分數（第16條）；就12類指定產品類別，於發票上提供法定符合性保固之必要聲明（第20條）；並就未售出之非食品類商品（含消費性電子），以重複使用、捐贈或回收方式處理，不得銷毀（第35條）。"
+
+  tools: []
+  related:
+    - eu-2024-1781-espr
+
+  sources:
+    - url: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000041553759/"
+      type: primary
+      publisher: "Légifrance — official French government legal database, full statute text (directly fetched this session for overall structure: Titles I-VI, Articles 1-130)"
+    - url: "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000041553781"
+      type: primary
+      publisher: "Légifrance — Art. 16 (repairability/durability index), directly fetched and read this session"
+    - url: "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000041553784"
+      type: primary
+      publisher: "Légifrance — Art. 19 (spare parts availability), directly fetched and read this session"
+    - url: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000043511875"
+      type: primary
+      publisher: "Légifrance — Décret n° 2021-609 du 18 mai 2021 implementing Art. 20 (legal guarantee of conformity invoice disclosure, Code de la consommation Art. L211-2), directly fetched and read this session, including the exact required invoice wording and the 12 designated product categories"
+    - url: "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006069565/LEGISCTA000032221271/"
+      type: secondary
+      publisher: "Légifrance — Code de la consommation, Section 2 (Articles L217-3 to L217-20), directly fetched and read this session for the underlying 2-year legal guarantee of conformity duration"
+
+  enforcement:
+    authority: "Direction générale de la concurrence, de la consommation et de la répression des fraudes (DGCCRF)"
+    mechanism:
+      - market_surveillance
+    penalty_basis: in_instrument
+    penalty_summary:
+      en: "Penalty amounts vary by the specific obligation breached. Per multiple secondary-source summaries (not independently confirmed against the exact operative penalty article's primary text this session for the general information/index obligations), breaches of the repairability-index communication and information obligations are punishable by an administrative fine of up to EUR 3,000 for a natural person and EUR 15,000 for a legal person. Per Art. 35 (directly confirmed via secondary source quoting its text this session), breaches of the unsold-goods reuse/recycling obligation carry the same maximum fine structure: up to EUR 3,000 for a natural person and EUR 15,000 for a legal person. Enforcement is carried out by the DGCCRF under its general consumer-protection and market-surveillance powers."
+      zh: "罰鍰金額依違反之具體義務而異。依多個次要來源摘要（本次工作階段未能就一般資訊／指數義務之確切執行罰則條文以一手文字獨立確認），違反可修復性指數通報及資訊義務者，處自然人最高3,000歐元、法人最高15,000歐元之行政罰鍰。依第35條（本次工作階段已透過次要來源引文直接確認其文字），違反未售出商品重複使用／回收義務者，適用相同之罰鍰上限結構：自然人最高3,000歐元、法人最高15,000歐元。執行機關為DGCCRF（競爭、消費暨反詐欺總署），依其一般消費者保護及市場監督權限執行。"
+    penalty_range: "up to EUR 3,000 (natural person) or EUR 15,000 (legal person) per breach, per Arts. 29 and 35"
+    market_impact: []
+    source_ref: 0
+    last_verified: "2026-09-26"
+
+  monitoring:
+    tier: C
+    method: manual
+    endpoint: null
+    frequency: quarterly
+
+  entry_status: complete
+  last_verified: "2026-09-26"
+  last_reviewed: "2026-09-26"
+  review_status: pending
+  confidence: medium
+  notes:
+    en: "Added at the user's explicit request ('好，先處理法國AGEC') following an exploratory question about the 'garantie label' (garantie légale de conformité invoice-disclosure requirement, Art. 20), which is the first member-state-level (non-EU-harmonised) entry added to this tracker. Required a schema change this session: jurisdiction enum in schema.yml and the hardcoded JURISDICTIONS set in scripts/validate.py were both updated to add 'FR', and vocab.yml's jurisdictions map was updated with a France entry (color #002654) — unlike GCC member states (KW/QA/BH/OM), France is recorded as an independently-tracked jurisdiction rather than only an applies_in value, since AGEC is genuine French national legislation, not a transposition of an EU-level instrument being tracked elsewhere. The site's front-end (site/index.html) reads jurisdiction chips dynamically from vocab.jurisdictions, so no front-end code change was needed for 'FR' to appear correctly in the jurisdiction filter. AGEC itself is a very broad omnibus statute (130 articles across 6 titles, covering food waste, textiles, packaging, batteries, and much more); this entry deliberately scopes product_scope/obligations to only the four provisions most relevant to consumer electronics (Art. 16 repairability/durability index, Art. 19 spare-parts availability, Art. 20 legal-guarantee invoice disclosure — i.e. the 'garantie label' the user asked about — and Art. 35's unsold-goods destruction ban), rather than attempting to model the entire statute, consistent with this tracker's consumer-electronics focus. Sourcing this session was unusually strong for a non-UK-mirror jurisdiction: Légifrance (the official French government legal database) was successfully and directly fetched multiple times this session without the blank-content problems seen with EUR-Lex, yielding full primary-text reads of Art. 16, Art. 19, Décret n° 2021-609 (Art. 20's implementing decree, including verbatim required invoice wording and the exact 12-category list), and the Code de la consommation's Art. L217-3 et seq. (the underlying 2-year guarantee duration). The one weaker point is the exact penalty article number/text for the Art. 16 repairability-index information obligations specifically (Art. 29, per secondary-source summaries only, not independently confirmed against Légifrance primary text this session, unlike Art. 35's penalty text which secondary sources quote directly) — flagged here as a targeted follow-up item for future full human review, though the overall entry still qualifies for confidence: medium given the volume of directly-read primary text underlying the rest of the entry. dates.transition_end is set to 2024-01-01 to mark the durability index's effective date (Art. 16 Part II) rather than a conventional grace-period end. related includes eu-2024-1781-espr (Ecodesign for Sustainable Products Regulation) since ESPR's future EU-wide repairability/durability scoring framework is the most directly analogous and potentially superseding EU-level instrument, though AGEC is not formally superseded by it at this time."
+    zh: "本條目係依你明確要求（「好，先處理法國AGEC」）新增，源自你先前對「garantie label」（法定符合性保固發票揭露要求，第20條）之詢問，亦為本tracker首筆會員國層級（非歐盟統一規範）之條目。本次工作階段須進行schema變更：schema.yml之jurisdiction enum，以及scripts/validate.py中寫死之JURISDICTIONS集合，均已新增「FR」；vocab.yml之jurisdictions對照表亦已新增法國項目（顏色代碼#002654）——與GCC會員國（科威特／卡達／巴林／阿曼）不同，法國記為獨立追蹤之jurisdiction，而非僅作為applies_in值，因AGEC屬真正的法國國內立法，非本tracker其他條目所追蹤歐盟法規之國內轉換版本。網站前端（site/index.html）係自vocab.jurisdictions動態讀取jurisdiction篩選標籤，故「FR」無需額外前端程式碼修改即可正確顯示於篩選介面。AGEC本身為極廣泛之綜合性法律（共6編130條，涵蓋食物浪費、紡織品、包裝、電池等諸多領域）；本條目刻意將product_scope／obligations僅聚焦於與消費性電子最相關之四項規定（第16條可修復性／耐用性指數、第19條備用零件供應、第20條法定保固發票揭露——即你所詢問之「garantie label」——及第35條未售出商品銷毀禁令），而非嘗試建模整部法律，以符本tracker之消費性電子聚焦定位。本次工作階段對非英國鏡像網站法域之來源查證強度異常良好：Légifrance（法國政府官方法律資料庫）本次工作階段多次成功直接擷取，未出現EUR-Lex常見之空白內容問題，取得第16條、第19條、第2021-609號法令（第20條施行法令，含逐字必要發票文字及確切12類產品清單）及消費法典第L217-3條以下（保固2年期限之依據）之完整一手文字。唯一較弱之處，在於第16條可修復性指數資訊義務所適用之確切罰則條號及條文內容（第29條，僅依次要來源摘要取得，本次工作階段未能以Légifrance一手文字獨立確認，不同於第35條罰則文字係由次要來源直接引用）——已於此標記為未來完整人工複核之重點待辦項目，惟考量本條目其餘部分已有大量直接讀取之一手文字支撐，整體條目仍符合confidence: medium之標準。dates.transition_end設為2024-01-01，用以標示耐用性指數之生效日期（第16條第二部分），而非傳統寬限期屆滿日。related含eu-2024-1781-espr（永續產品生態設計法規），因ESPR未來之歐盟統一可修復性／耐用性評分框架，係與本條目最直接類比、且可能取代本條目之歐盟層級法規，惟AGEC目前尚未正式被其取代。"
