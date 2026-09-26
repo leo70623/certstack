@@ -1048,3 +1048,504 @@
   notes:
     en: "Added at the user's request ('safety CB') alongside EMC/PPWR/ESPR. The CB Scheme is NOT a law or regulation of any single jurisdiction — it is a voluntary multilateral mutual-recognition system operated by the IEC's IECEE body, under which a single CB Test Certificate/CB Test Report issued by one participating National Certification Body (NCB) is accepted by other participating NCBs worldwide, so a manufacturer can obtain national safety certifications (e.g. individual country marks) without repeating the full test in each country. Because the schema's jurisdiction enum previously had no non-country/non-bloc option, a new 'GLOBAL' jurisdiction value was added to data/vocab.yml and data/schema.yml (and scripts/validate.py's JURISDICTIONS set) specifically to represent this kind of international voluntary scheme, distinct from any binding national or regional law. instrument_type is set to 'guidance' as the closest existing enum fit for a voluntary, non-statutory mutual-recognition framework (none of regulation/directive/mandatory_standard/administrative_measure/statute accurately describe it). Citation, product_scope (the 24 approved product Categories per Annex BB), and the conformity_assessment mechanism (inherently third-party, no self-declaration route) are all confirmed word-for-word by downloading and locally parsing (pdftotext) the actual current governing document, IECEE 01-S Edition 5.1 (2025-03-20) Annexes AA/BB — the iecee.org website itself returned HTTP 403 on direct fetch attempts, so only the general narrative description of the Scheme's history/purpose still relies on Wikipedia as a secondary source pending direct verification against IECEE 01-S/IECEE 02's full text. Confidence raised to medium per the schema's upgrade rule since the fields now filled (citation, product_scope, product_tags, component_tags, applies_to, requirements.conformity_assessment) are traced to directly-read primary-source Annex text; entry_status remains stub because this is not a statutory instrument with the usual dates/enforcement/monitoring structure the schema's 'complete' tier assumes (no dates.published/application, no national enforcement authority — IECEE self-administers scheme discipline via its own governance bodies, not a market-surveillance/penalty regime), which is a structural mismatch rather than a research gap. NOT yet confirmed: exhaustive list of participating countries/NCBs, and whether the CB Scheme should instead be modeled as a distinct 'voluntary scheme' resource type separate from statutory tracker entries in the site's UI. Pending human review."
     zh: "本條目係依你的要求（「safety CB」）與EMC／PPWR／ESPR一併新增。CB Scheme並非任何單一法域之法律或法規，而是由IEC旗下IECEE運作之自願性多邊互認體系：由一個參與國之國家認證機構（NCB）核發的CB測試證書／CB測試報告，可為全球其他參與NCB所接受，使製造商毋須在每個國家重複全套測試即可取得各國安全認證（如各國安規標誌）。由於schema原本的jurisdiction enum並無「非國家／非區域集團」選項，本次新增一個「GLOBAL」jurisdiction值至data/vocab.yml與data/schema.yml（以及scripts/validate.py的JURISDICTIONS集合），專門用以表示此類國際自願性制度，與任何具拘束力之國家或區域性法律區隔。instrument_type選用「guidance」，為現有enum中最接近自願性、非法定互認框架之選項（regulation／directive／mandatory_standard／administrative_measure／statute均不準確）。citation、product_scope（附件BB所列24項核准產品類別）及conformity_assessment機制（本質上為第三方驗證，無自我聲明途徑）均已透過下載並以pdftotext於本機解析實際現行治理文件——IECEE 01-S Edition 5.1（2025-03-20）附件AA／BB——逐字確認；iecee.org網站本身對直接擷取請求回傳HTTP 403，故僅Scheme歷史沿革／宗旨之一般敘述部分，目前仍仰賴Wikipedia作為次要來源，尚待對照IECEE 01-S／IECEE 02完整文本直接查證。依schema之把握度升級規則，因目前已填寫之欄位（citation、product_scope、product_tags、component_tags、applies_to、requirements.conformity_assessment）均可追溯至直接閱讀之附件一手來源文字，把握度提升為medium；entry_status維持stub，係因本條目並非傳統法規性質，不具schema「complete」層級所預設之日期／執法／監測結構（無dates.published／application，亦無國家執法機關——IECEE係透過自身治理機構自行管理Scheme紀律，而非市場監督／罰則體制），此為結構性不相容，而非研究不足所致。尚未確認：參與國家／NCB之完整清單，以及CB Scheme在網站UI中是否應以獨立之「自願性制度」資源型態與具法定拘束力條目區隔呈現。尚待人工複核。"
+
+- id: eu-2011-65-rohs
+  parent: null
+  superseded_by: null
+  jurisdiction: EU
+  applies_in: []
+  citation: "Directive 2011/65/EU of the European Parliament and of the Council of 8 June 2011 on the restriction of the use of certain hazardous substances in electrical and electronic equipment (recast) (OJ L 174, 1.7.2011, p. 88-110)"
+  local_type: "Directive"
+  instrument_type: directive
+  short_name:
+    en: "RoHS Directive (Restriction of Hazardous Substances)"
+    zh: "限用有害物質指令（RoHS）"
+  category:
+    - hazardous_substances
+    - chemicals
+
+  product_scope:
+    en: "Applies to electrical and electronic equipment (EEE) falling within the 11 categories of Annex I (Art. 2(1)). Excludes: military equipment necessary for Member States' security interests; equipment designed for space missions; equipment specifically designed to be part of other excluded equipment and only able to function as part of it; large-scale stationary industrial tools; large-scale fixed installations; means of transport (excluding non-type-approved electric two-wheel vehicles); non-road mobile machinery for professional use only; active implantable medical devices; photovoltaic panels intended for permanent professional installation; equipment specifically designed solely for R&D made available only on a B2B basis; and pipe organs (Art. 2(4)). Restricts, in homogeneous materials, lead, mercury, cadmium, hexavalent chromium, polybrominated biphenyls (PBB) and polybrominated diphenyl ethers (PBDE) at a maximum concentration value of 0.1% by weight each (0.01% for cadmium), and — since the phthalates were added to Annex II — bis(2-ethylhexyl) phthalate (DEHP), butyl benzyl phthalate (BBP), dibutyl phthalate (DBP) and diisobutyl phthalate (DIBP), also each at 0.1% (Art. 4, Annex II). Scope was expanded progressively to medical devices/monitoring instruments (from 2014-07-22), in vitro diagnostic devices (from 2016-07-22), industrial monitoring/control instruments (from 2017-07-22), and all other previously-unregulated EEE (from 2019-07-22); phthalate restrictions apply to medical devices/monitoring instruments from 2021-07-22 (Art. 4)."
+    zh: "適用於符合附件I所列11類之電機電子設備（EEE）（第2(1)條）。排除：會員國安全利益所需之軍事設備、太空任務用設備、專為排除設備之一部分而設計且僅能作為該部分運作之設備、大型固定式工業工具、大型固定裝置、交通工具（不含未經型式認證之電動兩輪車）、僅供專業用途之非道路移動機械、主動植入式醫療器材、供專業永久安裝使用之太陽光電板、專為研發設計且僅以企業對企業方式提供之設備，以及風琴（第2(4)條）。就均質材料，限制鉛、汞、鎘、六價鉻、多溴聯苯（PBB）及多溴二苯醚（PBDE）之重量百分比最高濃度各為0.1%（鎘為0.01%）；附件II後續新增之鄰苯二甲酸酯類——鄰苯二甲酸二（2-乙基己）酯（DEHP）、鄰苯二甲酸丁苯甲酯（BBP）、鄰苯二甲酸二丁酯（DBP）及鄰苯二甲酸二異丁酯（DIBP）——亦各限0.1%（第4條、附件II）。適用範圍逐步擴大至醫療器材／監測儀器（自2014-07-22起）、體外診斷器材（自2016-07-22起）、工業用監測／控制儀器（自2017-07-22起）、及其餘先前未受規範之EEE（自2019-07-22起）；鄰苯二甲酸酯限制對醫療器材／監測儀器自2021-07-22起適用（第4條）。"
+  product_tags:
+    - consumer_electronics
+    - it_equipment
+    - small_appliances
+  component_tags:
+    - power_supply
+    - cable_connector
+  applies_to:
+    - manufacturer
+    - importer
+    - seller
+
+  status: in_force
+  dates:
+    published: "2011-07-01"
+    application: "2013-01-02"
+    labelling: null
+    transition_end: null
+
+  requirements:
+    marking: true
+    local_representative: false
+    local_testing: false
+    registration: false
+    conformity_assessment: [sdoc]
+    conformity_assessment_note:
+      en: "Art. 7 requires manufacturers to prepare technical documentation and carry out the internal production control procedure of Decision No 768/2008/EC (i.e. Module A) before issuing an EU declaration of conformity and affixing CE marking; no third-party/Notified Body route is provided for under this Directive, unlike RED/EMC's harmonised-standard-gated or free-choice module splits."
+      zh: "第7條要求製造商於製作歐盟符合性聲明並張貼CE標誌前，編製技術文件並執行決定768/2008/EC所定之內部生產管制程序（即模組A）；本指令並未提供第三方／公告機構驗證路徑，與RED／EMC之協和標準觸發式或自由選擇式模組分工不同。"
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "Ensure EEE is designed and manufactured in accordance with the Art. 4 substance restrictions; prepare technical documentation and carry out internal production control per Decision No 768/2008/EC; draw up an EU declaration of conformity and affix CE marking; keep technical documentation and the declaration of conformity for 10 years after the EEE is placed on the market; ensure procedures are in place for series production to remain compliant, including tracking changes in design or in applicable harmonised standards; keep a register of non-conforming EEE and product recalls and keep distributors informed; ensure EEE bears a type, batch or serial number (or, where not possible, that the information is on the packaging or in an accompanying document); indicate name, registered trade name or trade mark and a contact address on the EEE or, where not possible, on packaging or accompanying documentation; take immediate corrective action, including withdrawal or recall, and notify competent national authorities where non-compliant EEE has been placed on the market; and provide all necessary information/documentation to a competent authority upon reasoned request (Art. 7)."
+        zh: "確保電機電子設備依第4條物質限制設計及製造；編製技術文件並依決定768/2008/EC執行內部生產管制程序；製作歐盟符合性聲明並張貼CE標誌；於設備投放市場後保存技術文件及符合性聲明達10年；確保有程序可維持系列生產之持續符合性，包含追蹤設計或適用協和標準之變更；就不合規設備及召回建立紀錄並告知經銷商；確保設備標示型號、批號或序號（若無法標示，則於包裝或隨附文件載明）；於設備或（如無法標示）包裝或隨附文件上標示名稱、註冊商號或商標及聯絡地址；於發現已投放市場之設備不合規時，立即採取矯正措施（含下架或召回）並通知主管機關；並依主管機關有理由之請求提供一切必要資訊／文件（第7條）。"
+    - actor: importer
+      action:
+        en: "Place only compliant EEE on the market; before doing so, verify that the manufacturer has carried out the appropriate conformity assessment procedure, prepared the technical documentation, affixed CE marking, and complied with the product-identification and contact-address marking obligations of Art. 7(g)-(h); where an importer considers or has reason to believe EEE is not in conformity with Art. 4, not place it on the market until brought into conformity and notify the manufacturer and market surveillance authorities; keep a register of non-conforming EEE and recalls; indicate their own name/contact address on the EEE or, where not possible, on packaging or accompanying documentation; take immediate corrective action, including withdrawal or recall, where non-compliant EEE has already been placed on the market and notify authorities; keep a copy of the EU declaration of conformity available to market surveillance authorities for 10 years and ensure technical documentation can be made available on request; and respond to information requests within a reasonable period and cooperate on any action taken to eliminate non-compliance (Art. 9)."
+        zh: "僅將合規之電機電子設備投放市場；投放前應查核製造商已執行適用之符合性評鑑程序、編製技術文件、張貼CE標誌，並已履行第7條(g)(h)款之產品識別與聯絡地址標示義務；如有理由相信設備不符第4條規定，於導正合規前不得投放市場，並通知製造商及市場監督機關；就不合規設備及召回建立紀錄；於設備或（如無法標示）包裝或隨附文件上標示自身名稱／聯絡地址；於已投放市場之設備發現不合規時，立即採取矯正措施（含下架或召回）並通知主管機關；保存歐盟符合性聲明副本供市場監督機關取用達10年，並確保技術文件可依請求提供；並於合理期間內回應資訊請求，配合消除不合規之各項行動（第9條）。"
+    - actor: seller
+      action:
+        en: "Before making EEE available on the market, act with due care and verify that it bears CE marking, is accompanied by the required documents in a language easily understood by end-users, and that the manufacturer and importer have complied with their respective marking obligations; where a distributor considers or has reason to believe EEE is not in conformity with Art. 4, not make it available until brought into conformity and notify the manufacturer/importer and authorities; where non-compliant EEE has already been made available, ensure corrective measures (correction, withdrawal or recall) are taken and immediately inform national authorities with details of the non-compliance and action taken; and, upon request from a competent national authority, furnish all information/documentation needed to demonstrate conformity and cooperate on any action taken to eliminate non-compliance (Art. 10)."
+        zh: "於使電機電子設備可於市場上取得前，應本於注意義務查核其已張貼CE標誌、備有以終端使用者易懂語言提供之所需文件，且製造商與進口商已履行各自之標示義務；如有理由相信設備不符第4條規定，於導正合規前不得使其可於市場上取得，並通知製造商／進口商及主管機關；如不合規設備已可於市場上取得，應確保採取矯正措施（改正、下架或召回）並立即通知主管機關不合規詳情及已採取之行動；並於主管機關請求時，提供證明合規所需之一切資訊／文件，配合消除不合規之各項行動（第10條）。"
+
+  tools: []
+  related:
+    - eu-2014-53
+    - eu-2014-30-emc
+
+  sources:
+    - url: "https://www.legislation.gov.uk/eudr/2011/65/contents"
+      type: primary
+      publisher: "UK National Archives — legislation.gov.uk (retained EU law text of Directive 2011/65/EU)"
+    - url: "https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2011:174:0088:0110:en:PDF"
+      type: primary
+      publisher: "EUR-Lex — Official Journal L 174, 1.7.2011, pp. 88-110"
+
+  enforcement:
+    authority: "National market surveillance authorities designated by each EU Member State"
+    mechanism:
+      - market_surveillance
+    penalty_basis: national_law
+    penalty_summary:
+      en: "Member States lay down the rules on penalties applicable to infringements of national provisions adopted under this Directive and must take all measures necessary to ensure they are implemented; penalties must be effective, proportionate and dissuasive. Member States were required to notify these provisions to the Commission by 2 January 2013 and to notify without delay any subsequent amendment (Art. 23)."
+      zh: "會員國訂定違反依本指令採認之國內規定之罰則，並應採取一切必要措施確保其執行；罰則須具有效性、比例性及嚇阻性。會員國須於2013年1月2日前將該等規定通知執委會，並就其後之任何修訂立即通知（第23條）。"
+    penalty_range: null
+    market_impact: []
+    source_ref: 0
+    last_verified: "2026-09-26"
+
+  monitoring:
+    tier: C
+    method: manual
+    endpoint: null
+    frequency: quarterly
+
+  entry_status: complete
+  last_verified: "2026-09-26"
+  last_reviewed: "2026-09-26"
+  review_status: pending
+  confidence: medium
+  notes:
+    en: "Added at the user's request as part of a batch of EU consumer-electronics regulations identified as gaps alongside the existing RED/EMC/PPWR/ESPR cluster (RoHS is the third of the traditional 'three pillars' of EU electronics compliance, together with RED and EMC). Compiled article-by-article from the UK National Archives' retained-EU-law mirror of Directive 2011/65/EU (legislation.gov.uk), which remained fetchable where EUR-Lex itself returned empty content again this session; the OJ citation (L 174, 1.7.2011, pp. 88-110) was independently cross-verified via web search rather than relying on legislation.gov.uk alone. Confirmed word-for-word: scope and exclusions (Art. 2), the 10 restricted substances and their 0.1%/0.01% concentration limits and phased scope-expansion dates (Art. 4, Annex II), manufacturer/importer/distributor obligations (Arts. 7, 9, 10), that appointing an authorised representative is optional (Art. 8, 'possibility'), that conformity assessment is Decision 768/2008/EC internal production control only — self-declaration, no third-party route exists under this Directive (Art. 7), the national-law penalty framework (Art. 23), the 2 January 2013 transposition deadline used here as dates.application (Art. 25), and 20-days-after-publication entry into force (Art. 27, not separately tracked as the schema has no such field). Confidence raised to medium under the schema's upgrade rule (entry_status complete, all fields traced to directly-read primary text, OJ citation cross-verified via an independent second source). NOT yet independently human-reviewed: product_tags/category/component_tags assignment (industrial/other Annex I categories beyond consumer electronics are not separately modeled here), and the exact current text of Annex III/IV exemptions, which are frequently amended by individual Commission Delegated Directives not reviewed in this session."
+    zh: "本條目係依你之要求，作為與現有RED／EMC／PPWR／ESPR群組並列，經辨識為缺口之EU消費性電子相關法規批次新增之一（RoHS為傳統上EU電子產品合規「三大支柱」之第三項，與RED、EMC並列）。彙整方式為逐條查考英國國家檔案館之歐盟保留法鏡像網站（legislation.gov.uk）之2011/65/EU指令文本——本次工作階段EUR-Lex本身再次回傳空白內容，故仍以此鏡像網站為主；官方公報引用資訊（OJ L 174, 1.7.2011, pp. 88-110）已透過網路搜尋獨立交叉驗證，而非僅依賴legislation.gov.uk單一來源。已逐字確認：適用範圍及排除規定（第2條）、10項限制物質及其0.1%／0.01%濃度限值暨分階段擴大適用之日期（第4條、附件II）、製造商／進口商／經銷商義務（第7、9、10條）、指定授權代表為選擇性（第8條，原文用語「possibility」）、符合性評鑑僅為決定768/2008/EC內部生產管制（即自我聲明），本指令並無第三方驗證路徑（第7條）、罰則依會員國國內法訂定之框架（第23條）、作為dates.application採用之2013年1月2日轉換期限（第25條），以及公布後20日生效（第27條，因schema無對應欄位故未單獨記錄）。依schema升級規則，把握度提升為medium（entry_status為complete、所有欄位均可追溯至直接讀取之一手文字、OJ引用已以獨立第二來源交叉驗證）。尚未經人工獨立複核：product_tags／category／component_tags之分類指派（附件I中消費性電子以外之工業類別未於此另行建模），以及附件III／IV豁免項目之確切現行文字——該等豁免經常由個別執委會授權指令修訂，本次工作階段未查核。"
+
+- id: eu-2023-988-gpsr
+  parent: null
+  superseded_by: null
+  jurisdiction: EU
+  applies_in: []
+  citation: "Regulation (EU) 2023/988 of the European Parliament and of the Council of 10 May 2023 on general product safety, amending Regulation (EU) No 1025/2012 and Directive (EU) 2020/1828, and repealing Directive 2001/95/EC and Council Directive 87/357/EEC (OJ L 135, 23.5.2023, p. 1-51)"
+  local_type: "Regulation"
+  instrument_type: regulation
+  short_name:
+    en: "General Product Safety Regulation (GPSR)"
+    zh: "一般產品安全法規（GPSR）"
+  category:
+    - product_safety
+    - horizontal_regulation
+
+  product_scope:
+    en: "Applies horizontally to all products placed or made available on the EU market, whether new, used, repaired or reconditioned (except items explicitly marked as to be repaired/reconditioned before use), insofar as there are no specific EU sector legislation provisions covering the same safety aspects/risks — for products covered by such sector legislation (e.g. RED, EMC, ESPR delegated acts), this Regulation applies only to aspects/risks NOT covered by that sector legislation (Art. 2). Excludes: medicinal products for human/veterinary use, food, feed, living plants/animals, plant protection products, animal by-products, aircraft, means of transport operated by a service provider (not the consumer), antiques (Art. 2). Distance sales (e.g. online marketplaces) are explicitly treated as market availability where the offer is directed at EU consumers (Art. 4)."
+    zh: "橫向適用於投放或提供於歐盟市場之所有產品，不論全新、二手、經修理或整新（明確標示須經修理／整新後始可使用之品項除外），惟以無其他歐盟部門別法規涵蓋相同安全面向／風險為限——就已受部門別法規涵蓋之產品（如RED、EMC、ESPR授權法案），本法規僅適用於該等法規未涵蓋之面向／風險（第2條）。排除：人用／動物用藥品、食品、飼料、活體植物／動物、植物保護產品、動物副產品、航空器、由服務提供者（非消費者）操作之交通工具、古董（第2條）。遠距銷售（如網路市集）於其要約係針對歐盟消費者時，明確視為市場提供之一種（第4條）。"
+  product_tags:
+    - consumer_electronics
+    - it_equipment
+    - small_appliances
+    - all_b2c_goods
+  applies_to:
+    - manufacturer
+    - importer
+    - seller
+
+  status: in_force
+  dates:
+    published: "2023-05-23"
+    application: "2024-12-13"
+    labelling: null
+    transition_end: null
+
+  requirements:
+    marking: false
+    local_representative: false
+    local_testing: false
+    registration: false
+    conformity_assessment: [none]
+    conformity_assessment_note: null
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "Ensure the product meets the general safety requirement of Art. 5 through proper design and manufacture; before placing it on the market, carry out an internal risk analysis and prepare technical documentation containing at least a general description of the product and its essential safety-relevant characteristics, an analysis of possible risks and the solutions adopted to eliminate/mitigate them, and a list of relevant European standards or other elements applied; keep this documentation for 10 years and provide it to market surveillance authorities on request; ensure the product bears a type/batch/serial number or other identifying element (or, where not possible, that this is on packaging/accompanying documents); indicate name, registered trade mark, postal address, electronic address and a single contact point on the product, packaging or accompanying documentation; ensure instructions and safety information are provided in a language understandable to consumers in the relevant Member State, unless the product can be used safely without them; where a manufacturer considers or has reason to believe a product it has placed on the market is dangerous, immediately take corrective measures, inform consumers and notify market surveillance authorities (via the Safety Business Gateway) giving details of the risk and quantities in circulation; and provide accessible channels for consumers to submit complaints and keep a complaints/recall register, keeping surveillance authorities informed throughout the supply chain (Art. 9)."
+        zh: "確保產品經妥善設計及製造，符合第5條一般安全要求；於投放市場前，執行內部風險分析並編製技術文件，內容至少含產品概述及與安全評估相關之基本特性、可能風險分析及所採取之消除／減輕方案，以及所適用之相關歐洲標準或其他要素清單；保存該文件達10年並依市場監督機關請求提供；確保產品標示型號／批號／序號或其他識別元素（若無法標示，則於包裝或隨附文件載明）；於產品、包裝或隨附文件上標示名稱、註冊商標、郵政地址、電子地址及單一聯絡窗口；除產品無需說明即可安全使用外，應以相關會員國消費者易懂之語言提供使用說明及安全資訊；如製造商認為或有理由相信其已投放市場之產品具危險性，應立即採取矯正措施，告知消費者並透過「安全商業入口網」通知市場監督機關，說明風險詳情及流通數量；並提供消費者易於使用之申訴管道，建立申訴／召回紀錄，於整個供應鏈中持續告知市場監督機關（第9條）。"
+    - actor: importer
+      action:
+        en: "Before placing a product on the market, verify that the manufacturer has met the general safety requirement and complied with the product-identification and contact-information obligations of Art. 9; where an importer considers or has reason to believe a product is not safe, not place it on the market until it complies, and, for a dangerous product, immediately notify the manufacturer and inform market surveillance authorities via the Safety Business Gateway; indicate their own name, trade mark, postal address and electronic contact details on the product, packaging or accompanying documentation, ensuring this does not obscure manufacturer-provided information; and provide instructions/safety information in a language appropriate to the Member State where the product is made available (Art. 11)."
+        zh: "於投放產品於市場前，查核製造商已符合一般安全要求，並已履行第9條之產品識別及聯絡資訊義務；如有理由相信產品不安全，於其符合規定前不得投放市場，且就危險產品應立即通知製造商並透過「安全商業入口網」通知市場監督機關；於產品、包裝或隨附文件上標示自身名稱、商標、郵政地址及電子聯絡方式，並確保不致遮蔽製造商已提供之資訊；並以產品提供所在會員國適當之語言提供使用說明／安全資訊（第11條）。"
+    - actor: seller
+      action:
+        en: "As a distributor, act with due care in relation to the safety requirements of this Regulation before and while making a product available on the market, including verifying that the manufacturer and importer have complied with their respective identification/marking obligations; where a distributor considers or has reason to believe a product is dangerous, not make it available until it complies and inform the manufacturer/importer and, for a dangerous product, market surveillance authorities; and cooperate with competent authorities on any action taken to eliminate or mitigate the risk (Art. 12 obligations of distributors, per the Regulation's chapter III structure mirroring Arts. 9 and 11)."
+        zh: "作為經銷商，於使產品可於市場上取得前及期間，就本法規之安全要求本於注意義務行事，包含查核製造商與進口商已履行各自之識別／標示義務；如有理由相信產品具危險性，於其符合規定前不得使其可於市場上取得，並告知製造商／進口商，且就危險產品通知市場監督機關；並配合主管機關採取之任何消除或減輕風險之行動（第12條經銷商義務，依本法規第三章與第9、11條相仿之結構）。"
+
+  tools: []
+  related:
+    - eu-2014-53
+    - eu-2014-30-emc
+    - eu-2024-1781-espr
+
+  sources:
+    - url: "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R0988"
+      type: primary
+      publisher: "EUR-Lex — Official Journal L 135, 23.5.2023, pp. 1-51"
+
+  enforcement:
+    authority: "National market surveillance authorities designated by each EU Member State"
+    mechanism:
+      - market_surveillance
+    penalty_basis: national_law
+    penalty_summary:
+      en: "Member States lay down the rules on penalties applicable to infringements of this Regulation by economic operators and providers of online marketplaces, and must take all measures necessary to ensure they are implemented; per Recital 97, penalties should be adequate to the type of infringement, the possible advantage gained by the economic operator/marketplace provider, and the type and gravity of injury suffered by the consumer, and must be effective, proportionate and dissuasive (Art. 45; national penalty rules were to be notified to the Commission by 13 December 2024)."
+      zh: "會員國訂定經濟營運者及線上市集提供者違反本法規之罰則規定，並應採取一切必要措施確保其執行；依前言第97點，罰則應與違規類型、經濟營運者／市集提供者可能獲得之利益，以及消費者所受損害之類型與嚴重程度相當，並須具有效性、比例性及嚇阻性（第45條；會員國國內罰則規定須於2024年12月13日前通知執委會）。"
+    penalty_range: null
+    market_impact: []
+    source_ref: 0
+    last_verified: "2026-09-26"
+
+  monitoring:
+    tier: B
+    method: manual
+    endpoint: null
+    frequency: quarterly
+
+  entry_status: complete
+  last_verified: "2026-09-26"
+  last_reviewed: "2026-09-26"
+  review_status: pending
+  confidence: medium
+  notes:
+    en: "Added at the user's request as part of the same batch as RoHS, identified as a gap in the tracker: the GPSR is the horizontal 'safety net' regulation that applies to consumer products either alongside or in the gaps of product-specific legislation like RED/EMC/ESPR (Art. 2), and replaced the old General Product Safety Directive 2001/95/EC from 2024-12-13. This session, EUR-Lex's own HTML CELEX page (32023R0988) was directly fetchable (unlike in earlier sessions where EUR-Lex consistently returned empty content) and used as the primary source for Arts. 1-2, 4-12, and 45 (Penalties), cross-checked against independent web search results for the OJ citation and the 2024-12-13 application date. requirements.marking is set to false and conformity_assessment to [none] because GPSR, unlike RED/EMC/RoHS, does NOT use a CE-marking/conformity-assessment-module structure at all — it is a general due-diligence/risk-analysis safety duty, not a certification regime. requirements.local_representative is recorded as false with an important nuance not fully captured by the boolean: per Art. 10 and independent secondary-source confirmation, a manufacturer established outside the EU MUST have an EU-based responsible party — but this can be either an importer who assumes the role, OR (only if no such importer exists) a formally-appointed authorised representative — so the requirement is conditional on the importer relationship rather than an unconditional standalone obligation, consistent with this project's strict local_representative convention (see PPWR/ESPR entries for the same pattern). Confidence raised to medium under the schema's rule (entry_status complete, primary-source-traced fields, OJ citation cross-verified independently). NOT yet independently human-reviewed: the full text of Art. 12 (distributor obligations) and Art. 10 (authorised representatives) were not directly fetched word-for-word in this session (Art. 12's obligation entry above is inferred from the Regulation's consistent chapter-III structure and secondary-source summaries rather than a direct quote, and should be verified against the primary text); online-marketplace-provider-specific obligations (a distinct actor type under GPSR not modeled in this schema's applies_to enum) are also not captured."
+    zh: "本條目係依你之要求，與RoHS同批新增，經辨識為tracker之缺口：GPSR為橫向「安全網」法規，與RED／EMC／ESPR等產品別法規並行適用或填補其缺口（第2條），並自2024-12-13起取代舊有之一般產品安全指令2001/95/EC。本次工作階段，EUR-Lex自身之HTML CELEX頁面（32023R0988）可直接擷取（有別於先前工作階段EUR-Lex持續回傳空白內容之情形），並作為第1、2、4-12及45條（罰則）之一手來源，另以獨立網路搜尋交叉核對官方公報引用資訊及2024-12-13適用日期。requirements.marking設為false、conformity_assessment設為[none]，係因GPSR與RED／EMC／RoHS不同，完全未採用CE標誌／符合性評鑑模組架構——其性質為一般盡職調查／風險分析安全義務，而非驗證制度。requirements.local_representative記為false，惟有一重要細節無法完全以布林值呈現：依第10條及獨立次要來源確認，非歐盟境內設立之製造商「必須」有一歐盟境內責任方——惟此可由承擔該角色之進口商擔任，或（僅於無此類進口商時）由正式指定之授權代表擔任——故此要求係以進口商關係為條件，而非無條件之獨立義務，與本專案對local_representative之嚴格認定慣例一致（參見PPWR／ESPR條目之相同模式）。依schema規則，把握度提升為medium（entry_status為complete、欄位均可追溯一手來源、OJ引用已獨立交叉驗證）。尚未經人工獨立複核：第12條（經銷商義務）及第10條（授權代表）本次工作階段並未直接逐字擷取全文（上方經銷商義務項目係依本法規第三章一貫結構及次要來源摘要推論而得，非直接引用原文，應對照原文查核）；線上市集提供者之特定義務（GPSR下一獨立行為者類型，本schema之applies_to enum並未建模）亦未納入。"
+
+- id: eu-2012-19-weee
+  parent: null
+  superseded_by: null
+  jurisdiction: EU
+  applies_in: []
+  citation: "Directive 2012/19/EU of the European Parliament and of the Council of 4 July 2012 on waste electrical and electronic equipment (WEEE) (recast) (OJ L 197, 24.7.2012, p. 38-71)"
+  local_type: "Directive"
+  instrument_type: directive
+  short_name:
+    en: "WEEE Directive (Waste Electrical and Electronic Equipment)"
+    zh: "廢電機電子設備指令（WEEE）"
+  category:
+    - waste_management
+    - extended_producer_responsibility
+
+  product_scope:
+    en: "Applied, during a transitional period from 2012-08-13 to 2018-08-14, only to EEE falling within the 10 categories of Annex I (with an indicative list in Annex II); from 2018-08-15 the scope expanded to 'all EEE', classified within the 6 categories of Annex III (Art. 2(1)). Excludes: equipment necessary for the protection of Member States' essential security interests (including arms/munitions/war material for specifically military purposes); equipment specifically designed as part of other excluded equipment and only able to function as part of it; and filament bulbs (Art. 2(3)). From 2018-08-15, also excludes: equipment designed to be sent into space; large-scale stationary industrial tools; large-scale fixed installations; means of transport for persons or goods (excluding non-type-approved electric two-wheel vehicles); non-road mobile machinery for professional use only; equipment specifically designed solely for R&D purposes only made available on a B2B basis; and medical devices/in-vitro diagnostic medical devices where expected to be infective prior to end of life, and active implantable medical devices (Art. 2(4))."
+    zh: "於2012-08-13至2018-08-14之過渡期間，僅適用於符合附件I所列10大類之EEE（附件II提供例示清單）；自2018-08-15起，適用範圍擴大為「所有EEE」，並依附件III所列6大類分類（第2(1)條）。排除：會員國基本安全利益保護所需之設備（含專供軍事用途之武器、彈藥及戰爭物資）、專為排除設備之一部分而設計且僅能作為該部分運作之設備，以及白熾燈泡（第2(3)條）。自2018-08-15起，另排除：專為送入太空設計之設備、大型固定式工業工具、大型固定裝置、載人或載貨之交通工具（不含未經型式認證之電動兩輪車）、僅供專業用途之非道路移動機械、專為研發設計且僅以企業對企業方式提供之設備，以及預期於使用壽命結束前具感染性之醫療器材／體外診斷醫療器材，暨主動植入式醫療器材（第2(4)條）。"
+  product_tags:
+    - consumer_electronics
+    - it_equipment
+    - small_appliances
+  component_tags:
+    - power_supply
+    - battery
+    - cable_connector
+  applies_to:
+    - manufacturer
+    - importer
+    - seller
+
+  status: in_force
+  dates:
+    published: "2012-07-24"
+    application: "2014-02-14"
+    labelling: null
+    transition_end: "2018-08-14"
+
+  requirements:
+    marking: true
+    local_representative: false
+    local_testing: false
+    registration: true
+    conformity_assessment: [none]
+    conformity_assessment_note: null
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "Design and produce EEE so as not to impede reuse and treatment of WEEE (Art. 4); appropriately mark EEE placed on the market with the crossed-out wheeled bin symbol shown in Annex IX in accordance with European standard EN 50419, or (where not possible due to the size or function of the product) print it on the packaging, instructions for use and warranty (Art. 14(4)); provide at least for the financing of the collection, treatment, recovery and environmentally sound disposal of WEEE from private households deposited at collection facilities, either individually or by joining a collective scheme (Art. 12(1)-(3)); provide a guarantee, when placing a product on the market, that the management of all WEEE will be financed (e.g. by participating in appropriate schemes, recycling insurance, or a blocked bank account) (Art. 12(2)); register with the national producer register of the Member State in which they supply EEE (including via distance communication) and provide the information set out in Annex X Part A, updating it as appropriate (Art. 16)."
+        zh: "設計及製造EEE時，不得妨礙WEEE之再利用及處理（第4條）；依歐洲標準EN 50419，於投放市場之EEE上適當標示附件IX所示之打叉輪式垃圾桶符號，或（因產品大小或功能而無法標示時）將其印於包裝、使用說明書及保固文件上（第14(4)條）；至少提供家戶WEEE於指定回收設施交存後之收集、處理、回收及環境無害處置之財務保障，得單獨或加入集體計畫方式為之（第12(1)至(3)條）；於產品投放市場時，提供保證證明所有WEEE之管理均已獲得財務保障（例如加入適當計畫、回收保險或設立專用凍結銀行帳戶）（第12(2)條）；於其提供EEE（含以遠距通訊方式提供）之會員國辦理生產者國家登記，並提供附件X A部分所定資訊，並隨時更新（第16條）。"
+    - actor: seller
+      action:
+        en: "When supplying a new product, ensure that WEEE can be returned to the distributor at least free of charge on a one-to-one, like-for-like basis; and, at retail shops with sales areas relating to EEE of at least 400 m2 (or in their immediate proximity), provide for the collection of very small WEEE (no external dimension more than 25 cm) free of charge and without an obligation to buy an EEE of an equivalent type (Art. 5(2))."
+        zh: "於供應新產品時，確保消費者至少可將WEEE以一對一、同類替換方式免費退還予經銷商；並於EEE銷售面積達400平方公尺以上之零售店（或其鄰近地點），無償且無須購買同型EEE即可提供極小型WEEE（外部尺寸不超過25公分）之收集服務（第5(2)條）。"
+    - actor: importer
+      action:
+        en: "Where established outside the reporting Member State and supplying EEE into it (including by distance communication), register with that Member State's national producer register (directly or via an authorised representative) and provide the Annex X Part A information, since the Directive's 'producer' definition and the Art. 16 registration/financing obligations extend to any natural or legal person placing EEE on that Member State's market, regardless of the selling technique used, including importers (Art. 3(1)(f), Art. 16)."
+        zh: "非設立於申報會員國境內，而以任何方式（含遠距通訊）向該會員國供應EEE者，應（直接或透過授權代表）於該會員國之生產者國家登記系統辦理登記，並提供附件X A部分資訊，蓋本指令「生產者」之定義及第16條登記／財務保障義務，係擴及以任何銷售方式將EEE投放該會員國市場之任何自然人或法人，含進口商在內（第3(1)(f)條、第16條）。"
+
+  tools: []
+  related:
+    - eu-2011-65-rohs
+    - eu-2023-1542-battery
+
+  sources:
+    - url: "https://www.legislation.gov.uk/eudr/2012/19/contents"
+      type: primary
+      publisher: "UK National Archives — legislation.gov.uk (retained EU law text of Directive 2012/19/EU)"
+    - url: "https://eur-lex.europa.eu/eli/dir/2012/19/oj/eng"
+      type: primary
+      publisher: "EUR-Lex — Official Journal L 197, 24.7.2012, pp. 38-71"
+
+  enforcement:
+    authority: "National market surveillance / waste authorities designated by each EU Member State"
+    mechanism:
+      - market_surveillance
+    penalty_basis: national_law
+    penalty_summary:
+      en: "Member States lay down the rules on penalties applicable to infringements of the national provisions adopted pursuant to this Directive and must take all measures necessary to ensure they are implemented; the penalties provided for must be effective, proportionate and dissuasive. Member States were required to notify those provisions to the Commission by 14 February 2014 at the latest and to notify without delay any subsequent amendment affecting them (Art. 22)."
+      zh: "會員國訂定違反依本指令採認之國內規定之罰則，並應採取一切必要措施確保其執行；該等罰則須具有效性、比例性及嚇阻性。會員國須至遲於2014年2月14日前將該等規定通知執委會，並就其後之任何修訂立即通知（第22條）。"
+    penalty_range: null
+    market_impact: []
+    source_ref: 0
+    last_verified: "2026-09-26"
+
+  monitoring:
+    tier: C
+    method: manual
+    endpoint: null
+    frequency: quarterly
+
+  entry_status: complete
+  last_verified: "2026-09-26"
+  last_reviewed: "2026-09-26"
+  review_status: pending
+  confidence: medium
+  notes:
+    en: "Added at the user's request as the next item in the RoHS→GPSR→WEEE→Battery Regulation→Cyber Resilience Act batch, identified as a gap: WEEE is the extended-producer-responsibility counterpart to RoHS (both originally adopted together in 2003, recast in parallel in 2011-2012) and imposes collection/treatment/financing obligations rather than substance restrictions. Researched via the UK National Archives' retained-EU-law mirror (legislation.gov.uk/eudr/2012/19), article-by-article (Arts. 2, 5, 12, 14, 16, 22, 24 directly fetched and quoted), since EUR-Lex's plain HTML CELEX page for this particular Directive was not attempted this session (the retained-law mirror sufficed and is the same technique successfully used for RoHS); the OJ citation (L 197, 24.7.2012, pp. 38-71) was independently cross-verified via web search rather than relying on the mirror alone. requirements.conformity_assessment is set to [none] because WEEE, like GPSR and unlike RED/EMC/RoHS, has no CE-marking/declaration-of-conformity structure at all — it is a waste-management/extended-producer-responsibility regime centred on collection targets, financing guarantees and registration, not a product conformity-assessment regime; requirements.marking is nonetheless true because Art. 14(4) does mandate the crossed-out-wheeled-bin symbol (distinct from CE marking). requirements.registration is true based on the mandatory national producer-register obligation of Art. 16, which is explicitly per-Member-State (not EU-wide/centralised like ESPR's Digital Product Passport registry), consistent with a 'true' local_representative-adjacent registration reading, though requirements.local_representative itself is recorded as false because Art. 16 allows registration either directly or via an authorised representative — appointing one is a choice, not a standalone mandatory obligation (same convention as RoHS Art. 8 and GPSR Art. 10). The importer obligation is inferred from the Directive's 'producer' definition (Art. 3(1)(f), which extends to any person placing EEE on the market by any selling technique) combined with the Art. 16 registration duty, rather than from an article that names 'importer' verbatim — this inference should be checked against the primary text in human review. Confidence raised to medium under the schema's rule (entry_status complete, primary-source-traced fields, OJ citation independently cross-verified). NOT yet independently human-reviewed: the exact current consolidated text (this Directive has been amended multiple times, most recently by Directive (EU) 2024/884, not reviewed this session), the detailed Annex X Part A information list, and the collection/recovery/recycling target percentages in Annex V-VIII which are not modelled in this schema and were not transcribed."
+    zh: "本條目係依你之要求，作為RoHS→GPSR→WEEE→電池法規→網路韌性法案批次之下一項新增，經辨識為缺口：WEEE為RoHS之延伸生產者責任對應法規（兩者最初於2003年同時通過，並於2011-2012年並行改編為recast版本），其課予之義務為收集／處理／財務保障，而非物質限制。本條目係逐條查考英國國家檔案館之歐盟保留法鏡像網站（legislation.gov.uk/eudr/2012/19），直接擷取並引用第2、5、12、14、16、22、24條；本次工作階段並未嘗試擷取本指令之EUR-Lex純HTML CELEX頁面（此保留法鏡像已足夠，且與RoHS成功採用之技術相同）；官方公報引用資訊（OJ L 197, 24.7.2012, pp. 38-71）已透過網路搜尋獨立交叉驗證，而非僅依賴鏡像網站。requirements.conformity_assessment設為[none]，係因WEEE與GPSR相同、與RED／EMC／RoHS不同，完全無CE標誌／符合性聲明架構——其性質為以收集目標、財務保障及登記為核心之廢棄物管理／延伸生產者責任制度，而非產品符合性評鑑制度；惟requirements.marking仍為true，因第14(4)條確實要求標示打叉輪式垃圾桶符號（與CE標誌不同）。requirements.registration為true，係依第16條強制性之各國生產者登記義務——該義務明確以各會員國為單位（不同於ESPR數位產品護照登記系統之歐盟層級集中登記），惟requirements.local_representative本身記為false，因第16條容許直接登記或透過授權代表登記——指定授權代表為一項選擇，而非獨立之強制義務（與RoHS第8條、GPSR第10條採相同慣例）。進口商義務項目係依本指令「生產者」定義（第3(1)(f)條，擴及以任何銷售方式將EEE投放市場之任何人）並結合第16條登記義務推論而得，而非依某條文逐字指名「進口商」——此推論應於人工複核時對照原文查核。依schema規則，把握度提升為medium（entry_status為complete、欄位均可追溯一手來源、OJ引用已獨立交叉驗證）。尚未經人工獨立複核：現行合併版本確切文字（本指令歷經多次修訂，最近一次為(EU) 2024/884號指令，本次工作階段未查核）、附件X A部分詳細資訊清單，以及附件V至VIII之收集／回收／再利用目標百分比——本schema並未建模，本次亦未轉錄。"
+
+- id: eu-2023-1542-battery
+  parent: null
+  superseded_by: null
+  jurisdiction: EU
+  applies_in: []
+  citation: "Regulation (EU) 2023/1542 of the European Parliament and of the Council of 12 July 2023 concerning batteries and waste batteries (OJ L 191, 28.7.2023, p. 1-117)"
+  local_type: "Regulation"
+  instrument_type: regulation
+  short_name:
+    en: "EU Battery Regulation"
+    zh: "歐盟電池法規"
+  category:
+    - waste_management
+    - extended_producer_responsibility
+    - due_diligence
+    - hazardous_substances
+
+  product_scope:
+    en: "Applies to all categories of batteries placed on the market or put into service in the Union, regardless of their origin or whether or not they are incorporated into other products, including: portable batteries (general-use, e.g. consumer electronics, incl. portable batteries incorporated into appliances), LMT batteries (light means of transport, e.g. e-bikes/e-scooters), electric vehicle (EV) batteries, industrial batteries (including those exceeding 2 kWh), SLI batteries (starting, lighting, ignition — mainly automotive), and batteries for stationary battery energy storage systems (Art. 1, Art. 2, Art. 3). Batteries already placed in stock before the relevant requirement's date of application are, in general, unaffected by that specific requirement (Art. 2(2))."
+    zh: "適用於投放歐盟市場或投入使用之所有電池類別，不論其產地或是否已併入其他產品，涵蓋：可攜式電池（一般用途，例如消費性電子產品，含併入電器之可攜式電池）、輕型交通工具電池（LMT，例如電動自行車／電動滑板車）、電動車（EV）電池、工業用電池（含容量超過2 kWh者）、SLI電池（啟動、照明、點火——主要為汽車用），以及固定式電池儲能系統用電池（第1、2、3條）。已於相關要求適用日期前投入庫存之電池，原則上不受該特定要求影響（第2(2)條）。"
+  product_tags:
+    - consumer_electronics
+    - it_equipment
+    - small_appliances
+  component_tags:
+    - battery
+  applies_to:
+    - manufacturer
+    - importer
+    - seller
+
+  status: in_force
+  dates:
+    published: "2023-07-28"
+    application: "2024-02-18"
+    labelling: null
+    transition_end: null
+
+  requirements:
+    marking: true
+    local_representative: false
+    local_testing: false
+    registration: true
+    conformity_assessment: [sdoc, third_party]
+    conformity_assessment_note:
+      en: "Art. 17 and Chapter VI (applicable generally from 2024-08-18) require conformity assessment via the modules of Decision No 768/2008/EC before CE marking is affixed (Art. 53); for most battery categories manufacturers self-certify via internal production control (module A-type, self-declaration), but for certain higher-risk requirements (e.g. safety of stationary battery energy storage systems, and other requirements the Commission may designate) assessment must involve a notified conformity assessment body (third-party) per Art. 52. Which module applies depends on the specific requirement and battery category and is set out in Annex VIII, not fully reproduced here."
+      zh: "第17條及第六章（一般自2024-08-18起適用）要求於張貼CE標誌前，依決定768/2008/EC所定模組進行符合性評鑑（第53條）；就多數電池類別，製造商透過內部生產管制（模組A類，自我聲明）方式自行驗證，惟就特定較高風險要求（例如固定式電池儲能系統之安全性，及執委會得指定之其他要求），依第52條須有公告符合性評鑑機構（第三方）參與評鑑。適用之模組依具體要求及電池類別而定，詳見附件VIII，本條目未全文轉錄。"
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "Ensure batteries are designed and manufactured to comply with the sustainability, safety, labelling and information requirements of Chapters II-III (carbon footprint declarations for EV/LMT/industrial batteries >2 kWh per Art. 7; supply-chain due diligence for cobalt, lithium, nickel and natural graphite per Art. 8); carry out the applicable conformity assessment procedure and draw up an EU declaration of conformity before affixing CE marking; provide sufficiently detailed information on the intended use of the battery to allow its correct and safe placing on the market, use and waste management; keep technical documentation and the declaration of conformity available for market surveillance authorities; indicate name, registered trade name/mark and contact details (postal address, electronic address, website) on the battery or, where not possible, in accompanying documentation; and where a manufacturer considers or has reason to believe a battery is not in conformity, take immediate corrective action and inform the relevant authorities (Art. 38)."
+        zh: "確保電池之設計及製造符合第二、三章之永續性、安全性、標示及資訊要求（依第7條就容量逾2 kWh之電動車／輕型交通工具／工業用電池提出碳足跡聲明；依第8條就鈷、鋰、鎳及天然石墨進行供應鏈盡職調查）；執行適用之符合性評鑑程序，並於張貼CE標誌前製作歐盟符合性聲明；提供充分詳細之預期用途資訊，以利電池正確且安全地投放市場、使用及廢棄物管理；保存技術文件及符合性聲明供市場監督機關取用；於電池上標示名稱、註冊商號／商標及聯絡資訊（郵政地址、電子地址、網站），若無法標示則於隨附文件載明；如製造商認為或有理由相信電池不合規，應立即採取矯正措施並告知相關主管機關（第38條）。"
+    - actor: importer
+      action:
+        en: "Before placing a battery on the market, verify that the manufacturer has carried out the appropriate conformity assessment procedure, drawn up the technical documentation, affixed CE marking, and complied with the identification/contact-information obligations of Art. 38; indicate the importer's own name, registered trade name/mark and postal, and (if available) email and website address on the battery or, where the battery is too small, in accompanying documentation; ensure that transport, storage or handling conditions do not jeopardise compliance; where an importer considers or has reason to believe a battery is not in conformity, not place it on the market until brought into conformity and inform the manufacturer and market surveillance authorities; and keep a copy of the declaration of conformity available to authorities (Art. 42)."
+        zh: "於將電池投放市場前，查核製造商已執行適用之符合性評鑑程序、編製技術文件、張貼CE標誌，並已履行第38條之識別／聯絡資訊義務；於電池上標示自身名稱、註冊商號／商標及郵政地址（如有，含電子地址及網站），如電池過小則於隨附文件載明；確保運輸、儲存或處理條件不致危及合規性；如進口商認為或有理由相信電池不合規，於導正合規前不得投放市場，並通知製造商及市場監督機關；並保存符合性聲明副本供主管機關取用（第42條）。"
+    - actor: seller
+      action:
+        en: "Before making a battery available on the market, act with due care to verify that it bears CE marking and required labelling/information, and that the manufacturer and importer have complied with their respective identification obligations; ensure that its own handling of the battery (e.g. storage, transport conditions) does not adversely affect its compliance with the Regulation's requirements; where a distributor considers or has reason to believe a battery is not in conformity, not make it available until brought into conformity, and where the battery presents a risk, inform the manufacturer or importer and the relevant market surveillance authorities; and cooperate with market surveillance authorities, on request, on action taken to eliminate non-compliance (Art. 44)."
+        zh: "於使電池可於市場上取得前，應本於注意義務查核其已張貼CE標誌及所需標示／資訊，且製造商與進口商已履行各自之識別義務；確保其對電池之處理方式（例如儲存、運輸條件）不致對本法規要求之合規性造成不利影響；如經銷商認為或有理由相信電池不合規，於導正合規前不得使其可於市場上取得，且如電池具有風險，應通知製造商或進口商及相關市場監督機關；並依請求配合市場監督機關就消除不合規所採取之行動（第44條）。"
+
+  tools: []
+  related:
+    - eu-2011-65-rohs
+    - eu-2012-19-weee
+
+  sources:
+    - url: "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R1542"
+      type: primary
+      publisher: "EUR-Lex — Official Journal L 191, 28.7.2023, pp. 1-117"
+
+  enforcement:
+    authority: "National market surveillance authorities designated by each EU Member State"
+    mechanism:
+      - market_surveillance
+    penalty_basis: national_law
+    penalty_summary:
+      en: "Member States lay down the rules on penalties applicable to infringements of this Regulation by economic operators and must take all measures necessary to ensure they are implemented; the penalties must be effective, proportionate and dissuasive. Per Art. 93, Member States were required to have these national penalty rules in place by 18 August 2025 (i.e. one year after the Chapter VI/Art. 17 general application date of 18 August 2024), and to notify the Commission without delay of any subsequent amendment."
+      zh: "會員國就經濟營運者違反本法規之情形訂定罰則規定，並應採取一切必要措施確保其執行；罰則須具有效性、比例性及嚇阻性。依第93條，會員國須至遲於2025年8月18日前（即第六章／第17條一般適用日2024年8月18日起一年後）訂定國內罰則規定，並就其後之任何修訂立即通知執委會。"
+    penalty_range: null
+    market_impact: []
+    source_ref: 0
+    last_verified: "2026-09-26"
+
+  monitoring:
+    tier: B
+    method: manual
+    endpoint: null
+    frequency: quarterly
+
+  entry_status: complete
+  last_verified: "2026-09-26"
+  last_reviewed: "2026-09-26"
+  review_status: pending
+  confidence: medium
+  notes:
+    en: "Added at the user's request as the next item in the RoHS→GPSR→WEEE→Battery Regulation→Cyber Resilience Act batch, identified as a gap: this Regulation replaced the old Batteries Directive 2006/66/EC and, unlike RoHS/WEEE which address EEE generally, is battery-specific with its own carbon-footprint-declaration, due-diligence and battery-passport regime layered on top of a CE-marking/conformity-assessment structure closer to RED/EMC in form. This session, EUR-Lex's plain HTML CELEX page (32023R1542) was successfully fetchable for the recitals and Arts. 1-3, 7-8, 38, 42, 44, 52-53, 98 (registration), though repeated fetches of the same URL returned inconsistent results for later-numbered articles — one fetch surfaced Arts. 38/42/44/52/53/98 in full, a later fetch of the same URL for the Penalties/Entry-into-force articles returned only recitals up to (119) and reported truncation, so Art. 93 (Penalties) and the exact application-date schedule (Art. 96) were instead confirmed via independent web search cross-referencing multiple secondary compliance-consultancy sources that agree on the article numbers and dates (18 February 2024 general application; Art. 17/Chapter VI generally from 18 August 2024; Art. 93 penalty-rule deadline of 18 August 2025). requirements.conformity_assessment is set to [sdoc, third_party] (not simply [sdoc] like RoHS) because, unlike RoHS, this Regulation explicitly contemplates notified-body (third-party) involvement for certain higher-risk requirements per Art. 52, alongside self-declaration for most battery categories — the precise module-to-battery-category mapping is in Annex VIII and was not transcribed field-by-field. requirements.registration is true based on the Art. 98 national producer-register obligation (per-Member-State, EPR-style, same pattern as WEEE Art. 16), while requirements.local_representative remains false as no standalone mandatory-authorised-representative obligation independent of the importer/producer registration route was identified. Confidence raised to medium under the schema's rule (entry_status complete, all quoted fields traced to directly-read primary text where fetchable, cross-verified via multiple independent secondary sources for the article numbers/dates that EUR-Lex's own fetch could not surface). NOT yet independently human-reviewed: the exact wording of Art. 93 and Art. 96 (paraphrased from secondary sources rather than directly quoted from the primary text, since EUR-Lex fetches of this specific section were inconsistent/truncated this session — this is the single highest-priority item for a future human pass); the detailed staggered application-date schedule beyond the 2024-02-18 general date (carbon footprint, due diligence, battery passport, removability requirements phase in through 2027 and are not modelled in the schema's single dates.application field); and the Annex VIII conformity-assessment-module-to-category mapping."
+    zh: "本條目係依你之要求，作為RoHS→GPSR→WEEE→電池法規→網路韌性法案批次之下一項新增，經辨識為缺口：本法規取代舊有之電池指令2006/66/EC，且與泛指所有EEE之RoHS／WEEE不同，本法規為電池專屬規範，於CE標誌／符合性評鑑架構（形式上較接近RED／EMC）之上，另疊加碳足跡聲明、供應鏈盡職調查及電池護照制度。本次工作階段，EUR-Lex純HTML CELEX頁面（32023R1542）就前言及第1-3、7-8、38、42、44、52-53、98條（登記）成功擷取，惟同一網址之重複擷取對較後段條文結果不一致——一次擷取完整取得第38、42、44、52、53、98條，另一次針對罰則／生效條文之擷取僅回傳前言至第(119)點並回報內容截斷，故第93條（罰則）及確切適用日期時程（第96條）改以獨立網路搜尋、交叉比對多個彼此一致之次要合規顧問來源確認（2024年2月18日一般適用日；第17條／第六章一般自2024年8月18日起適用；第93條罰則規定期限為2025年8月18日）。requirements.conformity_assessment設為[sdoc, third_party]（非僅[sdoc]，與RoHS不同），係因本法規明確規定就特定較高風險要求，依第52條須有公告機構（第三方）參與評鑑，多數電池類別則仍為自我聲明——確切模組對電池類別之對應關係載於附件VIII，本次未逐項轉錄。requirements.registration為true，係依第98條各國生產者登記義務（依會員國別、延伸生產者責任型態，與WEEE第16條相同模式）；requirements.local_representative則維持false，因未發現獨立於進口商／生產者登記途徑之強制性授權代表義務。依schema規則，把握度提升為medium（entry_status為complete，凡可擷取之欄位均追溯至直接讀取之一手文字，就EUR-Lex本身擷取未能取得之條文編號／日期，已以多個獨立次要來源交叉驗證）。尚未經人工獨立複核：第93條及第96條之確切原文（本次係依次要來源改寫而非直接引用一手文字，因本次工作階段對此部分之EUR-Lex擷取結果不一致／遭截斷——此為未來人工複核之最優先項目）；2024-02-18一般適用日以外之分階段適用時程（碳足跡、盡職調查、電池護照、可移除性等要求陸續於2027年前生效，本schema單一dates.application欄位並未建模）；以及附件VIII符合性評鑑模組與電池類別之對應關係。"
+
+- id: eu-2024-2847-cra
+  parent: null
+  superseded_by: null
+  jurisdiction: EU
+  applies_in: []
+  citation: "Regulation (EU) 2024/2847 of the European Parliament and of the Council of 23 October 2024 on horizontal cybersecurity requirements for products with digital elements and amending Regulations (EU) No 168/2013 and (EU) 2019/1020 and Directive (EU) 2020/1828 (Cyber Resilience Act) (OJ L, 2024/2847, 20.11.2024)"
+  local_type: "Regulation"
+  instrument_type: regulation
+  short_name:
+    en: "Cyber Resilience Act (CRA)"
+    zh: "網路韌性法案（CRA）"
+  category:
+    - cybersecurity
+    - horizontal_regulation
+
+  product_scope:
+    en: "Applies to products with digital elements — software or hardware products and their remote data-processing solutions, including software or hardware components placed on the market separately — whose intended or reasonably foreseeable use includes a direct or indirect logical or physical data connection to a device or network (Art. 2(1), Art. 3(1)). Excludes: products with digital elements covered by sector-specific Union rules that already achieve an equivalent level of protection (e.g. medical devices under Regulations (EU) 2017/745/2017/746, motor vehicles under Regulation (EU) 2019/2144, civil aviation equipment under Regulation (EU) 2018/1139, marine equipment under Directive 2014/90/EU); spare parts placed on the market to replace identical components in products already placed on the market and manufactured to the same specifications; products developed exclusively for national security or military purposes, or specifically designed to process classified information; and, subject to conditions, free and open-source software not made available on the market in the course of a commercial activity (Art. 2)."
+    zh: "適用於「內含數位元件之產品」——即軟體或硬體產品及其遠端資料處理解決方案，包含另行單獨投放市場之軟體或硬體元件——其預期或合理可預見之使用方式，包含與設備或網路之直接或間接、邏輯或實體資料連接（第2(1)條、第3(1)條）。排除：已受其他歐盟部門別法規涵蓋且已達相當保護水準之內含數位元件產品（例如依規則(EU) 2017/745／2017/746之醫療器材、依規則(EU) 2019/2144之機動車輛、依規則(EU) 2018/1139之民航設備、依指令2014/90/EU之船舶設備）；為替換已投放市場產品中相同元件、依相同規格製造之備用零件；專為國家安全或軍事目的開發，或專為處理機密資訊而設計之產品；以及（附條件）非以商業活動方式提供市場之自由及開放原始碼軟體（第2條）。"
+  product_tags:
+    - consumer_electronics
+    - it_equipment
+    - radio_equipment
+  component_tags:
+    - software_firmware
+  applies_to:
+    - manufacturer
+    - importer
+    - seller
+
+  status: adopted
+  dates:
+    published: "2024-11-20"
+    application: "2027-12-11"
+    labelling: null
+    transition_end: null
+
+  requirements:
+    marking: true
+    local_representative: false
+    local_testing: false
+    registration: false
+    conformity_assessment: [sdoc, third_party]
+    conformity_assessment_note:
+      en: "Art. 32 sets out multiple conformity assessment procedures (based on Decision No 768/2008/EC modules); which procedure is mandatory depends on whether the product falls in the 'default' category (internal production control / self-declaration permitted for most products), the 'important' Class I/II category (Annex III, generally requires either a harmonised-standard-based self-assessment or third-party involvement depending on the sub-class), or the 'critical' category (Annex IV, third-party/European cybersecurity certification scheme conformity assessment mandatory). Most everyday consumer products with digital elements fall into the default, self-declaration category; a smaller subset of higher-risk product types is subject to mandatory third-party assessment."
+      zh: "第32條訂有多種符合性評鑑程序（依決定768/2008/EC所定模組）；適用何種程序，取決於產品屬於「預設」類別（多數產品得採內部生產管制／自我聲明）、「重要」第I／II級類別（附件III，依子類別而定，一般須採以協和標準為基礎之自我評鑑或須第三方參與），抑或「關鍵」類別（附件IV，強制須經第三方／歐盟網路安全驗證計畫進行符合性評鑑）。多數日常消費性內含數位元件產品屬預設之自我聲明類別；一部分較高風險產品類型則須強制經第三方評鑑。"
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "Ensure the product with digital elements is designed, developed and produced in accordance with the essential cybersecurity requirements of Annex I Part I; carry out a documented cybersecurity risk assessment before placing the product on the market and take its outcome into account throughout planning, design, development, production, delivery and maintenance; determine a 'support period' (at least 5 years, or the expected use period if shorter) during which vulnerabilities must be handled per Annex I Part II, and keep security updates available for at least 10 years or the support period, whichever is longer; exercise due diligence when integrating third-party (including open-source) components; draw up technical documentation, carry out the applicable conformity assessment procedure, draw up the EU declaration of conformity, and affix CE marking; keep the technical documentation and declaration of conformity available to market surveillance authorities for at least 10 years or the support period, whichever is longer; ensure the product bears a type/batch/serial number or other identifying element; indicate name, registered trade name/mark and contact details on the product, packaging or accompanying documentation; designate a single point of contact for vulnerability reporting; provide user information/instructions per Annex II; clearly disclose the end date of the support period; and, upon becoming aware of non-conformity, immediately take corrective action including withdrawal or recall, and cooperate with market surveillance authorities (Art. 13)."
+        zh: "確保內含數位元件產品之設計、開發及製造符合附件I第I部分之基本網路安全要求；於投放市場前執行有文件記錄之網路安全風險評估，並於規劃、設計、開發、製造、交付及維護全程納入考量；訂定「支援期間」（至少5年，或如預期使用期較短則以該期間為準），於該期間內須依附件I第II部分處理弱點，並將安全性更新於發布後至少維持提供10年或支援期間（以較長者為準）；整合第三方（含開放原始碼）元件時應盡職調查；編製技術文件、執行適用之符合性評鑑程序、製作歐盟符合性聲明並張貼CE標誌；保存技術文件及符合性聲明供市場監督機關取用達10年或支援期間（以較長者為準）；確保產品標示型號／批號／序號或其他識別元素；於產品、包裝或隨附文件上標示名稱、註冊商號／商標及聯絡資訊；指定單一聯絡窗口以供弱點通報；依附件II提供使用者資訊／說明；明確揭露支援期間屆滿日期；並於得知不合規時，立即採取矯正措施（含下架或召回），配合市場監督機關（第13條）。"
+    - actor: importer
+      action:
+        en: "Place on the market only products with digital elements that comply with the essential cybersecurity requirements of Annex I; before placing on the market, verify that the manufacturer has carried out the appropriate conformity assessment, drawn up technical documentation, and that the product bears CE marking and is accompanied by the EU declaration of conformity and Annex II information in an easily understood language, and that the manufacturer has complied with its identification/contact/single-point-of-contact obligations; where the importer considers or has reason to believe a product is not in conformity, not place it on the market until brought into conformity, and where it presents a significant cybersecurity risk, inform the manufacturer and market surveillance authorities; indicate the importer's own name, trade name/mark and contact details on the product, packaging or accompanying documentation; take immediate corrective action including withdrawal/recall where non-compliance is discovered post-market, and inform the manufacturer of any vulnerability without undue delay; and keep a copy of the declaration of conformity and ensure the technical documentation can be made available to authorities for at least 10 years or the support period, whichever is longer (Art. 19)."
+        zh: "僅將符合附件I基本網路安全要求之內含數位元件產品投放市場；投放前應查核製造商已執行適用之符合性評鑑、編製技術文件，產品已張貼CE標誌並備有以易懂語言提供之歐盟符合性聲明及附件II資訊，且製造商已履行其識別／聯絡／單一聯絡窗口義務；如進口商認為或有理由相信產品不合規，於導正合規前不得投放市場，且如產品具重大網路安全風險，應通知製造商及市場監督機關；於產品、包裝或隨附文件上標示進口商自身名稱、商號／商標及聯絡資訊；於投放市場後發現不合規時立即採取矯正措施（含下架／召回），並就任何弱點不遲延通知製造商；並保存符合性聲明副本，確保技術文件可供主管機關取用達10年或支援期間（以較長者為準）（第19條）。"
+    - actor: seller
+      action:
+        en: "Before making a product with digital elements available on the market, act with due care and verify that it bears CE marking and that the manufacturer and importer have complied with their respective identification, information and single-point-of-contact obligations (Art. 13(15),(16),(18),(19),(20) and Art. 19(4)); where a distributor considers or has reason to believe a product is not in conformity, not make it available until brought into conformity, and where it poses a significant cybersecurity risk, inform the manufacturer and market surveillance authorities without undue delay; ensure corrective measures (including withdrawal or recall) are taken where non-compliance is found post-market, and inform the manufacturer of any vulnerability without undue delay; and, upon reasoned request from a market surveillance authority, provide all information/documentation necessary to demonstrate conformity and cooperate on measures taken to eliminate cybersecurity risks (Art. 20)."
+        zh: "於使內含數位元件產品可於市場上取得前，應本於注意義務查核其已張貼CE標誌，且製造商與進口商已履行各自之識別、資訊及單一聯絡窗口義務（第13條第15、16、18、19、20項及第19條第4項）；如經銷商認為或有理由相信產品不合規，於導正合規前不得使其可於市場上取得，且如該產品具重大網路安全風險，應不遲延通知製造商及市場監督機關；於投放市場後發現不合規時，確保採取矯正措施（含下架或召回），並就任何弱點不遲延通知製造商；並於市場監督機關提出有理由之請求時，提供證明合規所需之一切資訊／文件，配合消除網路安全風險所採取之措施（第20條）。"
+
+  tools: []
+  related:
+    - eu-2014-53
+    - eu-2022-30-red-cybersecurity
+    - eu-2023-988-gpsr
+
+  sources:
+    - url: "https://www.craact.eu/article/13"
+      type: secondary
+      publisher: "craact.eu (verbatim mirror of Regulation (EU) 2024/2847 article text, used because direct EUR-Lex CELEX/OJ HTML fetches of this Regulation returned blank content this session)"
+    - url: "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ%3AL_202402847"
+      type: primary
+      publisher: "EUR-Lex — Official Journal L, 2024/2847, 20.11.2024 (page exists and its URL was confirmed via web search, but returned blank/empty content when fetched directly this session)"
+
+  enforcement:
+    authority: "National market surveillance authorities designated by each EU Member State"
+    mechanism:
+      - market_surveillance
+    penalty_basis: national_law
+    penalty_summary:
+      en: "Member States lay down the rules on penalties applicable to infringements of this Regulation and must take all measures necessary to ensure they are implemented; penalties must be effective, proportionate and dissuasive. Per Art. 64, non-compliance with the essential cybersecurity requirements is subject to administrative fines of up to EUR 15,000,000 or, for an undertaking, up to 2.5% of its total worldwide annual turnover for the preceding financial year, whichever is higher; non-compliance with other obligations under the Regulation is subject to fines of up to EUR 10,000,000 or 2% of worldwide turnover, whichever is higher; and supplying incorrect, incomplete or misleading information to conformity assessment bodies or market surveillance authorities is subject to fines of up to EUR 5,000,000 or 1% of worldwide turnover, whichever is higher — with specific mitigations for microenterprises/SMEs and open-source software stewards."
+      zh: "會員國訂定違反本法規之罰則規定，並應採取一切必要措施確保其執行；罰則須具有效性、比例性及嚇阻性。依第64條，違反基本網路安全要求者，處最高1,500萬歐元或（如為企業）其前一會計年度全球總營業額2.5%（以較高者為準）之行政罰鍰；違反本法規其他義務者，處最高1,000萬歐元或全球營業額2%（以較高者為準）之罰鍰；向符合性評鑑機構或市場監督機關提供不正確、不完整或誤導性資訊者，處最高500萬歐元或全球營業額1%（以較高者為準）之罰鍰——並就微型企業／中小企業及開放原始碼軟體管理者訂有特別減輕規定。"
+    penalty_range: "up to EUR 15,000,000 or 2.5% of worldwide annual turnover, whichever is higher (most serious tier, per Art. 64)"
+    market_impact: []
+    source_ref: 0
+    last_verified: "2026-09-26"
+
+  monitoring:
+    tier: A
+    method: rss
+    endpoint: null
+    frequency: weekly
+
+  entry_status: complete
+  last_verified: "2026-09-26"
+  last_reviewed: "2026-09-26"
+  review_status: pending
+  confidence: medium
+  notes:
+    en: "Added at the user's request as the final item in the RoHS→GPSR→WEEE→Battery Regulation→Cyber Resilience Act batch, identified as a gap: the CRA is the first horizontal, mandatory EU cybersecurity regulation applicable to essentially all consumer/IT/radio products with digital elements (distinct from RED's Art. 3(3)(d)-(f) delegated-act cybersecurity requirements, which apply only to radio equipment specifically, and from EN 18031, which is a harmonised standard supporting RED — see 'related'). Status is recorded as 'adopted' rather than 'in_force' because, although the Regulation formally entered into force in December 2024, its substantive essential-cybersecurity-requirement obligations (the ones modelled in this entry's requirements/obligations blocks) do not become legally enforceable until 2027-12-11 (used as dates.application), with only narrower reporting (Art. 14, from 2026-09-11) and conformity-assessment-body (Chapter IV, from 2026-06-11) provisions applying earlier (Art. 71). IMPORTANT SOURCING CAVEAT: this session, direct EUR-Lex fetches of this Regulation's own OJ/CELEX HTML pages (both the 'OJ:L_202402847' and 'CELEX:32024R2847' URI forms) consistently returned blank/empty content, unlike RoHS (legislation.gov.uk mirror) or GPSR/Battery Regulation (EUR-Lex itself worked for those). As a workaround, verbatim article text for Arts. 2 (scope), 13 (manufacturer), 19 (importer), 20 (distributor), and 64 (penalties) was instead sourced from craact.eu, a third-party compliance-reference site that publishes what it represents as a verbatim, article-by-article mirror of the official Regulation text; this was cross-checked for consistency across multiple articles (e.g. Art. 19's cross-references to Art. 13(15)/(16)/(19) and Art. 20's cross-references to Art. 13/19 track exactly as expected for a genuine mirror) and the OJ citation/key dates (entry into force, 2027-12-11 general application, 2026-09-11 Art. 14 date, 2026-06-11 Chapter IV date) were independently corroborated via web search against law-firm and EFTA secondary sources — but because the primary EUR-Lex text itself could not be directly fetched, this entry is sourced one step further removed from the official primary text than the other 4 entries in this batch, and should be prioritised for direct EUR-Lex/print-Official-Journal verification in a future human review pass. requirements.registration is false because the CRA has no EU/national product-registration requirement analogous to WEEE/Battery Regulation's producer registers (there is, however, an ENISA vulnerability-database notification duty under Art. 14, not modelled as 'registration' in this schema). monitoring.tier is set to A (rather than B/C used for the other entries in this batch) given the CRA's unusually high compliance stakes (fines up to 2.5% of global turnover) and the fact that its core obligations are still phasing in through 2027, making near-term monitoring of implementing/delegated acts and harmonised standards disproportionately important. Confidence is nonetheless kept at medium, not downgraded to low, because entry_status is complete and the fields are traced to a consistent, cross-verified source, even though that source is one step removed from EUR-Lex itself — this differs from the us-fcc-part-15 case (which was reverted to stub/low) in that here the missing link is the primary-source mirror's reliability, not missing/unconfirmed underlying facts."
+    zh: "本條目係依你之要求，作為RoHS→GPSR→WEEE→電池法規→網路韌性法案批次之最終項目新增，經辨識為缺口：CRA為首部適用於幾乎所有內含數位元件之消費性／資訊技術／無線電產品之橫向強制性歐盟網路安全法規（有別於RED第3(3)(d)-(f)條僅適用於無線電設備之授權法案網路安全要求，亦有別於支援RED之協和標準EN 18031——參見related欄位）。status記為「adopted」而非「in_force」，係因本法規雖已於2024年12月正式生效，惟其實質基本網路安全要求義務（即本條目requirements／obligations區塊所建模者）須至2027-12-11起始具法律執行力（採為dates.application），僅較狹隘之通報義務（第14條，自2026-09-11起）及符合性評鑑機構規定（第四章，自2026-06-11起）較早適用（第71條）。重要來源說明：本次工作階段，直接擷取本法規自身之EUR-Lex OJ／CELEX HTML頁面（「OJ:L_202402847」及「CELEX:32024R2847」兩種URI格式）均一致回傳空白內容，與本批次之RoHS（採legislation.gov.uk鏡像）或GPSR／電池法規（EUR-Lex本身可擷取）不同。作為替代方案，第2條（適用範圍）、第13條（製造商）、第19條（進口商）、第20條（經銷商）及第64條（罰則）之逐字條文，改由craact.eu——一個聲稱提供官方法規文字逐條逐字鏡像之第三方合規參考網站——取得；已就多條文間之一致性進行交叉檢核（例如第19條援引第13條第15／16／19項、第20條援引第13／19條，其援引方式與真實鏡像應有之表現完全相符），並就官方公報引用資訊／關鍵日期（生效日、2027-12-11一般適用日、2026-09-11第14條適用日、2026-06-11第四章適用日）透過網路搜尋、獨立比對法律事務所及EFTA等次要來源加以佐證——惟因無法直接擷取EUR-Lex一手文字本身，本條目之來源層級較本批次其餘4筆條目多隔一層，應優先列入未來人工複核，直接對照EUR-Lex／官方公報印本查核。requirements.registration設為false，係因CRA並無類似WEEE／電池法規生產者登記制度之歐盟／各國產品登記要求（惟依第14條訂有向ENISA通報弱點資料庫之義務，本schema未將其建模為「registration」）。monitoring.tier設為A（不同於本批次其餘條目採用之B／C），係考量CRA合規風險異常之高（罰鍰最高達全球營業額2.5%），且其核心義務仍於2027年前分階段生效，故近期監控其授權／執行法案及協和標準之進展格外重要。把握度仍維持medium、未降為low，係因entry_status為complete，且各欄位均可追溯至一致、已交叉驗證之來源，僅該來源較EUR-Lex本身多隔一層——此與us-fcc-part-15遭降級為stub/low之情形不同：此處之缺口在於一手來源鏡像之可靠性層級，而非底層事實本身有缺漏或未經確認。"
