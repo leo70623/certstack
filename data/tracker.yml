@@ -1549,3 +1549,484 @@
   notes:
     en: "Added at the user's request as the final item in the RoHS→GPSR→WEEE→Battery Regulation→Cyber Resilience Act batch, identified as a gap: the CRA is the first horizontal, mandatory EU cybersecurity regulation applicable to essentially all consumer/IT/radio products with digital elements (distinct from RED's Art. 3(3)(d)-(f) delegated-act cybersecurity requirements, which apply only to radio equipment specifically, and from EN 18031, which is a harmonised standard supporting RED — see 'related'). Status is recorded as 'adopted' rather than 'in_force' because, although the Regulation formally entered into force in December 2024, its substantive essential-cybersecurity-requirement obligations (the ones modelled in this entry's requirements/obligations blocks) do not become legally enforceable until 2027-12-11 (used as dates.application), with only narrower reporting (Art. 14, from 2026-09-11) and conformity-assessment-body (Chapter IV, from 2026-06-11) provisions applying earlier (Art. 71). IMPORTANT SOURCING CAVEAT: this session, direct EUR-Lex fetches of this Regulation's own OJ/CELEX HTML pages (both the 'OJ:L_202402847' and 'CELEX:32024R2847' URI forms) consistently returned blank/empty content, unlike RoHS (legislation.gov.uk mirror) or GPSR/Battery Regulation (EUR-Lex itself worked for those). As a workaround, verbatim article text for Arts. 2 (scope), 13 (manufacturer), 19 (importer), 20 (distributor), and 64 (penalties) was instead sourced from craact.eu, a third-party compliance-reference site that publishes what it represents as a verbatim, article-by-article mirror of the official Regulation text; this was cross-checked for consistency across multiple articles (e.g. Art. 19's cross-references to Art. 13(15)/(16)/(19) and Art. 20's cross-references to Art. 13/19 track exactly as expected for a genuine mirror) and the OJ citation/key dates (entry into force, 2027-12-11 general application, 2026-09-11 Art. 14 date, 2026-06-11 Chapter IV date) were independently corroborated via web search against law-firm and EFTA secondary sources — but because the primary EUR-Lex text itself could not be directly fetched, this entry is sourced one step further removed from the official primary text than the other 4 entries in this batch, and should be prioritised for direct EUR-Lex/print-Official-Journal verification in a future human review pass. requirements.registration is false because the CRA has no EU/national product-registration requirement analogous to WEEE/Battery Regulation's producer registers (there is, however, an ENISA vulnerability-database notification duty under Art. 14, not modelled as 'registration' in this schema). monitoring.tier is set to A (rather than B/C used for the other entries in this batch) given the CRA's unusually high compliance stakes (fines up to 2.5% of global turnover) and the fact that its core obligations are still phasing in through 2027, making near-term monitoring of implementing/delegated acts and harmonised standards disproportionately important. Confidence is nonetheless kept at medium, not downgraded to low, because entry_status is complete and the fields are traced to a consistent, cross-verified source, even though that source is one step removed from EUR-Lex itself — this differs from the us-fcc-part-15 case (which was reverted to stub/low) in that here the missing link is the primary-source mirror's reliability, not missing/unconfirmed underlying facts."
     zh: "本條目係依你之要求，作為RoHS→GPSR→WEEE→電池法規→網路韌性法案批次之最終項目新增，經辨識為缺口：CRA為首部適用於幾乎所有內含數位元件之消費性／資訊技術／無線電產品之橫向強制性歐盟網路安全法規（有別於RED第3(3)(d)-(f)條僅適用於無線電設備之授權法案網路安全要求，亦有別於支援RED之協和標準EN 18031——參見related欄位）。status記為「adopted」而非「in_force」，係因本法規雖已於2024年12月正式生效，惟其實質基本網路安全要求義務（即本條目requirements／obligations區塊所建模者）須至2027-12-11起始具法律執行力（採為dates.application），僅較狹隘之通報義務（第14條，自2026-09-11起）及符合性評鑑機構規定（第四章，自2026-06-11起）較早適用（第71條）。重要來源說明：本次工作階段，直接擷取本法規自身之EUR-Lex OJ／CELEX HTML頁面（「OJ:L_202402847」及「CELEX:32024R2847」兩種URI格式）均一致回傳空白內容，與本批次之RoHS（採legislation.gov.uk鏡像）或GPSR／電池法規（EUR-Lex本身可擷取）不同。作為替代方案，第2條（適用範圍）、第13條（製造商）、第19條（進口商）、第20條（經銷商）及第64條（罰則）之逐字條文，改由craact.eu——一個聲稱提供官方法規文字逐條逐字鏡像之第三方合規參考網站——取得；已就多條文間之一致性進行交叉檢核（例如第19條援引第13條第15／16／19項、第20條援引第13／19條，其援引方式與真實鏡像應有之表現完全相符），並就官方公報引用資訊／關鍵日期（生效日、2027-12-11一般適用日、2026-09-11第14條適用日、2026-06-11第四章適用日）透過網路搜尋、獨立比對法律事務所及EFTA等次要來源加以佐證——惟因無法直接擷取EUR-Lex一手文字本身，本條目之來源層級較本批次其餘4筆條目多隔一層，應優先列入未來人工複核，直接對照EUR-Lex／官方公報印本查核。requirements.registration設為false，係因CRA並無類似WEEE／電池法規生產者登記制度之歐盟／各國產品登記要求（惟依第14條訂有向ENISA通報弱點資料庫之義務，本schema未將其建模為「registration」）。monitoring.tier設為A（不同於本批次其餘條目採用之B／C），係考量CRA合規風險異常之高（罰鍰最高達全球營業額2.5%），且其核心義務仍於2027年前分階段生效，故近期監控其授權／執行法案及協和標準之進展格外重要。把握度仍維持medium、未降為low，係因entry_status為complete，且各欄位均可追溯至一致、已交叉驗證之來源，僅該來源較EUR-Lex本身多隔一層——此與us-fcc-part-15遭降級為stub/low之情形不同：此處之缺口在於一手來源鏡像之可靠性層級，而非底層事實本身有缺漏或未經確認。"
+
+- id: eu-2006-1907-reach
+  parent: null
+  superseded_by: null
+  jurisdiction: EU
+  applies_in: []
+  citation: "Regulation (EC) No 1907/2006 of the European Parliament and of the Council of 18 December 2006 concerning the Registration, Evaluation, Authorisation and Restriction of Chemicals (REACH) (OJ L 396, 30.12.2006, p. 1-849)"
+  local_type: "Regulation"
+  instrument_type: regulation
+  short_name:
+    en: "REACH Regulation (Registration, Evaluation, Authorisation and Restriction of Chemicals)"
+    zh: "REACH化學品法規（化學品之登記、評估、授權及限制）"
+  category:
+    - chemicals
+    - hazardous_substances
+    - registration_authorisation
+
+  product_scope:
+    en: "Applies to the manufacture, placing on the market and use of substances on their own, in mixtures, or in articles, and to the placing on the market of mixtures (Art. 1(2)). Core registration obligation (Art. 6) applies to any manufacturer or importer of a substance, on its own or in one or more mixtures, in quantities of one tonne or more per year (a threshold that captures a very wide range of consumer-electronics-relevant substances, e.g. flame retardants, plasticisers, surface coatings). Excludes: radioactive substances within the scope of Council Directive 2013/59/Euratom; substances in transit under customs supervision without any treatment/processing; non-isolated intermediates; substances in the course of carriage of dangerous goods by rail/road/inland waterway/sea/air; waste as defined by Directive 2008/98/EC (waste is not a 'substance, mixture or article' for REACH purposes); and (with only Titles II/V/VI disapplied) substances used in medicinal products, food, feed and food/feed additives already governed by their own sectoral legislation (Art. 2). Polymers themselves are exempt from registration/evaluation, though monomer substances used to make them may still require registration (Art. 2(9))."
+    zh: "適用於物質（單獨、於混合物中或於物品中）之製造、投放市場及使用，以及混合物之投放市場（第1(2)條）。核心登記義務（第6條）適用於任何年產或年進口量達1公噸以上（單獨或存在於一種以上混合物中）之物質之製造商或進口商——此門檻涵蓋消費性電子產業常見之大量物質，例如阻燃劑、增塑劑、表面塗層等。排除：理事會指令2013/59/Euratom範圍內之放射性物質；受海關監管、未經任何處理之過境物質；未分離之中間體；依鐵路／公路／內陸水路／海運／空運方式運送之危險物品運輸過程中之物質；指令2008/98/EC所定之廢棄物（就REACH而言，廢棄物不構成「物質、混合物或物品」）；以及（僅排除第II、V、VI編適用）已受各自部門別法規規範之藥品、食品、飼料及食品／飼料添加物所用之物質（第2條）。聚合物本身免於登記／評估義務，惟用以製造聚合物之單體物質仍可能須辦理登記（第2(9)條）。"
+  product_tags:
+    - all_b2c_goods
+  component_tags:
+    - power_supply
+    - cable_connector
+    - battery
+  applies_to:
+    - manufacturer
+    - importer
+    - seller
+
+  status: in_force
+  dates:
+    published: "2006-12-30"
+    application: "2007-06-01"
+    labelling: null
+    transition_end: "2009-06-01"
+
+  requirements:
+    marking: false
+    local_representative: false
+    local_testing: false
+    registration: true
+    conformity_assessment: [none]
+    conformity_assessment_note: null
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "Where manufacturing a substance, on its own or in one or more mixtures, in quantities of 1 tonne or more per year, submit a registration to the European Chemicals Agency (ECHA) containing the technical dossier and (above 10 t/a) a chemical safety report (Art. 6); comply with the 'no data, no market' principle — i.e. not manufacture or place on the market a substance subject to registration unless it has been registered as required (Art. 5); not manufacture, place on the market or use a substance listed in Annex XIV (subject to authorisation) beyond the applicable sunset date unless authorised, exempted, or covered by a pending application (Art. 56); comply with any restriction set out in Annex XVII applicable to the substance, mixture or article (Art. 67); and, where a manufactured article contains a substance meeting the SVHC criteria of Art. 57 (as identified per Art. 59(1)) above 0.1% w/w, provide the recipient of the article with sufficient information to allow safe use, including at least the substance's name (Art. 33(1))."
+        zh: "凡年產量達1公噸以上（單獨或存在於一種以上混合物中）之物質，應向歐盟化學總署（ECHA）提交登記，內容含技術檔案及（年產量逾10公噸者）化學安全報告（第6條）；遵守「無資料即無市場」原則——即未依規定完成登記前，不得製造或投放市場屬應登記之物質（第5條）；就附件XIV所列須經授權之物質，於適用之落日期限後，除已獲授權、獲豁免或申請案尚待審理者外，不得製造、投放市場或使用（第56條）；遵守附件XVII就該物質、混合物或物品所定之限制規定（第67條）；並就製造之物品中含有符合第57條高關注度物質（SVHC）標準（依第59(1)條認定）且濃度超過重量比0.1%者，向物品接收者提供充分資訊以利安全使用，至少含該物質名稱（第33(1)條）。"
+    - actor: importer
+      action:
+        en: "Where importing a substance, on its own or in one or more mixtures, in quantities of 1 tonne or more per year, submit a registration to ECHA under the same conditions as a manufacturer (Art. 6); comply with the 'no data, no market' principle for imported substances (Art. 5); comply with the same Annex XIV authorisation and Annex XVII restriction obligations as manufacturers with respect to imported substances, mixtures and articles (Arts. 56, 67); and, where importing articles containing an SVHC above 0.1% w/w, provide recipients with sufficient safe-use information including at least the substance's name (Art. 33(1)); respond to a consumer request for such information free of charge within 45 days (Art. 33(2))."
+        zh: "凡年進口量達1公噸以上（單獨或存在於一種以上混合物中）之物質，應依與製造商相同之條件向ECHA提交登記（第6條）；就進口物質遵守「無資料即無市場」原則（第5條）；就進口之物質、混合物及物品，遵守與製造商相同之附件XIV授權及附件XVII限制義務（第56、67條）；並就進口含高關注度物質（SVHC）濃度超過重量比0.1%之物品，向接收者提供充分之安全使用資訊，至少含該物質名稱（第33(1)條）；就消費者提出之相關資訊請求，應於收到請求後45日內免費提供（第33(2)條）。"
+    - actor: seller
+      action:
+        en: "As any supplier of an article containing a substance meeting the SVHC criteria of Art. 57 (identified per Art. 59(1)) above 0.1% w/w, provide the recipient of the article with sufficient information, available to the supplier, to allow safe use of the article, including at least the substance's name (Art. 33(1)); and, upon request from a consumer, provide the same information free of charge within 45 days of receipt of the request (Art. 33(2))."
+        zh: "作為含高關注度物質（SVHC，依第57條標準並依第59(1)條認定）濃度超過重量比0.1%之物品之任一供應者，應向物品接收者提供其所知悉、足以使該物品安全使用之資訊，至少含該物質名稱（第33(1)條）；並於消費者提出請求後45日內免費提供相同資訊（第33(2)條）。"
+
+  tools: []
+  related:
+    - eu-2008-1272-clp
+    - eu-2011-65-rohs
+
+  sources:
+    - url: "https://www.legislation.gov.uk/eur/2006/1907/contents"
+      type: primary
+      publisher: "UK National Archives — legislation.gov.uk (retained EU law text of Regulation (EC) No 1907/2006, as originally adopted)"
+    - url: "https://reachonline.eu/REACH/EN/REACH_EN/title.html"
+      type: secondary
+      publisher: "reachonline.eu (consolidated, article-by-article reference text of REACH, used to retrieve specific articles — e.g. Art. 126 — that had been omitted from the UK retained-law mirror following UK Exit amendments)"
+
+  enforcement:
+    authority: "National competent authorities designated by each EU Member State, coordinated at EU level by the European Chemicals Agency (ECHA)"
+    mechanism:
+      - market_surveillance
+    penalty_basis: national_law
+    penalty_summary:
+      en: "Member States lay down the provisions on penalties applicable for infringement of this Regulation and must take all measures necessary to ensure they are implemented; the penalties provided for must be effective, proportionate and dissuasive. Member States were required to notify those provisions to the Commission no later than 1 December 2008 and to notify without delay any subsequent amendment affecting them (Art. 126)."
+      zh: "會員國訂定違反本法規之罰則規定，並應採取一切必要措施確保其執行；所定罰則須具有效性、比例性及嚇阻性。會員國須至遲於2008年12月1日前將該等規定通知執委會，並就其後之任何修訂立即通知（第126條）。"
+    penalty_range: null
+    market_impact: []
+    source_ref: 0
+    last_verified: "2026-09-26"
+
+  monitoring:
+    tier: B
+    method: manual
+    endpoint: null
+    frequency: quarterly
+
+  entry_status: complete
+  last_verified: "2026-09-26"
+  last_reviewed: "2026-09-26"
+  review_status: pending
+  confidence: medium
+  notes:
+    en: "Added at the user's request as the first item in a new EU-environmental-regulation batch (REACH→EUDR→Single-Use Plastics Directive→F-Gas Regulation→CLP Regulation), identified as a gap: REACH is arguably the single most consequential horizontal EU chemicals regime for any consumer-electronics supply chain (it underlies SVHC/Art. 33 declarations that most electronics manufacturers already handle in parallel with RoHS, but covers a vastly larger universe of substances than RoHS's fixed list of 10). Researched primarily via the UK National Archives' retained-EU-law mirror (legislation.gov.uk/eur/2006/1907), article-by-article (Arts. 1, 2, 5, 6, 56, 67 directly fetched and quoted), since EUR-Lex's own CELEX HTML pages for this Regulation returned 404/empty this session (both the base CELEX:32006R1907 URI and a consolidated-version URI were tried and failed). One article (Art. 126, Penalties) had been physically omitted from the UK mirror by post-Brexit UK Exit amendment regulations (the UK now operates its own separate 'UK REACH' regime), so its verbatim text was instead retrieved from reachonline.eu, a secondary reference site openly presenting itself as an official-text mirror, and cross-checked against a web search snippet quoting the same wording verbatim — the two independent sources agree exactly. requirements.marking is false and conformity_assessment is [none] because REACH, unlike RED/EMC/RoHS/CRA, has no CE-marking or declaration-of-conformity structure at all — its enforcement mechanism is registration-with-ECHA, an EU-level authorisation list (Annex XIV) and an EU-level restriction list (Annex XVII), plus the Art. 33 supply-chain information-communication duty (which is a disclosure obligation, not a certification). requirements.registration is true based on the Art. 6 core registration duty. requirements.local_representative is false because Art. 8's 'Only Representative' mechanism, allowing a non-EU manufacturer to appoint an EU-based OR to fulfil the importer's registration duties, is optional — the underlying registration obligation falls on whichever EU-established entity (the importer, if no OR is appointed) brings the substance into the EU, following the same convention applied to RoHS Art. 8 and GPSR Art. 10. component_tags is populated with power_supply/cable_connector/battery as illustrative examples of components where REACH SVHC declarations are most commonly encountered in electronics compliance practice, though REACH's substance-based scope in principle touches nearly every component category; product_tags is set to the single broadest value, all_b2c_goods, reflecting REACH's genuinely horizontal, non-sector-specific scope (unlike RoHS/WEEE which are EEE-specific). Confidence raised to medium under the schema's rule (entry_status complete, primary-source-traced fields for all articles except Art. 126, which was independently cross-verified via a second source). NOT yet independently human-reviewed: the full Annex XIV (authorisation list) and Annex XVII (restriction list) entries are not reproduced or summarised here (they run to hundreds of substances and are amended frequently by delegated/implementing regulations, which would need their own tracking mechanism rather than being captured in this single entry); the phased application dates of Art. 141 beyond the two headline dates (2007-06-01 entry into force, used as dates.application; 2008-06-01 general Title applicability partially folded into dates.application for simplicity; 2009-06-01 Title VIII/Annex XVII applicability, recorded as dates.transition_end) are simplified from a more granular multi-date schedule in the primary text."
+    zh: "本條目係依你之要求，作為新一批歐盟環保法規（REACH→EUDR→一次性塑膠指令→氟化氣體法規→CLP法規）之首項新增，經辨識為缺口：REACH可謂對任何消費性電子供應鏈而言，衝擊最大之單一歐盟橫向化學品法規（其為多數電子製造商已與RoHS並行處理之SVHC／第33條聲明之基礎，惟其涵蓋物質範圍遠大於RoHS固定之10項物質清單）。本條目主要透過查考英國國家檔案館之歐盟保留法鏡像網站（legislation.gov.uk/eur/2006/1907），逐條擷取並引用第1、2、5、6、56、67條；本次工作階段EUR-Lex本身之CELEX HTML頁面就本法規均回傳404或空白內容（曾嘗試基本CELEX:32006R1907網址及合併版本網址，均失敗）。其中第126條（罰則）因英國脫歐後修訂法規而自英國鏡像網站中實質移除（英國現已改行獨立之「UK REACH」制度），故其逐字文字改由reachonline.eu——一個公開自我定位為官方文字鏡像之次要參考網站——取得，並與網路搜尋摘錄之相同逐字文字交叉核對——兩獨立來源完全一致。requirements.marking設為false、conformity_assessment設為[none]，係因REACH與RED／EMC／RoHS／CRA不同，完全無CE標誌或符合性聲明架構——其執行機制為向ECHA登記、歐盟層級授權清單（附件XIV）及歐盟層級限制清單（附件XVII），另加第33條供應鏈資訊揭露義務（此為揭露義務，非驗證制度）。requirements.registration為true，係依第6條核心登記義務。requirements.local_representative為false，因第8條「唯一代表」（OR）機制——容許非歐盟製造商指定歐盟境內OR代為履行進口商登記義務——為選擇性安排，基礎登記義務仍落於實際將物質引進歐盟之歐盟境內實體（如未指定OR則為進口商），與RoHS第8條、GPSR第10條採相同慣例。component_tags填入power_supply／cable_connector／battery作為電子產業合規實務中最常遇到REACH SVHC聲明之元件類別例示，惟REACH以物質為核心之適用範圍原則上幾乎觸及所有元件類別；product_tags設為範圍最廣之單一值all_b2c_goods，反映REACH真正橫向、非特定產業別之適用範圍（有別於RoHS／WEEE僅限EEE）。依schema規則，把握度提升為medium（entry_status為complete，除第126條外之所有條文均可追溯一手來源，第126條則已以第二來源獨立交叉驗證）。尚未經人工獨立複核：附件XIV（授權清單）及附件XVII（限制清單）之完整項目本條目並未轉錄或摘要（其涵蓋數百種物質，且經常由授權／執行法規修訂，應有獨立追蹤機制，而非收錄於單一條目中）；第141條除兩項重要日期外（2007-06-01生效日，採為dates.application；2008-06-01各編一般適用日為簡化計併入dates.application；2009-06-01第VIII編／附件XVII適用日，記為dates.transition_end）之更細緻多階段生效時程，本條目已予簡化。"
+
+- id: eu-2023-1115-eudr
+  parent: null
+  superseded_by: null
+  jurisdiction: EU
+  applies_in: []
+  citation: "Regulation (EU) 2023/1115 of the European Parliament and of the Council of 31 May 2023 on the making available on the Union market and the export from the Union of certain commodities and products associated with deforestation and forest degradation and repealing Regulation (EU) No 995/2010 (OJ L 150, 9.6.2023, p. 206-247)"
+  local_type: "Regulation"
+  instrument_type: regulation
+  short_name:
+    en: "EU Deforestation Regulation (EUDR)"
+    zh: "歐盟森林砍伐防制法規（EUDR）"
+  category:
+    - due_diligence
+    - supply_chain
+
+  product_scope:
+    en: "Applies to the placing on the market, making available on the market, and export from the EU of the 'relevant commodities' listed in Annex I — cattle, cocoa, coffee, oil palm, rubber, soya and wood — and 'relevant products' derived from or containing them, per Annex I's detailed product list. Consumer-electronics relevance is indirect but real: natural rubber is used in cable insulation, gaskets and seals, and wood/paper-based packaging materials fall within the wood commodity's derived-product scope. Products must be (i) deforestation-free (produced on land not subject to deforestation/forest degradation after 31 December 2020), (ii) produced in compliance with the relevant legislation of the country of production, and (iii) covered by a due diligence statement (Art. 3)."
+    zh: "適用於附件I所列「相關原物料」——牛隻、可可、咖啡、油棕、橡膠、大豆及木材——之投放市場、於市場上取得，以及自歐盟出口，以及依附件I詳細產品清單所定源自或含有該等原物料之「相關產品」。與消費性電子之關聯雖屬間接惟確實存在：天然橡膠用於電纜絕緣層、墊圈及密封件，木材／紙類包裝材料則屬木材原物料之衍生產品範圍。產品須符合：(i) 不涉及森林砍伐（其生產土地於2020年12月31日後未發生森林砍伐／森林退化）；(ii) 依生產國相關法律生產；及(iii) 備有盡職調查聲明（第3條）。"
+  product_tags:
+    - all_b2c_goods
+  component_tags:
+    - packaging
+    - cable_connector
+  applies_to:
+    - manufacturer
+    - importer
+
+  status: adopted
+  dates:
+    published: "2023-06-09"
+    application: "2026-12-30"
+    labelling: null
+    transition_end: "2027-06-30"
+
+  requirements:
+    marking: false
+    local_representative: false
+    local_testing: false
+    registration: false
+    conformity_assessment: [sdoc]
+    conformity_assessment_note:
+      en: "Not a product-conformity-assessment regime in the RED/EMC/RoHS sense; 'operators' (the EUDR term broadly analogous to manufacturers/importers placing products on the market for the first time) must exercise due diligence (Art. 8) and submit a due diligence statement declaring no or negligible risk before the product may be placed on the market or exported (Art. 4) — recorded here as [sdoc] because it is a self-declared statement, not third-party certified, though the statement must be submitted through an EU information system and can trigger official checks."
+      zh: "非RED／EMC／RoHS意義下之產品符合性評鑑制度；「營運者」（EUDR用語，泛指首次將產品投放市場之製造商／進口商）須執行盡職調查（第8條），並於產品投放市場或出口前提交聲明無風險或風險可忽略之盡職調查聲明（第4條）——此處記為[sdoc]，因其屬自我聲明性質，非經第三方驗證，惟該聲明須透過歐盟資訊系統提交，且可能觸發官方查核。"
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "As an 'operator' placing relevant products on the EU market for the first time, exercise due diligence in accordance with Art. 8 prior to placing the product on the market, in order to demonstrate compliance with the Art. 3 prohibition; not place relevant products on the market without prior submission of a due diligence statement through the EU information system referenced in Art. 33, containing the Annex II information and a declaration that due diligence found no or only a negligible risk (Art. 4(1)-(3)); by submitting that statement, assume responsibility for the product's compliance with Art. 3 (Art. 4(4)); and keep a record of due diligence statements for 5 years from submission (Art. 4(5))."
+        zh: "作為首次將相關產品投放歐盟市場之「營運者」，於投放市場前依第8條執行盡職調查，以證明符合第3條之禁止規定；未透過第33條所定歐盟資訊系統事先提交盡職調查聲明前，不得將相關產品投放市場，該聲明須含附件II資訊，並聲明盡職調查結果為無風險或風險可忽略（第4(1)至(3)條）；提交該聲明後，即就該產品符合第3條之情形負責（第4(4)條）；並自聲明提交之日起保存紀錄達5年（第4(5)條）。"
+    - actor: importer
+      action:
+        en: "As an 'operator' (a natural or legal person established in the Union who, in the course of a commercial activity, places relevant products on the market, including for the first time following import), the same Art. 4/Art. 8 due-diligence-statement and 5-year record-keeping obligations apply as for a manufacturer placing products on the market for the first time; the EUDR does not use a separate 'importer' actor category — the person who first places an imported relevant product on the EU market bears the operator obligations regardless of whether they also manufactured it."
+        zh: "作為「營運者」（於歐盟境內設立，於商業活動過程中將相關產品投放市場之自然人或法人，含首次進口後投放市場者），適用與首次將產品投放市場之製造商相同之第4條／第8條盡職調查聲明義務及5年紀錄保存義務；EUDR並未另設獨立之「進口商」行為者類別——首次將進口之相關產品投放歐盟市場者，不論是否亦為製造商，均負營運者義務。"
+
+  tools: []
+  related:
+    - eu-2024-1781-espr
+    - eu-2025-40-ppwr
+
+  sources:
+    - url: "https://eur-lex.europa.eu/eli/reg/2023/1115/oj/eng"
+      type: primary
+      publisher: "EUR-Lex — Official Journal L 150, 9.6.2023, pp. 206-247 (page confirmed to exist via web search, but returned blank/empty content on every direct fetch attempt this session, across multiple URI formats)"
+    - url: "https://service.betterregulation.com/document/746134"
+      type: secondary
+      publisher: "Better Regulation Service (article-by-article reference reproducing Regulation (EU) 2023/1115 text; direct fetch returned HTTP 403 this session, so its content was accessed only indirectly via web-search result snippets quoting it, not read in full)"
+
+  enforcement:
+    authority: "National competent authorities designated by each EU Member State"
+    mechanism:
+      - market_surveillance
+    penalty_basis: national_law
+    penalty_summary:
+      en: "Member States lay down the rules on penalties applicable to infringements of this Regulation; per Art. 25, as reported by secondary sources (not independently confirmed against primary text this session), penalties must include fines proportionate to the environmental damage and the value of the commodities/products concerned, with a maximum fine of at least 4% of the operator's or trader's total annual Union-wide turnover, plus confiscation of the relevant products and of revenues derived from the transaction. This penalty summary should be treated as unverified pending direct primary-source confirmation."
+      zh: "會員國訂定違反本法規之罰則規定；依第25條（本次工作階段未能以一手文字獨立確認，僅依次要來源轉述），罰則須包含與環境損害程度及所涉原物料／產品價值相當之罰鍰，最高罰鍰至少為營運者或交易者歐盟境內全年總營業額之4%，並沒收相關產品及交易所得收益。此罰則摘要應視為未經驗證，待未來以一手文字直接確認。"
+    penalty_range: null
+    market_impact: []
+    source_ref: 0
+    last_verified: "2026-09-26"
+
+  monitoring:
+    tier: B
+    method: manual
+    endpoint: null
+    frequency: quarterly
+
+  entry_status: stub
+  last_verified: "2026-09-26"
+  last_reviewed: "2026-09-26"
+  review_status: pending
+  confidence: low
+  notes:
+    en: "Added at the user's request as the second item in the REACH→EUDR→Single-Use Plastics Directive→F-Gas Regulation→CLP Regulation batch of new EU environmental regulations. Relevance to this tracker's consumer-electronics focus is indirect (via natural rubber in cables/seals and wood-based packaging) rather than central, unlike the other entries in this batch. IMPORTANT — recorded as entry_status: stub and confidence: low, a deliberate downgrade from the complete/medium level reached for REACH/RoHS/WEEE/Battery/CRA in prior sessions, because of a genuine, unresolved access gap rather than a structural feature of the law: this session, EVERY direct fetch attempt against EUR-Lex for this specific Regulation (2023/1115) — across the CELEX:32023R1115 URI, the OJ:L_202301115 URI, the consolidated CELEX:02023R1115-20241226 URI, and the eli/reg/2023/1115/oj/eng URI, in both HTML and PDF renderer forms — returned blank/empty content, and a secondary full-text mirror (service.betterregulation.com) returned HTTP 403 on direct fetch. As a result, the article text summarised above (Arts. 1, 3, 4, 25, 38) is sourced only from WebSearch result snippets that themselves quote these secondary sources, which is one level less reliable than the craact.eu situation for the Cyber Resilience Act entry (where a full secondary-mirror page was at least directly fetched and read in its entirety) — this entry has NOT had any full primary or secondary source page directly read this session, only search-engine snippets of quotes. The core facts (Art. 3 three-part compliance test, Art. 4 due diligence statement mechanism, Art. 25's 4%-of-turnover minimum fine ceiling, and the 2026-12-30/2027-06-30 phased application dates reflecting the Regulation's well-publicised implementation delays) are corroborated by multiple independent secondary sources that agree with each other, so are recorded here as probably accurate, but per the schema's rule this does not meet the bar for confidence: medium (which requires fields traced to directly-read primary sources). This is the single highest-priority item in this session's work for both (a) a repeat EUR-Lex fetch attempt once EUR-Lex's apparent rate-limiting/blocking of this specific document clears, and (b) full human review. requirements.registration is false and conformity_assessment is [sdoc] based on the due-diligence-statement mechanism (Art. 4), which is structurally a self-declaration submitted via an EU IT system rather than a product registration or third-party certification. status is recorded as 'adopted' rather than 'in_force' because the substantive prohibition/due-diligence obligations modelled in this entry do not become applicable until 2026-12-30 (large/medium operators) or 2027-06-30 (micro/small operators, recorded as dates.transition_end), notwithstanding the Regulation's 2023 entry into force — this timeline has itself been subject to well-documented legislative delays (originally due 2024-12-30, postponed once already) which should be reconfirmed in any future update given the Regulation's history of amendment."
+    zh: "本條目係依你之要求，作為新一批歐盟環保法規（REACH→EUDR→一次性塑膠指令→氟化氣體法規→CLP法規）之第二項新增。與本tracker聚焦之消費性電子之關聯屬間接（透過電纜／密封件用天然橡膠及木質包裝材料），非如本批次其餘條目般直接相關。重要說明——本條目記為entry_status: stub、confidence: low，此為刻意降級，有別於前幾次工作階段REACH／RoHS／WEEE／電池法規／CRA所達到之complete/medium水準，原因在於本次工作階段存在真實且未解決之來源存取缺口，而非該法規本身之結構性因素：本次工作階段，針對本法規（2023/1115）之EUR-Lex擷取嘗試——涵蓋CELEX:32023R1115網址、OJ:L_202301115網址、合併版本CELEX:02023R1115-20241226網址，及eli/reg/2023/1115/oj/eng網址，並分別嘗試HTML與PDF兩種呈現格式——均一致回傳空白內容，另一個次要全文鏡像網站（service.betterregulation.com）直接擷取則回傳HTTP 403錯誤。因此，上方摘要之條文內容（第1、3、4、25、38條）僅依賴網路搜尋結果摘錄之次要來源引文取得，其可靠程度較CRA條目採用craact.eu之情形更低一層（CRA至少完整擷取並閱讀過一個次要鏡像網站整頁），本條目本次工作階段並未完整直接讀取任何一手或次要來源頁面，僅取得搜尋引擎摘錄之引文片段。核心事實（第3條三項合規要件、第4條盡職調查聲明機制、第25條至少4%營業額之最低罰鍰上限，以及反映本法規眾所周知延後實施之2026-12-30／2027-06-30分階段適用日期）已由多個彼此一致之獨立次要來源佐證，應屬大致正確，惟依schema規則，此尚不足以達到confidence: medium之門檻（該門檻要求欄位可追溯至直接讀取之一手來源）。此為本次工作階段最優先待辦事項之一：(a) 待EUR-Lex對本文件之疑似速率限制／封鎖情形解除後，應再次嘗試直接擷取；(b) 應進行完整人工複核。requirements.registration設為false、conformity_assessment設為[sdoc]，係依第4條盡職調查聲明機制——其結構上為透過歐盟資訊系統提交之自我聲明，而非產品登記或第三方驗證。status記為「adopted」而非「in_force」，係因本條目所建模之實質禁止／盡職調查義務須至2026-12-30（中大型營運者）或2027-06-30（微型／小型營運者，記為dates.transition_end）方適用，儘管本法規已於2023年生效——此時程本身已歷經多次有公開紀錄之立法延後（原訂2024-12-30適用，已延後一次），未來更新時應重新確認，以因應本法規之修訂歷史。"
+
+- id: eu-2019-904-sup
+  parent: null
+  superseded_by: null
+  jurisdiction: EU
+  applies_in: []
+  citation: "Directive (EU) 2019/904 of the European Parliament and of the Council of 5 June 2019 on the reduction of the impact of certain plastic products on the environment (OJ L 155, 12.6.2019, p. 1-19)"
+  local_type: "Directive"
+  instrument_type: directive
+  short_name:
+    en: "Single-Use Plastics Directive (SUP)"
+    zh: "一次性塑膠指令（SUP）"
+  category:
+    - waste_management
+    - extended_producer_responsibility
+
+  product_scope:
+    en: "Applies to single-use plastic products listed in the Annex, defined as items 'not conceived, designed or placed on the market to accomplish, within their life span, multiple trips or rotations' (Art. 3). Consumer-electronics relevance is narrow but real: beverage cups and their lids/caps, and certain packaging, fall within scope where plastic-containing; the Directive's tethered-cap and PET recycled-content requirements (Art. 6) apply to plastic beverage containers, which can include product accessory items. Market restrictions (Art. 5, Annex Part B) prohibit placing on the market single-use plastic cutlery, plates, straws, cotton bud sticks, balloon sticks, and expanded-polystyrene food/beverage containers, none of which are core consumer-electronics products but may appear as accessories or packaging components in some product lines."
+    zh: "適用於附件所列一次性塑膠產品，定義為「非為於其使用壽命內完成多次使用或多次循環而設計、製造或投放市場」之產品（第3條）。與消費性電子之關聯範圍狹窄惟確實存在：飲料杯及其杯蓋／瓶蓋，以及部分含塑膠成分之包裝，屬本指令範圍；指令之瓶蓋栓繫規定及PET回收料含量規定（第6條）適用於塑膠飲料容器，可能涵蓋部分產品配件。市場限制規定（第5條、附件B部分）禁止投放市場之一次性塑膠餐具、餐盤、吸管、棉花棒棒身、氣球棒及發泡聚苯乙烯食品／飲料容器，均非核心消費性電子產品，惟可能作為部分產品線之配件或包裝組件出現。"
+  product_tags:
+    - all_b2c_goods
+  component_tags:
+    - packaging
+  applies_to:
+    - manufacturer
+    - importer
+    - seller
+
+  status: in_force
+  dates:
+    published: "2019-06-05"
+    application: "2021-07-03"
+    labelling: "2021-07-03"
+    transition_end: "2024-12-31"
+
+  requirements:
+    marking: true
+    local_representative: false
+    local_testing: false
+    registration: false
+    conformity_assessment: [sdoc]
+    conformity_assessment_note:
+      en: "Not a product-conformity-assessment regime in the RED/EMC/RoHS sense. Recorded as [sdoc] because compliance with the design requirements (tethered caps, recycled-content targets under Art. 6) and marking requirements (Art. 7) is self-declared by the producer placing the product on the market, with no third-party certification or registration body specified in the Directive itself; Member States enforce via national market-surveillance and penalty regimes (Art. 21) rather than a harmonised EU conformity-assessment procedure."
+      zh: "非RED／EMC／RoHS意義下之產品符合性評鑑制度。記為[sdoc]，因設計要求（第6條瓶蓋栓繫規定、回收料含量目標）及標示要求（第7條）之遵循，係由投放市場之製造商自我聲明，指令本身未指定第三方驗證或登記機關；會員國透過國內市場監督及罰則機制（第21條）執行，而非透過歐盟統一之符合性評鑑程序。"
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "Ensure that beverage containers with a capacity of up to three litres that are single-use plastic products have caps and lids remaining attached to the container during the product's intended use stage, from 3 July 2024 (Art. 6(1)); ensure PET beverage bottles contain at least 25% recycled plastic by 2025 and all plastic beverage bottles contain at least 30% recycled plastic by 2030, calculated as an average across each Member State (Art. 6(5)); apply conspicuous, clearly legible and indelible marking on packaging or on the product itself for the items listed in Part D of the Annex (e.g. sanitary towels, wet wipes, tobacco products with filters, beverage cups), informing consumers of appropriate waste disposal and the presence of plastic in the product (Art. 7); and, where designated as subject to extended producer responsibility under Art. 8, cover the costs of waste collection, transport, treatment, litter clean-up, and awareness-raising measures for the relevant single-use plastic products (Art. 8(2)-(3))."
+        zh: "自2024年7月3日起，確保容量至3公升以下之一次性塑膠飲料容器，其瓶蓋及蓋子於產品預期使用階段仍附著於容器上（第6(1)條）；確保PET飲料瓶至2025年含至少25%回收塑膠料、所有塑膠飲料瓶至2030年含至少30%回收塑膠料，並以各會員國平均值計算（第6(5)條）；就附件D部分所列產品（例如衛生棉、濕紙巾、含濾嘴菸草製品、飲料杯），於包裝或產品本身標示明顯、清晰易讀且不易磨滅之標示，告知消費者適當廢棄處理方式及產品含塑膠成分（第7條）；並於依第8條被指定負延伸生產者責任時，負擔相關一次性塑膠產品之廢棄物收集、運輸、處理、亂丟清理及意識提升措施之費用（第8(2)至(3)條）。"
+    - actor: importer
+      action:
+        en: "As a 'producer' under Art. 3(11) (which expressly includes fillers, sellers and importers placing single-use plastic products on the market of a Member State, not solely manufacturers), bear the same extended producer responsibility cost obligations under Art. 8 as manufacturers when placing single-use plastic products or fishing gear containing plastic on the market for the first time within a Member State's territory."
+        zh: "依第3(11)條「生產者」定義（明文包含將一次性塑膠產品投放會員國市場之填裝者、銷售者及進口商，不限於製造商本身），於首次在會員國境內將一次性塑膠產品或含塑膠漁具投放市場時，負擔與製造商相同之第8條延伸生產者責任費用義務。"
+    - actor: seller
+      action:
+        en: "For single-use plastic products listed in Part E of the Annex (e.g. food containers, beverage cups) that continue to be permitted on the market, provide consumers at the point of sale with information, where appropriate through markings or campaigns, on available reusable alternatives, on waste-management options for the product, on the best waste-disposal practices, and on the presence of plastics and their impact on the environment, in particular improper littering (Art. 10)."
+        zh: "就附件E部分所列、仍准許於市場流通之一次性塑膠產品（例如食品容器、飲料杯），於銷售點以適當方式（例如標示或宣導活動）向消費者提供下列資訊：可供選擇之可重複使用替代品、產品廢棄物管理選項、最佳廢棄處理方式，以及塑膠存在及其對環境（尤其不當亂丟）之影響（第10條）。"
+
+  tools: []
+  related:
+    - eu-2025-40-ppwr
+    - eu-2024-1781-espr
+
+  sources:
+    - url: "https://www.legislation.gov.uk/eudr/2019/904"
+      type: primary
+      publisher: "UK National Archives — retained EU law text of Directive (EU) 2019/904 (article-by-article; directly fetched and read this session, covering Arts. 1, 3, 4, 5, 6, 7, 8, 15, 21)"
+    - url: "https://eur-lex.europa.eu/eli/dir/2019/904/oj/eng"
+      type: primary
+      publisher: "EUR-Lex — Official Journal L 155, 12.6.2019, pp. 1-19 (citation and OJ reference cross-verified via web search this session; direct fetch of the HTML rendering returned blank content)"
+
+  enforcement:
+    authority: "National competent authorities designated by each EU Member State"
+    mechanism:
+      - market_surveillance
+    penalty_basis: national_law
+    penalty_summary:
+      en: "Per Art. 21, Member States shall lay down the rules on penalties applicable to infringements of the national provisions adopted pursuant to this Directive and shall take all measures necessary to ensure that they are implemented; the penalties provided for must be effective, proportionate and dissuasive. The Directive does not itself specify fine amounts or ranges, leaving these entirely to national transposing legislation."
+      zh: "依第21條，會員國應訂定違反依本指令採行之國內規定之罰則規定，並採取所有必要措施確保其執行；所定罰則須具備有效性、比例性及嚇阻性。本指令本身未規定罰鍰金額或範圍，完全交由各會員國國內轉換立法定之。"
+    penalty_range: null
+    market_impact: []
+    source_ref: 0
+    last_verified: "2026-09-26"
+
+  monitoring:
+    tier: B
+    method: manual
+    endpoint: null
+    frequency: quarterly
+
+  entry_status: complete
+  last_verified: "2026-09-26"
+  last_reviewed: "2026-09-26"
+  review_status: pending
+  confidence: medium
+  notes:
+    en: "Added as the third item in the REACH→EUDR→Single-Use Plastics Directive→F-Gas Regulation→CLP Regulation batch of new EU environmental regulations, per the user's instruction to proceed with the EU-level items first. Sourced this session via a full, directly-fetched and read article-by-article text at the UK National Archives' retained-EU-law mirror (legislation.gov.uk/eudr/2019/904), since this Directive predates Brexit and is therefore available in that mirror (unlike the post-Brexit-adopted EUDR and CRA); the official OJ citation (L 155, 12.6.2019, pp. 1-19) was cross-verified via web search since direct EUR-Lex fetch again returned blank content this session, consistent with the pattern observed for other EU instruments this session. Consumer-electronics relevance is narrower than for REACH or the EUDR — mainly relevant via beverage-cup/lid accessory items and plastic packaging components rather than core electronic products, which is reflected in the deliberately narrow component_tags: [packaging] tag (no cable_connector or battery tag, since the Directive's substantive design/marking requirements target beverage containers and specific listed items, not electronics components generally). requirements.marking is true (Art. 7 marking requirement for specific listed products) unlike most other entries in this batch. dates.labelling is set to the same 2021-07-03 date as dates.application since Art. 7's marking obligation applies from the general transposition deadline, not a separately staggered date; dates.transition_end reflects the later 2024-12-31 deadline for extended-producer-responsibility cost-coverage obligations under Art. 8, and Art. 6's tethered-cap requirement's own 2024-07-03 deadline is noted in the obligations text rather than as a separate schema date field, since the schema does not have a field for more than one staggered implementation milestone."
+    zh: "本條目係依你「先處理歐盟的」之指示，作為新一批歐盟環保法規（REACH→EUDR→一次性塑膠指令→氟化氣體法規→CLP法規）之第三項新增。本次工作階段係透過完整直接擷取並閱讀英國國家檔案館之歐盟保留法律鏡像網站（legislation.gov.uk/eudr/2019/904）逐條文字取得，因本指令早於脫歐即已通過，故該鏡像網站收錄完整（不同於脫歐後始通過之EUDR及CRA）；官方OJ引註（L 155, 12.6.2019, pp. 1-19）已透過網路搜尋交叉驗證，因本次工作階段直接擷取EUR-Lex仍回傳空白內容，與本次工作階段其他歐盟法規之情形一致。與消費性電子之關聯性較REACH或EUDR為窄——主要透過飲料杯／杯蓋配件及塑膠包裝組件產生關聯，而非核心電子產品本身，此反映於刻意設定較窄之component_tags: [packaging]（未列cable_connector或battery，因本指令之實質設計／標示要求係針對飲料容器及特定列名產品，非泛指電子產品組件）。requirements.marking設為true（第7條特定列名產品標示要求），與本批次其餘條目多數不同。dates.labelling與dates.application採相同之2021-07-03日期，因第7條標示義務自一般轉換期限起適用，並無另行分階段之日期；dates.transition_end反映第8條延伸生產者責任費用負擔義務之較晚期限2024-12-31，第6條瓶蓋栓繫規定本身另有2024-07-03期限，因schema並無容納多重分階段實施里程碑之欄位，故僅於obligations文字中註明。"
+
+- id: eu-2024-573-fgas
+  parent: null
+  superseded_by: null
+  jurisdiction: EU
+  applies_in: []
+  citation: "Regulation (EU) 2024/573 of the European Parliament and of the Council of 7 February 2024 on fluorinated greenhouse gases, amending Directive (EU) 2019/1937 and repealing Regulation (EU) No 517/2014 (OJ L, 2024/573, 20.2.2024)"
+  local_type: "Regulation"
+  instrument_type: regulation
+  short_name:
+    en: "F-Gas Regulation (recast)"
+    zh: "氟化氣體法規（重新制定）"
+  category:
+    - hazardous_substances
+    - registration_authorisation
+
+  product_scope:
+    en: "Applies to fluorinated greenhouse gases (F-gases, including HFCs) listed in Annexes I-III, alone or in mixtures, and to products and equipment, and parts thereof, containing F-gases or whose functioning relies on them (Art. 2, per secondary-source summary — not independently confirmed against primary text this session). Consumer-electronics relevance is indirect: relevant primarily to refrigeration/cooling equipment, air-conditioning and heat-pump products (which can include some consumer appliances) and, per secondary sources, has been reported to place phase-down bans on personal cooling devices from 2025 and domestic refrigerators/freezers from 2026. This entry is recorded as entry_status: stub / confidence: low pending direct primary-source verification of exact scope boundaries."
+    zh: "適用於附件I至III所列氟化氣體（含HFCs），無論單獨存在或以混合物型態存在，以及含有氟化氣體或其運作仰賴氟化氣體之產品與設備及其零件（第2條，依次要來源摘要，本次工作階段未能以一手文字獨立確認）。與消費性電子之關聯屬間接：主要涉及冷凍／冷卻設備、空調及熱泵產品（可能涵蓋部分消費性家電），依次要來源報導，自2025年起對個人冷卻裝置、2026年起對家用冰箱／冷凍櫃實施逐步淘汰禁令。本條目記為entry_status: stub／confidence: low，待以一手文字直接確認確切範圍界線。"
+  product_tags:
+    - small_appliances
+    - consumer_electronics
+  component_tags: []
+  applies_to:
+    - manufacturer
+    - importer
+
+  status: in_force
+  dates:
+    published: "2024-02-20"
+    application: "2024-03-11"
+    labelling: "2025-01-01"
+    transition_end: null
+
+  requirements:
+    marking: true
+    local_representative: false
+    local_testing: false
+    registration: true
+    conformity_assessment: [none]
+    conformity_assessment_note: null
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "Per secondary-source summaries (not independently confirmed against primary text this session): register in the F-gas Portal before importing/exporting F-gases or placing on the market products/equipment containing them, or before requesting production/quota rights (reported as an Art. 20-region requirement); comply with phased placing-on-market prohibitions for specific product categories with GWP thresholds, reported to begin in 2025 for commercial refrigeration/freezing equipment and personal cooling devices, extending through 2033 for certain air-conditioning/heat-pump equipment; and apply labelling to products and equipment from 1 January 2025 (reported as an Art. 12 requirement)."
+        zh: "依次要來源摘要（本次工作階段未能以一手文字獨立確認）：於進口／出口氟化氣體或投放市場含氟化氣體之產品／設備前，或於申請生產／配額權利前，應於F-gas入口網站完成登記（據報導為第20條左右之要求）；遵循依GWP門檻分類之特定產品類別分階段投放市場禁令，據報導自2025年起適用於商用冷凍／冷藏設備及個人冷卻裝置，並延伸至2033年適用於部分空調／熱泵設備；並自2025年1月1日起對產品及設備施以標示（據報導為第12條要求）。"
+    - actor: importer
+      action:
+        en: "Per secondary-source summaries (not independently confirmed against primary text this session): hold a valid F-gas Portal registration as a precondition for importing F-gases or F-gas-containing equipment into the EU, and comply with the same phased product-category placing-on-market prohibitions and labelling obligations that apply to manufacturers when first placing such products on the EU market."
+        zh: "依次要來源摘要（本次工作階段未能以一手文字獨立確認）：於將氟化氣體或含氟化氣體設備進口至歐盟前，須持有效之F-gas入口網站登記，並於首次將該等產品投放歐盟市場時，遵循與製造商相同之分階段產品類別投放市場禁令及標示義務。"
+
+  tools: []
+  related: []
+
+  sources:
+    - url: "https://eur-lex.europa.eu/eli/reg/2024/573/oj/eng"
+      type: primary
+      publisher: "EUR-Lex — Official Journal L, 2024/573, 20.2.2024 (citation and OJ reference confirmed via web search this session; direct fetch of both HTML and PDF renderings returned blank/unreadable content)"
+    - url: "https://www.adherent.com/blog/regulation-eu-2024-573-european-commission-adopts-new-f-gas-regulation/"
+      type: secondary
+      publisher: "Adherent (Compliance & Risks) — compliance blog summary of the Regulation, directly fetched and read this session, itself a secondary summary rather than verbatim legal text"
+
+  enforcement:
+    authority: "National competent authorities designated by each EU Member State"
+    mechanism:
+      - market_surveillance
+    penalty_basis: national_law
+    penalty_summary:
+      en: "This Regulation is understood, by analogy with its predecessor Regulation (EU) No 517/2014 and general EU regulatory practice, to leave penalties for infringement to be determined by Member States' national law, with the standard EU requirement that such penalties be effective, proportionate and dissuasive. The exact penalties article number and text could NOT be confirmed this session — no source fetched this session (primary or secondary) yielded readable article-level text for the penalties provision. This penalty summary should be treated as unverified pending direct primary-source confirmation."
+      zh: "依其前身法規（EU）No 517/2014及歐盟一般立法慣例類推，本法規之罰則預期將交由會員國國內法訂定，並依歐盟一般要求，罰則須具備有效性、比例性及嚇阻性。本次工作階段未能自任一來源（一手或次要）取得罰則條文之可讀逐條文字，故確切條號及條文內容未經確認。此罰則摘要應視為未經驗證，待未來以一手文字直接確認。"
+    penalty_range: null
+    market_impact: []
+    source_ref: 0
+    last_verified: "2026-09-26"
+
+  monitoring:
+    tier: B
+    method: manual
+    endpoint: null
+    frequency: quarterly
+
+  entry_status: stub
+  last_verified: "2026-09-26"
+  last_reviewed: "2026-09-26"
+  review_status: pending
+  confidence: low
+  notes:
+    en: "Added as the fourth item in the REACH→EUDR→Single-Use Plastics Directive→F-Gas Regulation→CLP Regulation batch of new EU environmental regulations. Recorded as entry_status: stub / confidence: low, parallel to the EUDR entry's precedent this session, because of a genuine unresolved sourcing gap rather than a structural feature of the law: EVERY direct-fetch attempt against EUR-Lex this session (CELEX:32024R0573 HTML, OJ:L_202400573 HTML and PDF, consolidated CELEX:02024R0573-20240220 HTML, eli/reg/2024/573/oj/eng, and the EUR-Lex legal-summary/LSU page) returned blank or unreadable content, and the secondary full-text mirror used successfully for CRA and attempted for EUDR (service.betterregulation.com) again returned HTTP 403 on direct fetch. The only source successfully and fully fetched and read this session was a secondary compliance-industry blog (adherent.com, itself republishing content originally from complianceandrisks.com) summarizing — not quoting verbatim — the Regulation's scope, HFC phase-down schedule, product-ban timeline, labelling requirement, and F-gas Portal registration/quota system; this blog-level summary is one step further removed from primary legal text than even the EUDR situation (which at least had WebSearch snippets quoting service.betterregulation.com's article-level text). The exact article numbers cited in this entry's obligations/enforcement text (Art. 12 labelling, Art. 20-region registration) are themselves drawn from WebSearch result titles referencing service.betterregulation.com's article-level page titles, not from directly-read article text, and should be treated as indicative rather than confirmed. The penalties article could not be identified at all this session (searches for 'Article 31'/'Article 32 penalties' did not return a confirmed match — Art. 32 was found via search to concern delegated acts on recovery/destruction feasibility lists, not penalties). This is a second high-priority item (after EUDR) for a future re-fetch attempt and full human review. related is left empty ([]) rather than guessing a plausible cross-reference, given the overall low-confidence state of this entry."
+    zh: "本條目係作為新一批歐盟環保法規（REACH→EUDR→一次性塑膠指令→氟化氣體法規→CLP法規）之第四項新增。記為entry_status: stub／confidence: low，與本次工作階段EUDR條目之前例相同，原因在於存在真實且未解決之來源缺口，而非該法規本身之結構性因素：本次工作階段對EUR-Lex之每一次直接擷取嘗試（CELEX:32024R0573 HTML版、OJ:L_202400573 HTML及PDF版、合併版CELEX:02024R0573-20240220 HTML版、eli/reg/2024/573/oj/eng，以及EUR-Lex法律摘要／LSU頁面）均回傳空白或無法讀取之內容，先前於CRA條目成功使用、亦曾嘗試用於EUDR條目之次要全文鏡像網站（service.betterregulation.com）本次亦回傳HTTP 403錯誤。本次工作階段唯一成功完整擷取並閱讀之來源，係一次要之合規產業部落格（adherent.com，其內容本身轉載自complianceandrisks.com），其摘要（而非逐字引用）本法規之適用範圍、HFC逐步淘汰時程、產品禁令時間表、標示要求，及F-gas入口網站登記／配額制度；此部落格層級摘要較一手法律文字之距離，甚至較EUDR之情形更遠一層（EUDR至少取得網路搜尋摘錄之service.betterregulation.com逐條文字引文）。本條目obligations／enforcement文字中所引之確切條號（第12條標示、約第20條登記），本身係取自網路搜尋結果標題中引用service.betterregulation.com之逐條頁面標題，非取自直接讀取之條文文字，應視為指示性而非確認性資訊。罰則條文本次工作階段完全未能確認（搜尋「第31條」／「第32條罰則」未尋得確認相符結果——經搜尋發現第32條實為授權立法就回收／銷毀可行性清單訂定授權法案，非罰則規定）。此為（繼EUDR之後）第二項高優先待辦事項，待未來重新擷取並進行完整人工複核。related留空（[]），未臆測合理之交叉引用，以符本條目整體低信心度之狀態。"
+
+- id: eu-2008-1272-clp
+  parent: null
+  superseded_by: null
+  jurisdiction: EU
+  applies_in: []
+  citation: "Regulation (EC) No 1272/2008 of the European Parliament and of the Council of 16 December 2008 on classification, labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC, and amending Regulation (EC) No 1907/2006 (OJ L 353, 31.12.2008, p. 1-1355)"
+  local_type: "Regulation"
+  instrument_type: regulation
+  short_name:
+    en: "CLP Regulation"
+    zh: "CLP法規（化學品分類、標示與包裝法規）"
+  category:
+    - hazardous_substances
+    - registration_authorisation
+
+  product_scope:
+    en: "Applies to substances and mixtures placed on the EU market, requiring manufacturers, importers and downstream users to classify them per Annex I hazard criteria before placing on the market, and requiring suppliers to label and package hazardous substances/mixtures accordingly (Art. 1(1)); manufacturers and importers must also notify ECHA of classification/labelling for substances not registered under REACH (Art. 1(1)(c)). Excludes, among others, radioactive substances, customs-supervised goods, non-isolated intermediates, and finished medicinal products/cosmetics/food in final form (Art. 1(2)-(6)). Consumer-electronics relevance is indirect: applies to hazardous chemical substances/mixtures used in or associated with electronics manufacturing (e.g. battery electrolytes, flame retardants, adhesives, cleaning agents) that must carry CLP-compliant hazard labelling (pictograms, signal words 'Danger'/'Warning') on their own packaging when supplied, rather than to finished consumer products directly."
+    zh: "適用於投放歐盟市場之物質與混合物，要求製造商、進口商及下游使用者於投放市場前依附件I危害基準予以分類（第1(1)條），並要求供應商就危害性物質／混合物依規定標示及包裝；製造商及進口商亦須就未依REACH登記之物質，向歐洲化學總署（ECHA）通報其分類與標示資訊（第1(1)(c)條）。排除項目包括放射性物質、海關監管貨物、未分離中間體，以及最終型態之藥品／化妝品／食品等（第1(2)至(6)條）。與消費性電子之關聯屬間接：適用於電子產品製造過程中所使用或相關之危害性化學物質／混合物（例如電池電解液、阻燃劑、黏著劑、清潔劑），該等物質供應時之包裝須附CLP合規危害標示（象形圖、「危險」／「警告」信號詞），而非直接適用於成品消費性產品本身。"
+  product_tags:
+    - all_b2c_goods
+  component_tags:
+    - battery
+    - power_supply
+  applies_to:
+    - manufacturer
+    - importer
+    - seller
+
+  status: in_force
+  dates:
+    published: "2008-12-31"
+    application: "2009-01-20"
+    labelling: "2010-12-01"
+    transition_end: "2015-06-01"
+
+  requirements:
+    marking: true
+    local_representative: false
+    local_testing: false
+    registration: true
+    conformity_assessment: [none]
+    conformity_assessment_note: null
+
+  obligations:
+    - actor: manufacturer
+      action:
+        en: "Classify substances and mixtures placed on the market against the Annex I hazard criteria before placing them on the market (Art. 1(1)(b)(i), Art. 4); label and package hazardous substances/mixtures in accordance with Title III (labelling) and Title IV (packaging) requirements as a supplier; and, for substances not already registered under REACH, notify the classification and labelling information to ECHA for inclusion in the Classification and Labelling Inventory (Art. 1(1)(c))."
+        zh: "於投放市場前，依附件I危害基準對投放市場之物質及混合物進行分類（第1(1)(b)(i)條、第4條）；作為供應商，依第III編（標示）及第IV編（包裝）規定對危害性物質／混合物進行標示及包裝；就尚未依REACH登記之物質，向ECHA通報其分類及標示資訊，以納入分類與標示清冊（第1(1)(c)條）。"
+    - actor: importer
+      action:
+        en: "As a person placing substances or mixtures on the EU market from outside the Union, bear the same Art. 4 classification obligation and Title III/IV labelling and packaging obligations as manufacturers when first placing such substances/mixtures on the market, and notify ECHA of classification/labelling for non-REACH-registered substances (Art. 1(1)(c))."
+        zh: "作為將物質或混合物自歐盟境外投放歐盟市場者，於首次投放市場時，負擔與製造商相同之第4條分類義務，及第III／IV編標示與包裝義務，並就尚未依REACH登記之物質向ECHA通報其分類及標示資訊（第1(1)(c)條）。"
+    - actor: seller
+      action:
+        en: "As a distributor/downstream user supplying already-classified substances or mixtures further along the supply chain, ensure the substance or mixture continues to be labelled and packaged in accordance with Title III/IV requirements, and may rely on the classification already carried out by an actor further up the supply chain provided the composition of the substance or mixture is not changed."
+        zh: "作為於供應鏈下游供應已完成分類之物質或混合物之經銷商／下游使用者，應確保該物質或混合物持續依第III／IV編規定標示及包裝，並得於物質或混合物成分未變更之前提下，援用供應鏈上游行為者已完成之分類結果。"
+
+  tools: []
+  related:
+    - eu-2006-1907-reach
+
+  sources:
+    - url: "https://www.legislation.gov.uk/eur/2008/1272"
+      type: primary
+      publisher: "UK National Archives — retained EU law text of Regulation (EC) 1272/2008 (article-by-article; directly fetched and read this session, covering Art. 1 in full)"
+    - url: "https://reachonline.eu/clp/en/title-vi-article-47.html"
+      type: secondary
+      publisher: "ReachOnline — used specifically for Art. 47 (penalties), which had been physically omitted from the UK legislation.gov.uk mirror as 'omitted (31.12.2020)' due to post-Brexit GB CLP divergence, directly fetched and read this session, and consistent with the same fallback pattern used for REACH's Art. 126 in this session"
+
+  enforcement:
+    authority: "National competent authorities designated by each EU Member State"
+    mechanism:
+      - market_surveillance
+    penalty_basis: national_law
+    penalty_summary:
+      en: "Per Art. 47, Member States shall introduce penalties for non-compliance with this Regulation and shall take all measures necessary to ensure that it is applied; the penalties must be effective, proportionate and dissuasive. Member States were required to notify the Commission of their penalty provisions by 20 June 2010, and must notify without delay any subsequent amendment affecting them. The Regulation does not itself specify fine amounts, leaving these entirely to national implementing legislation."
+      zh: "依第47條，會員國應就違反本法規之情形訂定罰則，並採取所有必要措施確保本法規之施行；所定罰則須具備有效性、比例性及嚇阻性。會員國須於2010年6月20日前將其罰則規定通報歐盟執委會，並就其後任何修正立即通報。本法規本身未規定罰鍰金額，完全交由各會員國國內施行立法定之。"
+    penalty_range: null
+    market_impact: []
+    source_ref: 0
+    last_verified: "2026-09-26"
+
+  monitoring:
+    tier: B
+    method: manual
+    endpoint: null
+    frequency: quarterly
+
+  entry_status: complete
+  last_verified: "2026-09-26"
+  last_reviewed: "2026-09-26"
+  review_status: pending
+  confidence: medium
+  notes:
+    en: "Added as the fifth and final item in the REACH→EUDR→Single-Use Plastics Directive→F-Gas Regulation→CLP Regulation batch of new EU environmental regulations, per the user's instruction to proceed with the EU-level items first. Also resolves the forward reference from the REACH entry's related field (eu-2008-1272-clp), which was expected to be dangling until this entry was added. Sourced this session via a full, directly-fetched and read UK National Archives retained-EU-law mirror (legislation.gov.uk/eur/2008/1272) for Art. 1 in full, following the same successful methodology used for WEEE, REACH, and the Single-Use Plastics Directive this session (pre-Brexit-adopted EU law is generally available on this mirror). As with REACH's Art. 126, Art. 47 (penalties) had been physically omitted from the UK mirror — marked 'omitted (31.12.2020)' due to post-Brexit GB CLP divergence from EU CLP — and was retrieved instead from reachonline.eu, the same secondary mirror successfully used for REACH's Art. 126, directly fetched and read in full this session (not merely search-snippet sourced), supporting confidence: medium consistent with the REACH precedent. Publication/application/labelling/transition dates (OJ L 353, 31.12.2008; entry into force 20.1.2009; substance classification compulsory from 1.12.2010; mixture classification compulsory from 1.6.2015) were cross-verified via web search since this information was not present in the fetched UK mirror page content shown. component_tags: [battery, power_supply] reflect the practical CLP-relevant hazardous substances found in these electronics components (battery electrolytes, chemicals in power-supply manufacture) rather than a claim that CLP applies to the finished component itself — CLP applies to the substances/mixtures, not to articles/products as such, which is reflected in requirements.registration: true (ECHA classification/labelling notification, not a product registration) and conformity_assessment: [none] (no product-level conformity assessment procedure exists under CLP)."
+    zh: "本條目係依你「先處理歐盟的」之指示，作為新一批歐盟環保法規（REACH→EUDR→一次性塑膠指令→氟化氣體法規→CLP法規）之第五項、亦為最後一項新增。同時解決REACH條目related欄位中原本待解之forward reference（eu-2008-1272-clp），該引用原預期於本條目新增後即可解決。本次工作階段係透過完整直接擷取並閱讀英國國家檔案館之歐盟保留法律鏡像網站（legislation.gov.uk/eur/2008/1272）取得第1條全文，沿用本次工作階段對WEEE、REACH及一次性塑膠指令均成功之相同方法（脫歐前已通過之歐盟法規通常可於該鏡像網站取得）。與REACH第126條相同，第47條（罰則）已自英國鏡像網站中被物理移除——標註「omitted (31.12.2020)」，因脫歐後GB CLP已與歐盟CLP產生分歧——改自reachonline.eu取得，此為本次工作階段REACH第126條亦成功採用之次要鏡像網站，本次工作階段完整直接擷取並閱讀（非僅取得搜尋摘錄），故支持confidence: medium，與REACH之前例一致。公布／適用／標示／過渡期日期（OJ L 353, 31.12.2008；2009年1月20日生效；物質分類自2010年12月1日起強制適用；混合物分類自2015年6月1日起強制適用）已透過網路搜尋交叉驗證，因該等資訊未見於所擷取之英國鏡像網站頁面內容中。component_tags: [battery, power_supply]反映此等電子組件中實務上與CLP相關之危害性物質（電池電解液、電源供應器製程化學品），而非主張CLP直接適用於成品組件本身——CLP適用於物質／混合物，而非物品／產品本身，此反映於requirements.registration: true（指ECHA分類與標示通報，非產品登記）及conformity_assessment: [none]（CLP並無產品層級符合性評鑑程序）。"
